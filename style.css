@@ -263,3 +263,18 @@ section {
 .mobile-menu-open {
     transform: translateX(0);
 }
+
+
+/* Contact Us Section */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .float-animation:hover {
+    animation: float 2s ease-in-out infinite;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
