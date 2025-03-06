@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize Typed.js with expanded roles
   new Typed("#typed", {
     strings: [
-      ".NET Developer",
-      "Full Stack Developer",
-      "Tech Enthusiast",
       "Software Developer",
+      // "Full Stack Developer",
+      "Content Creator",
+      "Tech Enthusiast",
     ],
     typeSpeed: 50,
     backSpeed: 50,
