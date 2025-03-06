@@ -107,7 +107,7 @@ function initializeInteractiveEffects(orbitalSystem) {
 }
 
 function initializeMobileMenu() {
-  const mobileMenuButton = document.querySelector(".md\\:hidden");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
   const closeMenuButton = document.getElementById("close-menu");
 
