@@ -502,6 +502,27 @@ p {
   margin: 0 auto 3rem;
 }
 
+.about-single-card {
+  background-color: var(--color-bg-card);
+  border: var(--border-heavy);
+  box-shadow: var(--shadow-lg);
+  padding: 3rem;
+  text-align: center;
+}
+
+.about-text {
+  font-size: 1.35rem;
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+.about-text .highlight {
+  background-color: var(--color-primary);
+  padding: 0.1rem 0.5rem;
+  font-weight: 700;
+  display: inline;
+}
+
 .about-icon-box {
   width: 50px;
   height: 50px;
