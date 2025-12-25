@@ -580,6 +580,20 @@ p {
   font-weight: 600;
 }
 
+.milestone-badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  border: 2px solid var(--color-text);
+}
+
 .milestone-year {
   position: absolute;
   top: 1rem;
