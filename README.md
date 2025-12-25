@@ -1,79 +1,119 @@
-# Manish Bhusal - Portfolio
+# Manish Bhusal - Software Developer
 
 ![Profile](https://i.imgur.com/zHmYohp.jpeg)
 
-**A problem solver using technology to build real-world solutions**
+**I Build Digital Products.**
+
+A Software Developer from Nepal who turns ideas into functional, scalable software products. 2x Hackathon Winner with a proven track record of shipping products fast.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maniishbhusal/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maniishbhusal/)
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/maniishbhusal/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.bhusalmanish.com.np)
+[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/maniishbhusal)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FFD700?style=for-the-badge&logo=google-chrome&logoColor=black)](https://www.bhusalmanish.com.np)
 
 ---
 
 ## About Me
 
-Hi, I'm **Manish Bhusal** — a Software Developer, Content Creator, and Tech Enthusiast from Ghorahi, Dang, Nepal. I'm currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari College (5th semester).
+I'm a **Software Developer** from Nepal who builds web apps, APIs, and AI-powered solutions. As a **2x Hackathon Winner**, I have a proven track record of shipping products fast. I specialize in **Python**, **Django**, **React**, and integrating AI into real-world applications.
 
-My passion for technology and problem-solving has driven me towards building innovative solutions. I'm deeply interested in **SaaS products**, **open-source contributions**, and **content creation**. Beyond coding, I enjoy reading books, exploring new ideas, and creating things that inspire and add value.
+Currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari College (6th semester).
+
+**Available for Work** - Let's build something amazing together!
 
 ---
 
 ## Skills & Technologies
 
-### Backend Development
+### Backend
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
-![ASP.NET](https://img.shields.io/badge/ASP.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white)
+![Django REST](https://img.shields.io/badge/Django_REST-ff1709?style=flat-square&logo=django&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white)
 
-### Frontend Development
+### Frontend
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-### AI & Machine Learning
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
+### Database
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
 
-### Blockchain & Web3
-![Sui](https://img.shields.io/badge/Sui-6FBCF0?style=flat-square&logo=sui&logoColor=white)
-![Web3](https://img.shields.io/badge/Web3-F16822?style=flat-square&logo=web3.js&logoColor=white)
-
-### Tools & Databases
+### DevOps
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
+![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0080FF?style=flat-square&logo=digitalocean&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
-![MSSQL](https://img.shields.io/badge/MSSQL-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
-![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
 
 ---
 
 ## Featured Projects
 
-### TrustChain (Winner - Sui Hackathon 2025)
+### AutiSahara (2nd Runner Up - Code for Change 2025)
+> Early autism screening platform for children aged 16-30 months
+
+- Features M-CHAT-R/F questionnaire for initial screening
+- Video upload for behavioral analysis
+- Dedicated doctor dashboard for professional assessment
+- Built at Nepal's biggest hackathon
+
+**Tech Stack:** Django REST, React, PostgreSQL
+
+[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/CodeFest2025_Team_AMC_Galaxen)
+
+---
+
+### Savvitic
+> Never lose a saved Reddit post again
+
+- Syncs your saved Reddit posts automatically
+- Full-text search across all content
+- Organize with custom tags and reminders
+- Features Reddit OAuth and powerful filtering
+
+**Tech Stack:** Django REST, React, TypeScript, PostgreSQL
+
+[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/Savvitic)
+
+---
+
+### Pdflet (In Development)
+> Developer-first HTML to PDF API
+
+- Convert any HTML/URL to pixel-perfect PDFs
+- Simple REST API integration
+- Customizable headers, footers, and page settings
+- Integrated with DodoPayments for seamless billing
+
+**Tech Stack:** Django REST, React, DodoPayments
+
+[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/Pdflet)
+
+---
+
+### TrustChain (1st Prize - Sui Hackathon 2025)
 > AI and blockchain-powered skill verification platform
 
 - Verifies real-world skills using AI and blockchain technology
 - Analyzes resumes and GitHub profiles
-- Generates skill reports stored on decentralized storage (Walrus)
-- **Won 1st Prize in AI Track** at IBriz Sui Hackathon 2025
+- Generates verifiable skill reports stored on Walrus decentralized storage
+- Built with zkLogin for seamless Web3 authentication
 
-**Tech Stack:** React, Django, OpenAI, zkLogin (Sui), Walrus
+**Tech Stack:** React, Django, OpenAI, Sui, Walrus
 
 [![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/TrustChain)
 [![Demo](https://img.shields.io/badge/Watch_Demo-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=vqRDQAUKhoQ)
 
 ---
 
-### SpeakEasyAI
+### SpeakEasyAI (Honorable Mention - HimalAI Hackathon)
 > AI-powered emotional intelligence dashboard
 
 - Transcribes speech and analyzes conversation sentiment
-- Helps teams and HR understand tone, emotions, and speaker feedback
+- Helps teams understand tone, emotions, and speaker feedback
 - Improves team communication and emotional awareness
-- Built during HimalAI Hackathon 2025
 
 **Tech Stack:** Next.js, Django, OpenAI
 
@@ -82,64 +122,13 @@ My passion for technology and problem-solving has driven me towards building inn
 
 ---
 
-### Telegram OpenAI Bot
-> Smart Telegram bot with NLP capabilities
-
-- Powered by OpenAI's NLP capabilities
-- Provides dynamic and context-aware responses
-- Seamless and engaging interactions
-
-**Tech Stack:** Python, OpenAI
-
-[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/telegram-openai-bot)
-
----
-
-### URL Garden
-> URL shortening service
-
-- Converts lengthy URLs into concise, shareable links
-- Simple, effective, and user-friendly
-
-**Tech Stack:** Django, HTML, CSS
-
-[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/url-garden)
-
----
-
-### Social Sphere
-> AI-powered chatbot and audio interaction platform
-
-- AI-powered chatbots for companionship and assistance
-- AI-based audio calls for engagement
-- Innovative take on AI-driven interactions
-
-**Tech Stack:** Python, JavaScript, HTML, CSS, OpenAI
-
-[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/social-sphere)
-
----
-
-### ConnectMe
-> Niche social media platform for community building
-
-- Create and join communities based on shared interests
-- User engagement through posts, comments, and personalized dashboard
-- Secure email-based authentication with OAuth integration
-- Intuitive community management tools
-
-**Tech Stack:** C#, ASP.NET, React, JWT, MSSQL
-
-[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/maniishbhusal/ConnectMe)
-
----
-
 ## Achievements & Milestones
 
 | Year | Achievement |
 |------|-------------|
+| 2025 | **2nd Runner Up** - Code for Change 2025 (Nepal's Biggest Hackathon) for AutiSahara |
 | 2025 | **1st Prize Winner** - AI Track at Sui Hackathon (IBriz) for TrustChain |
-| 2025 | Participant - HimalAI AI/Web3 Hackathon |
+| 2025 | **Honorable Mention** - HimalAI AI/Web3 Hackathon for SpeakEasyAI |
 | 2024 | Proud Participant - Nepal's Biggest Hackathon (Code for Change) |
 | 2023 | **Champion** - IT Project Showcase at Ambikeshwari College |
 
@@ -148,7 +137,7 @@ My passion for technology and problem-solving has driven me towards building inn
 ## Education
 
 **Bachelor in Computer Application (BCA)**
-Ambikeshwari College | Currently in 5th Semester
+Ambikeshwari College | Currently in 6th Semester
 
 ---
 
@@ -158,7 +147,7 @@ Ambikeshwari College | Currently in 5th Semester
 - **Website:** [bhusalmanish.com.np](https://www.bhusalmanish.com.np)
 - **LinkedIn:** [linkedin.com/in/maniishbhusal](https://www.linkedin.com/in/maniishbhusal/)
 - **GitHub:** [github.com/maniishbhusal](https://github.com/maniishbhusal/)
-- **Resume:** [View CV](https://app.sajilocv.com/cv/44e6da05-dc50-43f9-9fa4-b387be9d5507)
+- **X (Twitter):** [x.com/maniishbhusal](https://x.com/maniishbhusal)
 
 ---
 
@@ -170,7 +159,7 @@ This portfolio website is built with a **neobrutalism design style**:
 - Tailwind CSS
 - Work Sans (Google Fonts)
 - AOS (Animate On Scroll)
-- Font Awesome & Devicon Icons
+- Font Awesome 6.5 & Devicon Icons
 
 **Design Features:**
 - Thick black borders (3-4px)
@@ -178,9 +167,10 @@ This portfolio website is built with a **neobrutalism design style**:
 - Yellow/Gold (#FFD700) accent color
 - Off-white (#FFFEF5) background
 - Bold, uppercase typography
+- Animated hero blob with floating badges
 
 ---
 
 <p align="center">
-  <i>Let's connect and build something amazing together!</i>
+  <b>Let's connect and build something amazing together!</b>
 </p>
