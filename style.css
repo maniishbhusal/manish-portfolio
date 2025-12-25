@@ -545,6 +545,82 @@ p {
   border-bottom: var(--border-heavy);
 }
 
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  background-color: var(--color-bg);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+}
+
+.skill-category-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-text);
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background-color: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  transition: all 0.15s ease;
+}
+
+.skill-item:hover {
+  background-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.skill-item i {
+  font-size: 1.5rem;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.skill-item img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.skill-item span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ============================================
    MILESTONES SECTION
    ============================================ */
