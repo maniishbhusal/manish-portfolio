@@ -6,74 +6,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Manish Bhusal – a problem solver using technology to build real-world solutions. Passionate about SaaS, open-source, and content creation. Explore my journey, projects, and insights in tech." />
-  <title>Manish Bhusal - .Software Developer</title>
+  <title>Manish Bhusal - Software Developer</title>
+
+  <!-- Google Fonts - Work Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+  <!-- Tailwind CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="bg-gray-50">
-  <!-- Background Elements -->
-  <div class="bg-pattern"></div>
-  <div class="grid-pattern"></div>
-  <div class="shape shape-1"></div>
-  <div class="shape shape-2"></div>
-  <div class="shape shape-3"></div>
-
-  <!-- Navbar -->
-  <nav class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50">
-    <div class="container mx-auto px-4 py-4">
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav" style="top: 0;">
+    <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
-        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          MB
-        </h1>
-        <div class="hidden md:flex space-x-8">
-          <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
-          <a href="#skills" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Skills</a>
-          <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Projects</a>
-          <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Contact</a>
+        <a href="#" class="neo-nav-logo">MB.</a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="#about" class="neo-nav-link">About</a>
+          <a href="#skills" class="neo-nav-link">Skills</a>
+          <a href="#projects" class="neo-nav-link">Projects</a>
+          <a href="#contact" class="btn-primary btn-small">Let's Talk</a>
         </div>
-        <!-- Mobile menu button -->
-        <button id="mobile-menu-button" class="md:hidden text-gray-600">
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section with Photo -->
-  <section class="pt-28 pb-12 relative section-hover">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row items-center justify-center gap-12">
-        <!-- Profile Photo -->
-        <div class="relative" data-aos="fade-right">
-          <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
-            <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal"
-              class="w-full h-full object-cover" />
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
+
+        <!-- Photo Side with Blob -->
+        <div class="hero-photo-wrapper" data-aos="fade-right">
+          <!-- Yellow Blob -->
+          <div class="hero-blob"></div>
+
+          <!-- Profile Photo -->
+          <div class="hero-photo-container">
+            <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal" class="hero-photo" />
           </div>
-          <div class="absolute -bottom-3 -right-3 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg">
+
+          <!-- Floating Badge - Available -->
+          <div class="floating-badge floating-badge-available">
+            <span class="pulse-dot"></span>
+            Available
+          </div>
+
+          <!-- Floating Badge - Code -->
+          <div class="floating-badge floating-badge-code">
             <i class="fas fa-code"></i>
           </div>
+
+          <!-- Name Tag -->
+          <div class="name-tag">Manish Bhusal</div>
         </div>
+
         <!-- Text Content -->
-        <div class="text-center md:text-left" data-aos="fade-left">
-          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-            Manish Bhusal
+        <div class="text-center lg:text-left" data-aos="fade-left">
+          <h1 class="mb-6">
+            I Build<br>
+            Digital<br>
+            Products.
           </h1>
-          <div class="text-xl md:text-2xl text-gray-600 mb-8">
-            I'm a <span id="typed" class="text-blue-600 font-semibold"></span>
-          </div>
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-            <a href="https://app.sajilocv.com/cv/44e6da05-dc50-43f9-9fa4-b387be9d5507" target="_blank"
-              class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition duration-300 inline-flex items-center gap-2">
+          <p class="hero-subtitle mb-8">
+            Software Developer from Nepal. Building SaaS products,
+            contributing to open-source, and sharing my journey through content creation.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <a href="https://app.sajilocv.com/cv/44e6da05-dc50-43f9-9fa4-b387be9d5507" target="_blank" class="btn-primary">
               <i class="fas fa-eye"></i> View CV
             </a>
-            <a href="#contact"
-              class="bg-white text-gray-800 px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition duration-300 inline-flex items-center gap-2 border">
+            <a href="#contact" class="btn-secondary">
               <i class="fas fa-envelope"></i> Contact Me
             </a>
           </div>
@@ -83,513 +101,299 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-20 section-hover relative">
-    <div class="container mx-auto px-4 md:px-12">
-      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 relative" data-aos="fade-up">
-        About Me
-        <span class="block h-1 w-20 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-4 rounded-full"></span>
-      </h2>
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center mb-4" data-aos="fade-up">About Me</h2>
+      <div class="section-divider" data-aos="fade-up"></div>
 
-      <!-- Timeline container -->
-      <div class="relative max-w-4xl mx-auto">
-        <!-- Desktop timeline line -->
-        <div
-          class="hidden md:block absolute w-1 bg-gradient-to-b from-blue-600 to-purple-600 left-1/2 transform -translate-x-1/2 h-full rounded-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <!-- Background -->
+        <div class="neo-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="about-icon-box">
+              <i class="fas fa-map-marker-alt text-xl"></i>
+            </div>
+            <h3>Background</h3>
+          </div>
+          <p>
+            From the vibrant town of <strong>Ghorahi, Dang, Nepal</strong>.
+            My passion for technology and problem-solving has driven me
+            towards the field of computer applications.
+          </p>
         </div>
 
-        <!-- Mobile timeline line -->
-        <div class="md:hidden absolute w-1 bg-gradient-to-b from-blue-600 to-purple-600 left-4 h-full rounded-full">
+        <!-- Education -->
+        <div class="neo-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="about-icon-box">
+              <i class="fas fa-graduation-cap text-xl"></i>
+            </div>
+            <h3>Education</h3>
+          </div>
+          <p>
+            Pursuing <strong>Bachelor in Computer Application</strong> at
+            <strong>Ambikeshwari College</strong>. Currently in 5th semester,
+            continually refining my coding expertise.
+          </p>
         </div>
 
-        <!-- Timeline Items -->
-        <div class="space-y-12">
-          <!-- Background -->
-          <div class="relative flex flex-col md:flex-row items-center md:justify-between" data-aos="fade-up">
-            <div
-              class="md:w-5/12 w-full bg-white rounded-xl shadow-lg p-6 md:mr-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="p-2 bg-blue-100 rounded-lg mr-4">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                    </path>
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-semibold text-blue-600">
-                  Background
-                </h3>
-              </div>
-              <p class="text-gray-600 leading-relaxed">
-                From the vibrant town of
-                <strong class="text-gray-800">Ghorahi, Dang, Nepal</strong>.
-                My passion for technology and problem-solving has driven me
-                towards the field of computer applications.
-              </p>
+        <!-- Goals -->
+        <div class="neo-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="about-icon-box">
+              <i class="fas fa-rocket text-xl"></i>
             </div>
-            <div class="md:w-5/12 hidden md:block"></div>
-            <!-- Timeline dot -->
-            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-              <div
-                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-                <div class="w-3 h-3 bg-white rounded-full"></div>
-              </div>
-            </div>
+            <h3>Goals</h3>
           </div>
+          <p>
+            Building innovative SaaS products, contributing to open-source,
+            and leveraging technology to solve real-world problems.
+            Focused on continuous learning and creating impactful solutions.
+          </p>
+        </div>
 
-          <!-- Academic Journey -->
-          <div class="relative flex flex-col md:flex-row items-center md:justify-between" data-aos="fade-up">
-            <div class="md:w-5/12 hidden md:block"></div>
-            <div
-              class="md:w-5/12 w-full bg-white rounded-xl shadow-lg p-6 md:ml-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="p-2 bg-blue-100 rounded-lg mr-4">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z">
-                    </path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 14l9-5-9-5-9 5 9 5zm0 0L3 9m0 0l9 5 9-5M12 14v10"></path>
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-semibold text-blue-600">
-                  Academic Journey
-                </h3>
-              </div>
-              <p class="text-gray-600 leading-relaxed">
-                Currently pursuing my
-                <strong class="text-gray-800">Bachelor in Computer Application</strong>
-                at
-                <strong class="text-gray-800">Ambikeshwari College</strong>,
-                where I'm expanding my skills in software development. Now in
-                my 5th semester, I'm continually refining my coding expertise.
-              </p>
+        <!-- Interests -->
+        <div class="neo-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="about-icon-box">
+              <i class="fas fa-heart text-xl"></i>
             </div>
-            <!-- Timeline dot -->
-            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-              <div
-                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-                <div class="w-3 h-3 bg-white rounded-full"></div>
-              </div>
-            </div>
+            <h3>Interests</h3>
           </div>
-
-          <!-- Future Goals -->
-          <div class="relative flex flex-col md:flex-row items-center md:justify-between" data-aos="fade-up">
-            <div
-              class="md:w-5/12 w-full bg-white rounded-xl shadow-lg p-6 md:mr-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="p-2 bg-blue-100 rounded-lg mr-4">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-semibold text-blue-600">
-                  Future Goals
-                </h3>
-              </div>
-              <p class="text-gray-600 leading-relaxed">
-                Aspiring to make a significant impact in the tech industry, I aim to build innovative SaaS products,
-                contribute to open-source, and leverage technology to solve real-world problems. My focus is on
-                continuously learning, exploring new technologies, and creating solutions that drive real impact.
-              </p>
-            </div>
-            <div class="md:w-5/12 hidden md:block"></div>
-            <!-- Timeline dot -->
-            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-              <div
-                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-                <div class="w-3 h-3 bg-white rounded-full"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Personal Interests -->
-          <div class="relative flex flex-col md:flex-row items-center md:justify-between" data-aos="fade-up">
-            <div class="md:w-5/12 hidden md:block"></div>
-            <div
-              class="md:w-5/12 w-full bg-white rounded-xl shadow-lg p-6 md:ml-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-              <div class="flex items-center mb-4">
-                <div class="p-2 bg-blue-100 rounded-lg mr-4">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                    </path>
-                  </svg>
-                </div>
-                <h3 class="text-2xl font-semibold text-blue-600">
-                  Personal Interests
-                </h3>
-              </div>
-              <p class="text-gray-600 leading-relaxed">
-                Beyond tech, I love reading books, exploring new ideas daily, and sharing my journey through content
-                creation. I’m passionate about building, learning, and creating things that inspire and add value.
-              </p>
-            </div>
-            <!-- Timeline dot -->
-            <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-              <div
-                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-                <div class="w-3 h-3 bg-white rounded-full"></div>
-              </div>
-            </div>
-          </div>
+          <p>
+            Beyond tech, I love reading books, exploring new ideas daily,
+            and sharing my journey through content creation. Passionate about
+            building things that inspire and add value.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="py-20">
-    <div class="container mx-auto px-4" data-aos="fade-up">
-      <h2 class="text-4xl font-bold text-center mb-4 text-gray-800">
-        Skills
-      </h2>
-      <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto mb-16 rounded-full">
-      </div>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center mb-4" data-aos="fade-up">Skills</h2>
+      <div class="section-divider" data-aos="fade-up"></div>
 
-      <div class="flex flex-wrap justify-center gap-8">
+      <div class="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
         <!-- Python -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="100">
-          <i class="fab fa-python text-5xl text-blue-500 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="Python" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fab fa-python"></i>
         </div>
 
-        <!-- Django DRF -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="200">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"
-            class="w-12 h-12 group-hover:scale-110 transition-transform duration-300">
+        <!-- Django -->
+        <div class="skill-card" title="Django" data-aos="zoom-in" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
         </div>
 
         <!-- JavaScript -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="300">
-          <i class="fab fa-js text-5xl text-yellow-500 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="JavaScript" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fab fa-js"></i>
         </div>
 
         <!-- React -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="400">
-          <i class="fab fa-react text-5xl text-blue-400 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="React" data-aos="zoom-in" data-aos-delay="250">
+          <i class="fab fa-react"></i>
         </div>
 
         <!-- React Native -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="500">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native"
-            class="w-12 h-12 group-hover:scale-110 transition-transform duration-300">
+        <div class="skill-card" title="React Native" data-aos="zoom-in" data-aos-delay="300">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native">
         </div>
 
         <!-- ASP.NET -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="600">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET"
-            class="w-12 h-12 group-hover:scale-110 transition-transform duration-300">
+        <div class="skill-card" title="ASP.NET" data-aos="zoom-in" data-aos-delay="350">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET">
         </div>
 
         <!-- Git -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="700">
-          <i class="fab fa-git text-5xl text-red-500 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="Git" data-aos="zoom-in" data-aos-delay="400">
+          <i class="fab fa-git"></i>
         </div>
 
         <!-- GitHub -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="800">
-          <i class="fab fa-github text-5xl text-gray-800 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="GitHub" data-aos="zoom-in" data-aos-delay="450">
+          <i class="fab fa-github"></i>
         </div>
 
         <!-- WordPress -->
-        <div
-          class="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 w-24 h-24 flex items-center justify-center"
-          data-aos="zoom-in" data-aos-delay="900">
-          <i
-            class="fab fa-wordpress text-5xl text-blue-600 group-hover:scale-110 transition-transform duration-300"></i>
+        <div class="skill-card" title="WordPress" data-aos="zoom-in" data-aos-delay="500">
+          <i class="fab fa-wordpress"></i>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="py-20 px-4" id="projects">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-          Featured Projects
-        </h2>
-        <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-      </div>
+  <section id="projects" class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-center mb-4" data-aos="fade-up">Featured Projects</h2>
+      <div class="section-divider" data-aos="fade-up"></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="group relative" data-aos="fade-up">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-blue-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-500">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- TrustChain -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>TrustChain</h3>
+              <i class="fas fa-shield-alt text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                TrustChain
-              </h3>
-              <span
-                class="text-blue-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-shield-alt"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              TrustChain helps users verify their real-world skills using AI and blockchain. By analyzing resumes and
-              GitHub profiles, it generates a skill report stored on decentralized storage (Walrus). Built with React,
-              Django, OpenAI, zkLogin (Sui), and Walrus, this project won the AI Track at Hackathon 2025 organized by
-              IBriz(Sui Hackathon).
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              TrustChain helps users verify their real-world skills using AI and blockchain.
+              By analyzing resumes and GitHub profiles, it generates a skill report stored
+              on decentralized storage. Won the AI Track at Sui Hackathon 2025.
             </p>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">React</span>
-              <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-medium">Django</span>
-              <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">OpenAI</span>
-              <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">zkLogin
-                (Sui)</span>
-              <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium">Walrus</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">OpenAI</span>
+              <span class="tech-tag">Sui</span>
+              <span class="tech-tag">Walrus</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/TrustChain?tab=readme-ov-file" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/TrustChain?tab=readme-ov-file" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
-              <a href="https://www.youtube.com/watch?v=vqRDQAUKhoQ" target="_blank"
-                class="text-gray-400 hover:text-blue-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+              <a href="https://www.youtube.com/watch?v=vqRDQAUKhoQ" target="_blank" class="btn-primary btn-small">
+                <i class="fas fa-play"></i> Demo
               </a>
             </div>
           </div>
         </div>
 
-        <div class="group relative" data-aos="fade-up">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-blue-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-500">
+        <!-- SpeakEasyAI -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>SpeakEasyAI</h3>
+              <i class="fas fa-wave-square text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                SpeakEasyAI
-              </h3>
-              <span
-                class="text-blue-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-wave-square"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              SpeakEasyAI is an AI-powered emotional intelligence dashboard that transcribes speech and analyzes the
-              sentiment of conversations. Built with Next.js, Django, and OpenAI, it helps teams and HR understand tone,
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              An AI-powered emotional intelligence dashboard that transcribes speech and analyzes
+              sentiment. Built with Next.js, Django, and OpenAI. Helps teams understand tone,
               emotions, and speaker feedback after meetings.
-              <br><br>
-              This project was developed during Hackathon 2025, organized by HimalAI, as a solution to improve team
-              communication and emotional awareness.
             </p>
-
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Next.js</span>
-              <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-medium">Django</span>
-              <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">OpenAI</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">OpenAI</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/SpeakEasyAI" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/SpeakEasyAI" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
-              <a href="https://www.youtube.com/watch?v=H0mo8SYn8ms" target="_blank"
-                class="text-gray-400 hover:text-blue-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+              <a href="https://www.youtube.com/watch?v=H0mo8SYn8ms" target="_blank" class="btn-primary btn-small">
+                <i class="fas fa-play"></i> Demo
               </a>
             </div>
           </div>
         </div>
 
-        <div class="group relative" data-aos="fade-up">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-blue-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-all duration-500">
+        <!-- Telegram OpenAI Bot -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>Telegram OpenAI Bot</h3>
+              <i class="fas fa-robot text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                Telegram OpenAI Bot
-              </h3>
-              <span
-                class="text-blue-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-robot"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              A smart Telegram bot powered by OpenAI's NLP capabilities. It
-              provides dynamic and context-aware responses, making
-              interactions seamless and engaging.
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              A smart Telegram bot powered by OpenAI's NLP capabilities. It provides
+              dynamic and context-aware responses, making interactions seamless and engaging.
             </p>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Python</span>
-              <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">OpenAI</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">OpenAI</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/telegram-openai-bot" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/telegram-openai-bot" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
             </div>
           </div>
         </div>
 
-        <div class="group relative" data-aos="fade-up" data-aos-delay="100">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-purple-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-500">
+        <!-- URL Garden -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>URL Garden</h3>
+              <i class="fas fa-link text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
-                URL Garden
-              </h3>
-              <span
-                class="text-purple-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-link"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              A Django-based web application that allows users to convert
-              lengthy URLs into concise, shareable links effortlessly. Simple,
-              effective, and user-friendly.
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              A Django-based web application that allows users to convert lengthy URLs
+              into concise, shareable links effortlessly. Simple, effective, and user-friendly.
             </p>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Django</span>
-              <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">HTML</span>
-              <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">CSS</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/url-garden" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-purple-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/url-garden" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
             </div>
           </div>
         </div>
 
-        <div class="group relative" data-aos="fade-up" data-aos-delay="200">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-indigo-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-600/20 transition-all duration-500">
+        <!-- Social Sphere -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>Social Sphere</h3>
+              <i class="fas fa-users text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-indigo-600 transition-colors duration-300">
-                Social Sphere
-              </h3>
-              <span
-                class="text-indigo-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-users"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              Engage with AI-powered chatbots and explore AI-based audio calls
-              designed for companionship and assistance. An innovative take on
-              AI-driven interactions.
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              Engage with AI-powered chatbots and explore AI-based audio calls designed
+              for companionship and assistance. An innovative take on AI-driven interactions.
             </p>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Python</span>
-              <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium">JavaScript</span>
-              <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">HTML</span>
-              <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">CSS</span>
-              <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">OpenAI</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">OpenAI</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/social-sphere" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-indigo-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/social-sphere" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
             </div>
           </div>
         </div>
 
-        <div class="group relative" data-aos="fade-up" data-aos-delay="300">
-          <div
-            class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-gray-100 hover:border-pink-500 overflow-hidden">
-            <div
-              class="absolute -right-20 -top-20 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-600/20 transition-all duration-500">
+        <!-- ConnectMe -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="project-card-header">
+            <div class="flex justify-between items-center">
+              <h3>ConnectMe</h3>
+              <i class="fas fa-network-wired text-2xl"></i>
             </div>
-
-            <div class="flex items-center justify-between mb-6">
-              <h3 class="text-2xl font-bold text-gray-800 group-hover:text-pink-600 transition-colors duration-300">
-                ConnectMe
-              </h3>
-              <span
-                class="text-pink-600 text-2xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                <i class="fas fa-network-wired"></i>
-              </span>
-            </div>
-
-            <p class="text-gray-600 mb-8 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              A niche social media platform tailored for creating and joining
-              communities based on shared interests. Users can engage through
-              posts, comments, and a personalized dashboard. The platform
-              features secure email-based authentication, OAuth integration,
-              and intuitive community management tools.
+          </div>
+          <div class="project-card-body">
+            <p class="mb-6">
+              A niche social media platform for creating and joining communities. Features
+              secure email-based authentication, OAuth integration, and intuitive community
+              management tools.
             </p>
-
-            <div class="flex flex-wrap gap-3 mb-6">
-              <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">C#</span>
-              <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">ASP.NET</span>
-              <span class="px-3 py-1 bg-cyan-100 text-cyan-600 rounded-full text-sm font-medium">React</span>
-              <span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-sm font-medium">JWT</span>
-              <span class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium">MSSQL</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">JWT</span>
             </div>
-
-            <div class="flex items-center gap-4">
-              <a href="https://github.com/maniishbhusal/ConnectMe" target="_blank"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                <i class="fab fa-github"></i>
-                <span>View Code</span>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-pink-600 transition-colors duration-300">
-                <i class="fas fa-external-link-alt text-xl"></i>
+            <div class="flex gap-3">
+              <a href="https://github.com/maniishbhusal/ConnectMe" target="_blank" class="btn-secondary btn-small">
+                <i class="fab fa-github"></i> Code
               </a>
             </div>
           </div>
@@ -598,187 +402,120 @@
     </div>
   </section>
 
-  <!-- Milestone Section  -->
-  <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+  <!-- Milestones Section -->
+  <section class="milestones-section py-20">
     <div class="container mx-auto px-4">
-      <!-- Section Header -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl font-bold text-white mb-4">Milestones Captured</h2>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-          A collection of moments that narrate the story of growth, passion, and perseverance.
-        </p>
-      </div>
+      <h2 class="text-center mb-4 text-white" data-aos="fade-up">Milestones</h2>
+      <div class="section-divider" style="background-color: #FFD700;" data-aos="fade-up"></div>
 
-      <!-- Milestones Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <!-- First Milestone -->
-        <div
-          class="group relative rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105"
-          data-aos="fade-right">
-          <div class="aspect-w-16 aspect-h-9 relative">
-            <img src="https://i.imgur.com/OlVRQAl.png" alt="IT Project Showcase Champion"
-              class="w-full h-full object-cover" loading="lazy">
-            <!-- Overlay -->
-            <div
-              class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-              <p
-                class="text-white text-center text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                Champion of the IT Project Showcase 2023 at Ambikeshwari College—where innovation met recognition.
-              </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Milestone 1 -->
+        <div class="milestone-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="milestone-image-container">
+            <img src="https://i.imgur.com/OlVRQAl.png" alt="IT Project Showcase Champion" class="milestone-image">
+            <div class="milestone-overlay">
+              <p>Champion of the IT Project Showcase 2023 at Ambikeshwari College—where innovation met recognition.</p>
             </div>
           </div>
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-            2023
-          </div>
-        </div>
-        <!-- Second Milestone -->
-        <div
-          class="group relative rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105"
-          data-aos="fade-left">
-          <div class="aspect-w-16 aspect-h-9 relative">
-            <img src="https://i.imgur.com/Kag0uVx.png" alt="Manish Bhusal participating in Code for Change Hackathon."
-              class="w-full h-full object-cover" loading="lazy">
-            <!-- Overlay -->
-            <div
-              class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-              <p
-                class="text-white text-center text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                Proud participant of Nepal's Biggest Hackathon 2024 by Code for Change—a platform where challenges
-                became opportunities.
-              </p>
-            </div>
-          </div>
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-            2024
-          </div>
-        </div>
-        <!-- Third Milestone -->
-        <div
-          class="group relative rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105"
-          data-aos="fade-left">
-          <div class="aspect-w-16 aspect-h-9 relative">
-            <img src="https://i.imgur.com/yD2J3xi.jpeg" alt="Manish Bhusal participating in HimalAI Hackathon."
-              class="w-full h-full object-cover" loading="lazy">
-            <!-- Overlay -->
-            <div
-              class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-              <p
-                class="text-white text-center text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                Proud participant of AI / Web3 Hackathon organized by HimalAI
-              </p>
-            </div>
-          </div>
+          <div class="milestone-year">2023</div>
         </div>
 
-        <!-- Fourth Milestone -->
-        <div
-          class="group relative rounded-xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105"
-          data-aos="fade-left">
-          <div class="aspect-w-16 aspect-h-9 relative">
-            <img src="https://i.imgur.com/gIqOKU8.jpeg" alt="Winning at Sui Hackathon organized by Ibriz."
-              class="w-full h-full object-cover" loading="lazy">
-            <!-- Overlay -->
-            <div
-              class="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-              <p
-                class="text-white text-center text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                🏆 We won First Prize in the AI Track at the Sui Hackathon organized by Ibriz!
-              </p>
+        <!-- Milestone 2 -->
+        <div class="milestone-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="milestone-image-container">
+            <img src="https://i.imgur.com/Kag0uVx.png" alt="Code for Change Hackathon" class="milestone-image">
+            <div class="milestone-overlay">
+              <p>Proud participant of Nepal's Biggest Hackathon 2024 by Code for Change—a platform where challenges became opportunities.</p>
             </div>
           </div>
-          <!-- Badge -->
-          <div class="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-            2025
-          </div>
+          <div class="milestone-year">2024</div>
         </div>
 
+        <!-- Milestone 3 -->
+        <div class="milestone-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="milestone-image-container">
+            <img src="https://i.imgur.com/yD2J3xi.jpeg" alt="HimalAI Hackathon" class="milestone-image">
+            <div class="milestone-overlay">
+              <p>Proud participant of AI / Web3 Hackathon organized by HimalAI</p>
+            </div>
+          </div>
+          <div class="milestone-year">2025</div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="milestone-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="milestone-image-container">
+            <img src="https://i.imgur.com/gIqOKU8.jpeg" alt="Sui Hackathon Winner" class="milestone-image">
+            <div class="milestone-overlay">
+              <p>We won First Prize in the AI Track at the Sui Hackathon organized by Ibriz!</p>
+            </div>
+          </div>
+          <div class="milestone-year">2025</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-gradient-to-b from-white to-blue-50">
+  <section id="contact" class="py-20">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text" data-aos="fade-down">Let's Connect</h2>
-      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+      <h2 class="text-center mb-4" data-aos="fade-up">Let's Connect</h2>
+      <div class="section-divider" data-aos="fade-up"></div>
+      <p class="text-center max-w-xl mx-auto mb-12" data-aos="fade-up">
+        I'm always open to discussing new projects, creative ideas,
+        or opportunities to be part of your visions.
       </p>
 
-      <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-        <div class="relative bg-white rounded-2xl shadow-xl p-8 backdrop-blur-sm bg-white/90 border border-gray-100">
-          <!-- Decorative Elements -->
-          <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full opacity-50 blur-2xl"></div>
-          <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-100 rounded-full opacity-50 blur-2xl"></div>
-
-          <div class="relative">
-            <!-- Contact Methods Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <!-- Email Card -->
-              <a href="mailto:manishbhusal6@gmail.com"
-                class="group p-6 rounded-xl border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:shadow-lg hover:shadow-blue-100 float-animation"
-                data-aos="fade-right" data-aos-delay="300">
-                <div class="flex items-center gap-6">
-                  <div
-                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <i class="fas fa-envelope text-2xl"></i>
-                  </div>
-                  <div>
-                    <div class="font-bold text-lg mb-1 text-gray-800">Email</div>
-                    <div class="text-gray-600">manishbhusal6@gmail.com</div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- Social Links -->
-              <div class="flex justify-center gap-6" data-aos="fade-up" data-aos-delay="500">
-                <a href="https://www.linkedin.com/in/maniishbhusal/" target="_blank" class="group">
-                  <div
-                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-blue-200 transition-all duration-300 hover:-translate-y-1">
-                    <i class="fab fa-linkedin-in text-2xl group-hover:scale-125 transition-transform duration-300"></i>
-                  </div>
-                </a>
-
-                <a href="https://github.com/maniishbhusal/" target="_blank" class="group">
-                  <div
-                    class="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-gray-200 transition-all duration-300 hover:-translate-y-1">
-                    <i class="fab fa-github text-2xl group-hover:scale-125 transition-transform duration-300"></i>
-                  </div>
-                </a>
-
-                <a href="https://www.facebook.com/maniishbhusal/" target="_blank" class="group">
-                  <div
-                    class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white shadow-lg hover:shadow-blue-200 transition-all duration-300 hover:-translate-y-1">
-                    <i class="fab fa-facebook text-2xl group-hover:scale-125 transition-transform duration-300"></i>
-                  </div>
-                </a>
-              </div>
+      <div class="max-w-xl mx-auto" data-aos="fade-up">
+        <div class="neo-card text-center">
+          <!-- Email -->
+          <a href="mailto:manishbhusal235@gmail.com" class="inline-flex items-center gap-4 mb-8 group hover:opacity-80 transition-opacity">
+            <div class="about-icon-box" style="width: 60px; height: 60px;">
+              <i class="fas fa-envelope text-2xl"></i>
             </div>
+            <div class="text-left">
+              <div class="font-bold text-lg">Email</div>
+              <div>manishbhusal235@gmail.com</div>
+            </div>
+          </a>
+
+          <div class="w-full h-1 bg-black mb-8"></div>
+
+          <!-- Social Links -->
+          <div class="flex justify-center gap-4">
+            <a href="https://www.linkedin.com/in/maniishbhusal/" target="_blank" class="social-link">
+              <i class="fab fa-linkedin-in text-2xl"></i>
+            </a>
+            <a href="https://github.com/maniishbhusal/" target="_blank" class="social-link">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a href="https://www.facebook.com/maniishbhusal/" target="_blank" class="social-link">
+              <i class="fab fa-facebook text-2xl"></i>
+            </a>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 bg-white">
-    <div class="container mx-auto px-4 text-center text-gray-600">
-      <p>© 2024 Manish Bhusal. All rights reserved.</p>
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 text-center">
+      <p class="font-semibold">&copy; 2025 Manish Bhusal. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="fixed inset-y-0 right-0 w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+  <div id="mobile-menu" class="mobile-menu">
     <div class="p-6">
-      <button id="close-menu" class="absolute top-4 right-4 text-gray-600">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
         <i class="fas fa-times text-xl"></i>
       </button>
-      <nav class="mt-8 space-y-6">
-        <a href="#about" class="block text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
-        <a href="#skills" class="block text-gray-600 hover:text-blue-600 transition-colors duration-300">Skills</a>
-        <a href="#projects" class="block text-gray-600 hover:text-blue-600 transition-colors duration-300">Projects</a>
-        <a href="#contact" class="block text-gray-600 hover:text-blue-600 transition-colors duration-300">Contact</a>
+      <nav class="mt-12">
+        <a href="#about" class="mobile-menu-link">About</a>
+        <a href="#skills" class="mobile-menu-link">Skills</a>
+        <a href="#projects" class="mobile-menu-link">Projects</a>
+        <a href="#contact" class="mobile-menu-link">Contact</a>
       </nav>
     </div>
   </div>
