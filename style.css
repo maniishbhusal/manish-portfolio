@@ -122,24 +122,63 @@ p {
    ============================================ */
 
 .neo-nav {
-  background-color: var(--color-bg-card);
-  border-bottom: var(--border-thick);
-  padding: 1rem 0;
-  position: fixed;
+  background-color: transparent;
+  padding: 1.25rem 0;
+  position: relative;
   width: 100%;
-  top: 44px;
   z-index: 50;
 }
 
+.neo-nav .container {
+  max-width: 1200px;
+}
+
 .neo-nav-logo {
-  font-size: 2rem;
-  font-weight: 900;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  position: relative;
+}
+
+.logo-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 46px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.logo-m {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: 3px solid var(--color-text);
+  z-index: 2;
+  position: relative;
+}
+
+.logo-b {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: 3px solid var(--color-text);
+  margin-left: -6px;
+  z-index: 1;
+}
+
+.neo-nav-logo:hover .logo-m {
+  transform: translateY(-2px) rotate(-3deg);
+}
+
+.neo-nav-logo:hover .logo-b {
+  transform: translateY(2px) rotate(3deg);
 }
 
 .neo-nav-link {
   font-weight: 600;
+  font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 1rem;
@@ -680,6 +719,23 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-color: #333;
+  transition: opacity 0.3s ease;
+}
+
+.milestone-image-container {
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .milestone-overlay {
@@ -819,10 +875,6 @@ p {
 }
 
 @media (max-width: 768px) {
-  .neo-nav {
-    top: 0;
-  }
-
   .hero-section {
     padding-top: 100px;
     padding-bottom: 60px;
