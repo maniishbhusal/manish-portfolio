@@ -257,6 +257,33 @@ p {
   padding: 1.5rem;
 }
 
+.project-badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  background-color: #000;
+  color: #FFD700;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid #000;
+}
+
+.project-badge-wip {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.hidden-project {
+  display: none;
+}
+
+.hidden-project.show {
+  display: block;
+}
+
 /* ============================================
    BADGES & TAGS
    ============================================ */

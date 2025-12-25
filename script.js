@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize smooth scrolling
   initializeSmoothScrolling();
+
+  // Initialize view more projects
+  initializeViewMoreProjects();
 });
 
 function initializeMobileMenu() {
@@ -49,4 +52,19 @@ function initializeSmoothScrolling() {
       }
     });
   });
+}
+
+function initializeViewMoreProjects() {
+  const viewMoreBtn = document.getElementById("view-more-projects");
+  const hiddenProjects = document.querySelectorAll(".hidden-project");
+
+  if (viewMoreBtn && hiddenProjects.length > 0) {
+    viewMoreBtn.addEventListener("click", () => {
+      hiddenProjects.forEach((project) => {
+        project.classList.add("show");
+        AOS.refresh();
+      });
+      viewMoreBtn.style.display = "none";
+    });
+  }
 }
