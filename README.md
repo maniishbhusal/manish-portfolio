@@ -143,7 +143,7 @@ Ambikeshwari College | Currently in 6th Semester
 
 ## Contact Me
 
-- **Email:** [manishbhusal235@gmail.com](mailto:manishbhusal235@gmail.com)
+- **Email:** [manishbhusal6@gmail.com](mailto:manishbhusal6@gmail.com)
 - **Website:** [bhusalmanish.com.np](https://www.bhusalmanish.com.np)
 - **LinkedIn:** [linkedin.com/in/maniishbhusal](https://www.linkedin.com/in/maniishbhusal/)
 - **GitHub:** [github.com/maniishbhusal](https://github.com/maniishbhusal/)
