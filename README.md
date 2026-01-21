@@ -126,7 +126,7 @@ Currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari
 
 | Year | Achievement |
 |------|-------------|
-| 2026 | **Provincial Winner** - Code for Impact: U.S.-Nepal Tech Innovation Hackathon (U.S. Embassy Nepal & Aadyanta Advisory) |
+| 2026 | **Provincial Winner** - Code for Impact: U.S.-Nepal Tech Innovation Hackathon (U.S. Embassy Nepal & Aadyanta Advisory) - [Featured in The Kathmandu Post](https://kathmandupost.com/money/2026/01/20/us-embassy-nepal-aadyanta-advisory-roll-out-nationwide-code-for-impact-tech-hackathon) |
 | 2026 | **1st Runner Up** - Innovation Business Idea Competition (Cottage & Small Industries Office, Tulsipur) for NeuroCare |
 | 2025 | **2nd Runner Up** - Code for Change 2025 (Nepal's Biggest Hackathon) for AutiSahara |
 | 2025 | **1st Prize Winner** - AI Track at Sui Hackathon (IBriz) for TrustChain |
