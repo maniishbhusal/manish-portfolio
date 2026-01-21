@@ -4,7 +4,7 @@
 
 **I Build Digital Products.**
 
-A Software Developer from Nepal who turns ideas into functional, scalable software products. 2x Hackathon Winner with a proven track record of shipping products fast.
+A Software Developer from Nepal who turns ideas into functional, scalable software products. 3x Hackathon Winner with a proven track record of shipping products fast.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maniishbhusal/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maniishbhusal/)
@@ -15,7 +15,7 @@ A Software Developer from Nepal who turns ideas into functional, scalable softwa
 
 ## About Me
 
-I'm a **Software Developer** from Nepal who builds web apps, APIs, and AI-powered solutions. As a **2x Hackathon Winner**, I have a proven track record of shipping products fast. I specialize in **Python**, **Django**, **React**, and integrating AI into real-world applications.
+I'm a **Software Developer** from Nepal who builds web apps, APIs, and AI-powered solutions. As a **3x Hackathon Winner**, I have a proven track record of shipping products fast. I specialize in **Python**, **Django**, **React**, and integrating AI into real-world applications.
 
 Currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari College (6th semester).
 
@@ -126,6 +126,8 @@ Currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari
 
 | Year | Achievement |
 |------|-------------|
+| 2026 | **Provincial Winner** - Code for Impact: U.S.-Nepal Tech Innovation Hackathon (U.S. Embassy Nepal & Aadyanta Advisory) |
+| 2026 | **1st Runner Up** - Innovation Business Idea Competition (Cottage & Small Industries Office, Tulsipur) for NeuroCare |
 | 2025 | **2nd Runner Up** - Code for Change 2025 (Nepal's Biggest Hackathon) for AutiSahara |
 | 2025 | **1st Prize Winner** - AI Track at Sui Hackathon (IBriz) for TrustChain |
 | 2025 | **Honorable Mention** - HimalAI AI/Web3 Hackathon for SpeakEasyAI |

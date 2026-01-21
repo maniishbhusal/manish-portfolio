@@ -380,6 +380,14 @@ p {
   display: block;
 }
 
+.hidden-milestone {
+  display: none;
+}
+
+.hidden-milestone.show {
+  display: block;
+}
+
 /* ============================================
    BADGES & TAGS
    ============================================ */

@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize view more projects
   initializeViewMoreProjects();
+
+  // Initialize view more milestones
+  initializeViewMoreMilestones();
 });
 
 function initializeMobileMenu() {
@@ -62,6 +65,21 @@ function initializeViewMoreProjects() {
     viewMoreBtn.addEventListener("click", () => {
       hiddenProjects.forEach((project) => {
         project.classList.add("show");
+        AOS.refresh();
+      });
+      viewMoreBtn.style.display = "none";
+    });
+  }
+}
+
+function initializeViewMoreMilestones() {
+  const viewMoreBtn = document.getElementById("view-more-milestones");
+  const hiddenMilestones = document.querySelectorAll(".hidden-milestone");
+
+  if (viewMoreBtn && hiddenMilestones.length > 0) {
+    viewMoreBtn.addEventListener("click", () => {
+      hiddenMilestones.forEach((milestone) => {
+        milestone.classList.add("show");
         AOS.refresh();
       });
       viewMoreBtn.style.display = "none";
