@@ -1046,6 +1046,30 @@ p {
   box-shadow: 3px 3px 0px var(--color-primary);
 }
 
+.milestone-news-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-decoration: none;
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0px var(--color-text);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  z-index: 10;
+}
+
+.milestone-news-link:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--color-text);
+}
+
 /* ============================================
    CONTACT SECTION
    ============================================ */
