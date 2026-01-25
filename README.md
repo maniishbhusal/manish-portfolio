@@ -23,6 +23,32 @@ Currently pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari
 
 ---
 
+## Experience
+
+### Frontend Developer (Freelance)
+**Teneo Protocol** | Remote | Nov 2025 - Present
+
+Decentralized AI platform building permissionless agent networks fueled by real-time data.
+
+- Building chat interface and UI components from Figma designs using React
+- Implementing responsive and pixel-perfect frontend for the AI platform
+- Collaborating with the team on user experience improvements
+
+**Tech Stack:** React, TypeScript, Figma, Tailwind CSS
+
+---
+
+### Software Development Intern
+**Firfirey** | Remote | Jul 2024 - Sep 2024
+
+- Developed backend API endpoints in .NET Core, ensuring seamless data exchange with React frontend
+- Implemented state management and API integration on the frontend
+- Participated in code reviews and debugging sessions to improve code quality and performance
+
+**Tech Stack:** .NET Core, React, REST APIs
+
+---
+
 ## Skills & Technologies
 
 ### Backend
