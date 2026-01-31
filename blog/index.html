@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Manish Bhusal - Software Developer</title>
+  <meta name="description" content="Technical blog by Manish Bhusal. Articles on web development, Django, React, DevOps, and lessons learned building digital products.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../index.html#about" class="neo-nav-link">About</a>
+          <a href="../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="index.html" class="neo-nav-link active">Blog</a>
+          <a href="../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Hero -->
+  <section class="blog-hero">
+    <div class="container mx-auto px-4">
+      <div class="text-center" data-aos="fade-up">
+        <h1 class="mb-4">Blog</h1>
+        <p class="text-xl max-w-2xl mx-auto">
+          Sharing my learnings, building in public, and documenting the journey from student to developer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <!-- Category Filter (Optional - for future) -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+        <button class="category-filter active">All</button>
+        <button class="category-filter">Web Dev</button>
+        <button class="category-filter">DevOps</button>
+        <button class="category-filter">Learnings</button>
+        <button class="category-filter">Journey</button>
+      </div>
+
+      <!-- Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+        <!-- Sample Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="posts/template.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 5 min read</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">HTTPS & SSL Certificates — What I Finally Understood</h2>
+              <p class="blog-card-excerpt">
+                I've known about HTTP vs HTTPS for years. Today I actually understood it. Here's what clicked about encryption, verification, and why hackers can't fake certificates.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 31, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Sample Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="posts/template.html">
+            <div class="blog-card-header">
+              <span class="blog-category">DevOps</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 8 min read</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Servers, Docker & Scaling — What Finally Clicked</h2>
+              <p class="blog-card-excerpt">
+                I've been building apps without understanding what happens underneath. Today I finally understood servers, Docker, Kubernetes, and Gunicorn workers.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 30, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Sample Post 3 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <a href="posts/template.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Journey</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 4 min read</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">From Hackathon Participant to 3x Winner</h2>
+              <p class="blog-card-excerpt">
+                In 2024, I joined my first hackathon and won nothing. In 2025-2026, I won 3 times. Here's what changed and what I learned along the way.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 28, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Sample Post 4 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+          <a href="posts/template.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min read</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">DNS Explained — The Internet's Phonebook</h2>
+              <p class="blog-card-excerpt">
+                Been using the internet my whole life. Today I finally understood how it actually finds websites. DNS, resolvers, TTL, and the whole hierarchical system.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 29, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- Load More Button (for future) -->
+      <div class="text-center mt-12" data-aos="fade-up">
+        <button class="btn-secondary" style="display: none;">
+          <i class="fas fa-plus"></i> Load More Posts
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section (Optional) -->
+  <section class="newsletter-section py-16">
+    <div class="container mx-auto px-4">
+      <div class="newsletter-card max-w-2xl mx-auto" data-aos="fade-up">
+        <h3 class="text-center mb-4">Stay Updated</h3>
+        <p class="text-center mb-6">Get notified when I publish new articles. No spam, just learnings.</p>
+        <form class="flex flex-col sm:flex-row gap-4 justify-center">
+          <input type="email" placeholder="your@email.com" class="newsletter-input">
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="index.html" class="mobile-menu-link">Blog</a>
+        <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Category Filter (basic functionality)
+    document.querySelectorAll('.category-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Future: filter posts by category
+      });
+    });
+  </script>
+</body>
+</html>
