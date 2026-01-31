@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>France Is Building Its Own Google Workspace - With Django | Manish Bhusal</title>
+  <meta name="description" content="The French government is replacing Microsoft and Google with open-source Django apps. 16k+ stars on GitHub. Here's why this matters for Django developers.">
+  <meta name="keywords" content="Django, La Suite, French Government, Open Source, Digital Sovereignty, Python, Government Tech">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="France Is Building Its Own Google Workspace - With Django">
+  <meta property="og:description" content="The French government is replacing Microsoft and Google with open-source Django apps. 16k+ stars on GitHub.">
+  <meta property="og:image" content="https://i.imgur.com/u0D2GBm.png">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/france-django-lasuite.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="France Is Building Its Own Google Workspace - With Django">
+  <meta name="twitter:description" content="The French government is replacing Microsoft and Google with open-source Django apps. 16k+ stars on GitHub.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- AdSense - Uncomment when approved -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">Web Dev</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Jan 31, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 6 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        France Is Building Its Own Google Workspace - With Django
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <p>
+          Okay, confession time. I've been building Django apps for a while now. Every time someone asks "but can Django scale?" or "is Django still relevant?", I mumble something about Instagram and move on.
+        </p>
+
+        <p>
+          Then I found out the French government is ditching Microsoft and Google entirely. And building their own productivity suite. With Django.
+        </p>
+
+        <p>
+          Not a small internal tool. A full-blown alternative to Google Workspace. Docs, Meet, Drive, Slack, email - all of it. Open source. Already live.
+        </p>
+
+        <h2>Wait, What's Actually Happening?</h2>
+
+        <p>
+          France (along with Germany and the Netherlands) is pushing hard for "digital sovereignty." Basically, they don't want their government data sitting on American servers, subject to American laws.
+        </p>
+
+        <p>
+          So they built <strong>La Suite Numérique</strong> - a complete productivity ecosystem. And they open-sourced the whole thing on GitHub.
+        </p>
+
+        <p>
+          Here's what blew my mind: their docs app alone has <strong>16,000+ stars</strong> on GitHub. That's not a side project. That's a movement.
+        </p>
+
+        <h2>The Apps They Built</h2>
+
+        <p>
+          I spent a couple hours going through their GitHub repos. Here's what they're shipping:
+        </p>
+
+        <ul>
+          <li><strong>Docs</strong> - Collaborative document editor (16k+ stars, 277 forks)</li>
+          <li><strong>Meet</strong> - Video conferencing powered by LiveKit (1.4k stars)</li>
+          <li><strong>Drive</strong> - File sharing and document management</li>
+          <li><strong>Messages</strong> - Collaborative inbox (think shared email)</li>
+          <li><strong>People</strong> - Team management application</li>
+          <li><strong>Projects</strong> - Project management tool</li>
+          <li><strong>Conversations</strong> - AI chatbot</li>
+        </ul>
+
+        <p>
+          And they're still actively developing. New commits every few hours. This isn't abandoned government software - it's alive.
+        </p>
+
+        <h2>Why Django Though?</h2>
+
+        <p>
+          This is the part that made me smile. They had every option available. Go, Rust, Node.js, whatever. Government projects usually go with "enterprise" solutions.
+        </p>
+
+        <p>
+          They chose Django.
+        </p>
+
+        <p>
+          Looking at their repos, I can see why:
+        </p>
+
+        <ul>
+          <li><strong>Django REST Framework</strong> for APIs</li>
+          <li><strong>React</strong> on the frontend</li>
+          <li><strong>PostgreSQL</strong> for the database</li>
+          <li><strong>Celery</strong> for background tasks</li>
+        </ul>
+
+        <p>
+          Sound familiar? It's literally the same stack I use. The same stack thousands of us use. Nothing exotic. Just solid, boring, production-ready choices.
+        </p>
+
+        <blockquote>
+          When a government needs to build software that millions will depend on, they chose the "boring" stack. That says something.
+        </blockquote>
+
+        <h2>Looking at the Code</h2>
+
+        <p>
+          I cloned a few repos to see how they structure things. Some patterns I noticed:
+        </p>
+
+        <h3>Clean Django Architecture</h3>
+
+        <p>
+          Their <code>people</code> app (team management) follows standard Django conventions. Models, views, serializers - nothing fancy. Just well-organized code.
+        </p>
+
+        <pre><code># From their people app - straightforward DRF
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+
+class TeamViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TeamSerializer
+
+    def get_queryset(self):
+        return Team.objects.filter(
+            members=self.request.user
+        )</code></pre>
+
+        <p>
+          Nothing revolutionary. Just clean, readable, maintainable code. The kind you'd write for any production app.
+        </p>
+
+        <h3>Shared Libraries</h3>
+
+        <p>
+          They built <code>django-lasuite</code> - a common library that all their Django projects share. Authentication, common utilities, shared components. Smart move for consistency across apps.
+        </p>
+
+        <h3>Real DevOps</h3>
+
+        <p>
+          Docker, Ansible playbooks, Helm charts. They're deploying this at scale with proper infrastructure. Not just "it works on my machine."
+        </p>
+
+        <h2>What This Means for Django Developers</h2>
+
+        <p>
+          Here's why I'm writing about this.
+        </p>
+
+        <p>
+          Every few months, someone writes a "Django is dead" article. Node.js is faster. Go is more efficient. Rust is the future. Whatever.
+        </p>
+
+        <p>
+          Meanwhile, governments are betting their entire digital infrastructure on Django. Not because it's trendy. Because it works.
+        </p>
+
+        <p>
+          A few things I'm taking away from this:
+        </p>
+
+        <ul>
+          <li><strong>Django scales.</strong> If it can handle government-level traffic across multiple European countries, it can handle your SaaS.</li>
+          <li><strong>The "boring" stack wins.</strong> Django + DRF + PostgreSQL + React. It's not exciting, but it ships.</li>
+          <li><strong>Open source matters.</strong> The fact that all this code is on GitHub? That's huge for learning and for building trust.</li>
+          <li><strong>There are real jobs here.</strong> Governments need developers. They're hiring. And they're using Django.</li>
+        </ul>
+
+        <h2>Try It Yourself</h2>
+
+        <p>
+          If you want to explore:
+        </p>
+
+        <ul>
+          <li><strong>GitHub:</strong> <a href="https://github.com/suitenumerique" target="_blank">github.com/suitenumerique</a></li>
+          <li><strong>Official site:</strong> <a href="https://lasuite.numerique.gouv.fr" target="_blank">lasuite.numerique.gouv.fr</a></li>
+          <li><strong>Docs app (16k stars):</strong> <a href="https://github.com/suitenumerique/docs" target="_blank">github.com/suitenumerique/docs</a></li>
+        </ul>
+
+        <p>
+          The docs repo is especially interesting. It's a full-featured wiki/documentation platform. Self-hostable. MIT licensed. If you ever wanted to see how a production Django app at scale looks, this is it.
+        </p>
+
+        <h2>The Bigger Picture</h2>
+
+        <p>
+          Europe is serious about digital sovereignty. France isn't alone - Germany and Netherlands are collaborating on this. The EU is pushing for alternatives to American tech.
+        </p>
+
+        <p>
+          And they're building with Django.
+        </p>
+
+        <p>
+          For developers like me, this is validation. The framework I've been learning, the patterns I've been practicing - they're not outdated. They're being used to build critical infrastructure for entire countries.
+        </p>
+
+        <p>
+          Next time someone tells me Django is dead, I'll just point them to the French government's GitHub.
+        </p>
+
+        <blockquote>
+          When you need reliability over hype, Django is still the answer. 16,000 developers starring a government Django project tells you everything you need to know.
+        </blockquote>
+
+        <p>
+          Still learning Django. Still building with it. But now I know I'm in good company.
+        </p>
+
+        <p>
+          Have you checked out any of their repos? Found any interesting patterns? I'd love to hear what you spotted.
+        </p>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal" class="author-avatar">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 3x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="#">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 5 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">HTTPS & SSL Certificates - What I Finally Understood</h2>
+              <p class="blog-card-excerpt">
+                I've known about HTTP vs HTTPS for years. Today I actually understood it. Here's what clicked about encryption and verification.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 31, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="#">
+            <div class="blog-card-header">
+              <span class="blog-category">DevOps</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 8 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Servers, Docker & Scaling</h2>
+              <p class="blog-card-excerpt">
+                What I finally understood about servers, containers, Kubernetes, and Gunicorn workers.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 30, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
