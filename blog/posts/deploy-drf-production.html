@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Deploy Django REST Framework to Production: Docker, Nginx, SSL - The Complete Guide | Manish Bhusal</title>
+  <meta name="description" content="Learn to deploy Django REST Framework to a VPS with Docker, Nginx, PostgreSQL, and free SSL. Real production setup, not a tutorial shortcut.">
+  <meta name="keywords" content="Django REST Framework deployment, Docker Django production, Deploy DRF to VPS, Nginx Django Gunicorn, Let's Encrypt Django SSL">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Deploy Django REST Framework to Production: Docker, Nginx, SSL">
+  <meta property="og:description" content="Learn to deploy Django REST Framework to a VPS with Docker, Nginx, PostgreSQL, and free SSL. Real production setup.">
+  <meta property="og:image" content="https://i.imgur.com/PjUhiOn.png">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/deploy-drf-production.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="Deploy Django REST Framework to Production: Docker, Nginx, SSL">
+  <meta name="twitter:description" content="Learn to deploy Django REST Framework to a VPS with Docker, Nginx, PostgreSQL, and free SSL.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - One Dark Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- AdSense - Uncomment when approved -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">DevOps</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Feb 1, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 14 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        Deploy Django REST Framework to Production: Docker, Nginx, SSL - The Complete Guide
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <p>I deployed my first Django REST Framework app to production last month. Took me way longer than it should have.</p>
+
+        <p>The problem? Every tutorial I found was either "here's how to run Django locally" or "just use Heroku." Nothing in between. Nothing that actually explained how to get your API running on a real VPS with Docker, Nginx, SSL, and all the stuff production apps actually need.</p>
+
+        <p>So I figured it out the hard way. And now I'm writing the guide I wish I had.</p>
+
+        <h2>What We're Building</h2>
+
+        <p>By the end of this guide, you'll have:</p>
+
+        <ul>
+          <li>A Django REST Framework app running in Docker containers</li>
+          <li>PostgreSQL database (also in Docker)</li>
+          <li>Nginx reverse proxy handling requests and serving static files</li>
+          <li>SSL certificate from Let's Encrypt (free HTTPS)</li>
+          <li>Everything running on a cheap VPS ($5-10/month)</li>
+        </ul>
+
+        <p>This isn't a "deploy to Heroku in 5 minutes" tutorial. This is the real deal - what actual production apps use.</p>
+
+        <h2>The Architecture</h2>
+
+        <p>Before we dive in, let's understand what we're setting up:</p>
+
+        <pre><code class="language-plaintext">User Request
+     │
+     ▼
+┌─────────────────────────────────────────────────────────┐
+│                    Your VPS                             │
+│  ┌────────────────────────────────────────────────────┐ │
+│  │               Docker Compose                        │ │
+│  │                                                     │ │
+│  │  ┌─────────┐    ┌──────────────┐    ┌───────────┐  │ │
+│  │  │  Nginx  │───▶│   Gunicorn   │───▶│ PostgreSQL│  │ │
+│  │  │  :80/443│    │   (Django)   │    │   :5432   │  │ │
+│  │  └─────────┘    │    :8000     │    └───────────┘  │ │
+│  │       │         └──────────────┘                    │ │
+│  │       │                │                            │ │
+│  │       ▼                ▼                            │ │
+│  │  ┌─────────┐    ┌──────────────┐                   │ │
+│  │  │ Static  │    │    Media     │                   │ │
+│  │  │ Files   │    │   Uploads    │                   │ │
+│  │  └─────────┘    └──────────────┘                   │ │
+│  └────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+        <p>Here's how requests flow:</p>
+
+        <ol>
+          <li>User hits your domain (yourdomain.com)</li>
+          <li>Nginx receives the request on port 80/443</li>
+          <li>If it's a static file, Nginx serves it directly (fast)</li>
+          <li>If it's an API request, Nginx forwards it to Gunicorn</li>
+          <li>Gunicorn runs your Django app and talks to PostgreSQL</li>
+          <li>Response goes back through the chain</li>
+        </ol>
+
+        <p>Why this setup? Nginx is ridiculously good at serving static files and handling SSL. Gunicorn is built for running Python apps in production. Docker keeps everything isolated and reproducible. PostgreSQL because... it's PostgreSQL.</p>
+
+        <h2>Prerequisites</h2>
+
+        <p>What you need before starting:</p>
+
+        <ul>
+          <li>A working Django REST Framework project (tested locally)</li>
+          <li>A VPS (DigitalOcean, Linode, AWS EC2, Vultr - any works)</li>
+          <li>A domain name (optional but recommended for SSL)</li>
+          <li>Basic command line knowledge</li>
+        </ul>
+
+        <p>I'm using Ubuntu 22.04 for this guide, but any modern Linux works. Adjust package manager commands if you're on a different distro.</p>
+
+        <h2>Step 1: Organize Your Django Settings</h2>
+
+        <p>Most tutorials have a single <code>settings.py</code>. That works for local development but becomes a mess in production. Let's split it up.</p>
+
+        <p>Create this structure:</p>
+
+        <pre><code class="language-plaintext">your_project/
+└── settings/
+    ├── __init__.py
+    ├── base.py
+    ├── development.py
+    └── production.py</code></pre>
+
+        <p>The <code>__init__.py</code> automatically loads the right settings based on an environment variable:</p>
+
+        <pre><code class="language-python"># settings/__init__.py
+import os
+
+environment = os.environ.get('DJANGO_ENV', 'development')
+
+if environment == 'production':
+    from .production import *
+elif environment == 'staging':
+    from .staging import *
+else:
+    from .development import *</code></pre>
+
+        <p>This file reads the <code>DJANGO_ENV</code> environment variable and imports the corresponding settings module. If no environment is set, it defaults to development - safe for local work. The <code>*</code> import pulls all settings from the chosen module into Django's settings namespace.</p>
+
+        <p>Your <code>base.py</code> contains everything shared across environments - installed apps, middleware, REST framework settings, etc. Move everything from your current <code>settings.py</code> here, except database config and debug settings.</p>
+
+        <p>Then <code>production.py</code>:</p>
+
+        <pre><code class="language-python"># settings/production.py
+import dj_database_url
+from .base import *
+
+DEBUG = False
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+# Database - PostgreSQL
+DATABASES = {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+}
+
+# Security - these matter in production
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Cookies
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# CORS - strict in production
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', cast=Csv())
+
+# Email - real SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True</code></pre>
+
+        <p>This imports shared settings from <code>base.py</code>, then overrides production-specific values. The <code>dj_database_url</code> package parses database connection strings. The <code>config()</code> function (from python-decouple) reads values from environment variables. The <code>SECURE_*</code> settings force HTTPS and tell browsers to always use encrypted connections. Secure cookies ensure session data is only sent over HTTPS. CORS settings restrict which domains can make API requests.</p>
+
+        <h2>Step 2: Create the Dockerfile</h2>
+
+        <p>Here's where it gets interesting. We're using a multi-stage Docker build to keep the final image small.</p>
+
+        <pre><code class="language-docker"># Dockerfile
+# Stage 1: Build dependencies
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install Python dependencies
+COPY requirements/base.txt requirements/base.txt
+COPY requirements/production.txt requirements/production.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements/production.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim as runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/opt/venv/bin:$PATH"
+
+WORKDIR /app
+
+# Install runtime dependencies only
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq5 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy virtual environment from builder
+COPY --from=builder /opt/venv /opt/venv
+
+# Create non-root user
+RUN useradd --create-home appuser
+
+# Copy application code
+COPY --chown=appuser:appuser . /app/
+
+# Create directories
+RUN mkdir -p /app/staticfiles /app/media /app/logs && \
+    chown -R appuser:appuser /app/staticfiles /app/media /app/logs
+
+# Switch to non-root user
+USER appuser
+
+# Collect static files
+RUN SECRET_KEY=build-time-dummy \
+    ALLOWED_HOSTS=localhost \
+    DATABASE_URL=sqlite:///dummy.db \
+    python manage.py collectstatic --noinput
+
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health/ || exit 1
+
+# Run gunicorn
+CMD ["gunicorn", "your_project.wsgi:application", \
+     "--bind", "0.0.0.0:8000", \
+     "--workers", "2", \
+     "--threads", "2", \
+     "--worker-class", "gthread", \
+     "--access-logfile", "-", \
+     "--error-logfile", "-"]</code></pre>
+
+        <p>The Dockerfile uses a multi-stage build. The first stage (<code>builder</code>) installs build tools like compilers needed to install Python packages with C extensions. It creates a virtual environment and installs all dependencies. The second stage (<code>runtime</code>) starts fresh with a clean image, copies only the compiled virtual environment, and skips the build tools - this keeps the final image around 150MB instead of 800MB.</p>
+
+        <p>We create a non-root user (<code>appuser</code>) because running containers as root is a security risk. The <code>collectstatic</code> command uses dummy environment variables because Django needs them to run, but collectstatic doesn't actually use database connections. The <code>HEALTHCHECK</code> tells Docker how to verify the container is working. Gunicorn runs with 2 workers and 2 threads - a good starting point for small VPS instances.</p>
+
+        <blockquote>
+          The dummy environment variables during <code>collectstatic</code> are intentional. Django needs certain settings to run any management command, but collectstatic doesn't actually use them. It just gathers CSS and JS files.
+        </blockquote>
+
+        <h2>Step 3: Docker Compose for Orchestration</h2>
+
+        <p>Docker Compose ties everything together. Create <code>docker-compose.production.yml</code>:</p>
+
+        <pre><code class="language-yaml"># docker-compose.production.yml
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: myapp_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myapp_web
+    restart: unless-stopped
+    env_file:
+      - .env.production
+    environment:
+      - DJANGO_ENV=production
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - logs_volume:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - app_network
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             gunicorn your_project.wsgi:application
+             --bind 0.0.0.0:8000
+             --workers 2
+             --threads 2
+             --worker-class gthread"
+
+  nginx:
+    image: nginx:alpine
+    container_name: myapp_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.production.conf:/etc/nginx/conf.d/default.conf:ro
+      - static_volume:/app/staticfiles:ro
+      - media_volume:/app/media:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      web:
+        condition: service_healthy
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  logs_volume:
+
+networks:
+  app_network:
+    driver: bridge</code></pre>
+
+        <p>This defines three services. The <code>db</code> service runs PostgreSQL with a health check that verifies the database is accepting connections. The <code>web</code> service builds your Django app, waits for the database to be healthy before starting (<code>depends_on</code> with <code>condition</code>), then runs migrations and starts Gunicorn. The <code>nginx</code> service acts as a reverse proxy, handling incoming requests on ports 80 and 443.</p>
+
+        <p>Named volumes (<code>postgres_data</code>, <code>static_volume</code>, etc.) persist data between container restarts. The shared volumes let Nginx serve static files directly without going through Django. The <code>app_network</code> allows containers to communicate using service names (like <code>web:8000</code>) as hostnames.</p>
+
+        <h2>Step 4: Nginx Configuration with SSL</h2>
+
+        <p>Create <code>nginx/nginx.production.conf</code>:</p>
+
+        <pre><code class="language-nginx"># nginx/nginx.production.conf
+
+upstream django {
+    server web:8000;
+}
+
+# Redirect HTTP to HTTPS
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+
+    # Let's Encrypt challenge
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$server_name$request_uri;
+    }
+}
+
+# HTTPS server
+server {
+    listen 443 ssl http2;
+    server_name yourdomain.com www.yourdomain.com;
+
+    # SSL certificates
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+
+    # SSL settings
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256;
+
+    # Security headers
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Frame-Options DENY;
+    add_header X-XSS-Protection "1; mode=block";
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
+
+    # Max upload size
+    client_max_body_size 10M;
+
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript
+               application/javascript application/json application/xml;
+
+    # Static files - Nginx serves directly
+    location /static/ {
+        alias /app/staticfiles/;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Media files
+    location /media/ {
+        alias /app/media/;
+        expires 7d;
+        add_header Cache-Control "public";
+    }
+
+    # Health check
+    location /health/ {
+        access_log off;
+        proxy_pass http://django;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Django application
+    location / {
+        proxy_pass http://django;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+
+    # Deny hidden files
+    location ~ /\. {
+        deny all;
+    }
+}</code></pre>
+
+        <p>The <code>upstream</code> block defines where Django is running. The first <code>server</code> block listens on port 80 (HTTP) and redirects everything to HTTPS, except Let's Encrypt challenge requests needed for certificate renewal. The second <code>server</code> block handles HTTPS on port 443 with SSL certificates from Let's Encrypt.</p>
+
+        <p>Security headers like <code>X-Frame-Options</code> and <code>Strict-Transport-Security</code> protect against clickjacking and downgrade attacks. The <code>/static/</code> and <code>/media/</code> locations serve files directly from the filesystem - much faster than routing through Django. Gzip compression reduces response sizes. The final location block proxies all other requests to Django, passing along important headers like the real client IP.</p>
+
+        <h2>Step 5: Environment Variables</h2>
+
+        <p>Create <code>.env.production</code> (never commit this file):</p>
+
+        <pre><code class="language-bash"># Django
+DJANGO_ENV=production
+SECRET_KEY=your-super-secret-key-generate-a-new-one
+DEBUG=False
+ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com
+
+# Database
+POSTGRES_DB=myapp_db
+POSTGRES_USER=myapp_user
+POSTGRES_PASSWORD=super-secure-password-here
+DATABASE_URL=postgres://myapp_user:super-secure-password-here@db:5432/myapp_db
+
+# Email (using Gmail as example)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-specific-password
+DEFAULT_FROM_EMAIL=Your App &lt;noreply@yourdomain.com&gt;
+
+# CORS
+CORS_ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
+
+# Optional: Sentry for error tracking
+SENTRY_DSN=</code></pre>
+
+        <p>These environment variables configure your production app. The <code>SECRET_KEY</code> is used for cryptographic signing - generate a unique one and never commit it. <code>DATABASE_URL</code> follows a standard format: <code>postgres://user:password@host:port/database</code>. The <code>@db</code> hostname works because Docker Compose creates a network where services can reach each other by name.</p>
+
+        <p>To generate a secure secret key:</p>
+
+        <pre><code class="language-bash">python -c "import secrets; print(secrets.token_urlsafe(50))"</code></pre>
+
+        <p>Add <code>.env.production</code> to your <code>.gitignore</code>. Seriously. Don't commit secrets to git.</p>
+
+        <h2>Step 6: Set Up Your VPS</h2>
+
+        <p>SSH into your server:</p>
+
+        <pre><code class="language-bash">ssh root@your-server-ip</code></pre>
+
+        <p>First, update everything:</p>
+
+        <pre><code class="language-bash">apt update && apt upgrade -y</code></pre>
+
+        <p>Install Docker:</p>
+
+        <pre><code class="language-bash"># Install prerequisites
+apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+# Add Docker's GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Add Docker repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker
+apt update
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Verify installation
+docker --version
+docker compose version</code></pre>
+
+        <p>This installs Docker and Docker Compose plugin from Docker's official repository. We add their GPG key for package verification, then add the repository to apt sources. The <code>docker-compose-plugin</code> gives us the newer <code>docker compose</code> command (with a space) instead of the older <code>docker-compose</code>.</p>
+
+        <p>Create a non-root user for running your app:</p>
+
+        <pre><code class="language-bash">adduser deploy
+usermod -aG docker deploy
+su - deploy</code></pre>
+
+        <p>Running as root is risky. We create a <code>deploy</code> user and add them to the <code>docker</code> group so they can run Docker commands without sudo.</p>
+
+        <h2>Step 7: Clone and Configure</h2>
+
+        <p>As the deploy user:</p>
+
+        <pre><code class="language-bash"># Clone your repository
+git clone https://github.com/yourusername/your-project.git
+cd your-project
+
+# Create production environment file
+cp .env.example .env.production
+nano .env.production
+# Fill in your production values</code></pre>
+
+        <h2>Step 8: SSL Certificates with Let's Encrypt</h2>
+
+        <p>Before running the full stack, we need SSL certificates. Here's the chicken-and-egg problem: Nginx needs certificates to start with SSL, but Certbot needs Nginx running to verify your domain.</p>
+
+        <p>Solution: Start with a temporary HTTP-only Nginx config, get the certificate, then switch to the full config.</p>
+
+        <p>Create a temporary Nginx config:</p>
+
+        <pre><code class="language-nginx"># nginx/nginx.temp.conf
+server {
+    listen 80;
+    server_name yourdomain.com www.yourdomain.com;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 200 'OK';
+        add_header Content-Type text/plain;
+    }
+}</code></pre>
+
+        <p>This minimal config just handles the Let's Encrypt verification challenge. It serves files from <code>/var/www/certbot</code> for the <code>/.well-known/acme-challenge/</code> path that Certbot uses to prove you own the domain.</p>
+
+        <p>Start Nginx with the temp config:</p>
+
+        <pre><code class="language-bash">docker run -d --name temp-nginx \
+    -p 80:80 \
+    -v $(pwd)/nginx/nginx.temp.conf:/etc/nginx/conf.d/default.conf:ro \
+    -v /var/www/certbot:/var/www/certbot \
+    nginx:alpine</code></pre>
+
+        <p>Install Certbot and get certificates:</p>
+
+        <pre><code class="language-bash"># Install certbot
+apt install -y certbot
+
+# Create webroot directory
+mkdir -p /var/www/certbot
+
+# Get certificate
+certbot certonly --webroot \
+    -w /var/www/certbot \
+    -d yourdomain.com \
+    -d www.yourdomain.com \
+    --email your@email.com \
+    --agree-tos \
+    --non-interactive</code></pre>
+
+        <p>Certbot uses the webroot method - it places a file in <code>/var/www/certbot</code> and Let's Encrypt servers try to access it via your domain. If successful, they issue the certificate. The <code>-d</code> flags specify which domains to include in the certificate.</p>
+
+        <p>Stop the temp Nginx:</p>
+
+        <pre><code class="language-bash">docker stop temp-nginx && docker rm temp-nginx</code></pre>
+
+        <p>Set up automatic certificate renewal:</p>
+
+        <pre><code class="language-bash"># Add to crontab (runs twice daily)
+crontab -e
+
+# Add this line:
+0 0,12 * * * certbot renew --quiet && docker exec myapp_nginx nginx -s reload</code></pre>
+
+        <p>Let's Encrypt certificates expire after 90 days. This cron job runs twice daily to check if renewal is needed. After renewal, it reloads Nginx to pick up the new certificate.</p>
+
+        <h2>Step 9: Deploy!</h2>
+
+        <p>Now for the moment of truth:</p>
+
+        <pre><code class="language-bash"># Build and start everything
+docker compose -f docker-compose.production.yml up -d --build
+
+# Watch the logs
+docker compose -f docker-compose.production.yml logs -f</code></pre>
+
+        <p>Wait for all containers to be healthy (usually 30-60 seconds):</p>
+
+        <pre><code class="language-bash">docker compose -f docker-compose.production.yml ps</code></pre>
+
+        <p>You should see all three containers (db, web, nginx) with status "healthy" or "Up".</p>
+
+        <h2>Step 10: Create Superuser and Test</h2>
+
+        <pre><code class="language-bash"># Create admin user
+docker compose -f docker-compose.production.yml exec web python manage.py createsuperuser</code></pre>
+
+        <p>Now test your endpoints:</p>
+
+        <ul>
+          <li><code>https://yourdomain.com/health/</code> - Should return {"status": "healthy"}</li>
+          <li><code>https://yourdomain.com/admin/</code> - Django admin</li>
+          <li><code>https://yourdomain.com/swagger/</code> - API documentation (if you have drf-yasg)</li>
+        </ul>
+
+        <p>Check SSL grade at <a href="https://www.ssllabs.com/ssltest/" target="_blank">SSL Labs</a>. You should get an A or A+.</p>
+
+        <h2>Common Commands You'll Use</h2>
+
+        <p>Here's a cheat sheet for managing your deployment:</p>
+
+        <pre><code class="language-bash"># View logs
+docker compose -f docker-compose.production.yml logs -f
+docker compose -f docker-compose.production.yml logs -f web  # Just Django
+
+# Restart everything
+docker compose -f docker-compose.production.yml restart
+
+# Run Django management commands
+docker compose -f docker-compose.production.yml exec web python manage.py migrate
+docker compose -f docker-compose.production.yml exec web python manage.py shell
+docker compose -f docker-compose.production.yml exec web python manage.py createsuperuser
+
+# Access PostgreSQL
+docker compose -f docker-compose.production.yml exec db psql -U myapp_user -d myapp_db
+
+# Backup database
+docker compose -f docker-compose.production.yml exec db pg_dump -U myapp_user myapp_db > backup_$(date +%Y%m%d).sql
+
+# Update code and redeploy
+git pull origin main
+docker compose -f docker-compose.production.yml up -d --build
+
+# Check resource usage
+docker stats</code></pre>
+
+        <p>These are commands you'll use regularly. The <code>exec</code> command runs commands inside a running container. <code>logs -f</code> follows log output in real-time. <code>pg_dump</code> creates a database backup. <code>docker stats</code> shows CPU and memory usage for all containers.</p>
+
+        <h2>Updating Your App</h2>
+
+        <p>When you push new code:</p>
+
+        <pre><code class="language-bash"># SSH into server
+ssh deploy@your-server-ip
+
+# Navigate to project
+cd your-project
+
+# Pull latest code
+git pull origin main
+
+# Rebuild and restart
+docker compose -f docker-compose.production.yml up -d --build
+
+# Run migrations if needed
+docker compose -f docker-compose.production.yml exec web python manage.py migrate</code></pre>
+
+        <p>The <code>--build</code> flag rebuilds the Docker image with your new code. Docker is smart enough to use cached layers for unchanged parts.</p>
+
+        <h2>Troubleshooting</h2>
+
+        <h3>Container won't start</h3>
+
+        <pre><code class="language-bash"># Check logs
+docker compose -f docker-compose.production.yml logs web
+
+# Common causes:
+# - Missing .env.production file
+# - Invalid DATABASE_URL
+# - Django import errors</code></pre>
+
+        <h3>502 Bad Gateway from Nginx</h3>
+
+        <p>This means Nginx can't reach Django. Check if the web container is healthy:</p>
+
+        <pre><code class="language-bash">docker compose -f docker-compose.production.yml ps
+docker compose -f docker-compose.production.yml logs web</code></pre>
+
+        <h3>Static files not loading</h3>
+
+        <pre><code class="language-bash"># Rebuild static files
+docker compose -f docker-compose.production.yml exec web python manage.py collectstatic --noinput
+
+# Check Nginx logs
+docker compose -f docker-compose.production.yml logs nginx</code></pre>
+
+        <h3>Database connection errors</h3>
+
+        <p>The web container might be starting before the database is ready. The <code>depends_on</code> with health check should handle this, but sometimes it needs more time:</p>
+
+        <pre><code class="language-bash"># Check if db is healthy
+docker compose -f docker-compose.production.yml ps db
+
+# Look at db logs
+docker compose -f docker-compose.production.yml logs db</code></pre>
+
+        <h3>Out of memory on small VPS</h3>
+
+        <p>If you're on a 1GB VPS and running out of memory:</p>
+
+        <pre><code class="language-bash"># Check memory
+free -h
+
+# Reduce gunicorn workers to 1 in docker-compose.production.yml
+# Change: --workers 2 to --workers 1</code></pre>
+
+        <h2>Security Checklist</h2>
+
+        <p>Before going live, make sure:</p>
+
+        <ul>
+          <li><strong>DEBUG=False</strong> in production (seriously, check twice)</li>
+          <li><strong>SECRET_KEY</strong> is unique and not in git</li>
+          <li><strong>ALLOWED_HOSTS</strong> only includes your domain</li>
+          <li><strong>CORS_ALLOWED_ORIGINS</strong> is restricted</li>
+          <li><strong>Database password</strong> is strong and unique</li>
+          <li><strong>Firewall</strong> only allows ports 22, 80, 443</li>
+          <li><strong>SSH</strong> uses key-based auth (disable password auth)</li>
+          <li><strong>SSL certificate</strong> is valid</li>
+        </ul>
+
+        <h2>Setting Up a Firewall</h2>
+
+        <p>If you haven't already:</p>
+
+        <pre><code class="language-bash"># Allow SSH
+ufw allow 22
+
+# Allow HTTP and HTTPS
+ufw allow 80
+ufw allow 443
+
+# Enable firewall
+ufw enable
+
+# Check status
+ufw status</code></pre>
+
+        <p>UFW (Uncomplicated Firewall) blocks all incoming traffic except the ports you allow. Port 22 is SSH, 80 is HTTP, 443 is HTTPS. This prevents unauthorized access to other services running on your server.</p>
+
+        <h2>Optional: Error Tracking with Sentry</h2>
+
+        <p>In production, you want to know when things break. Sentry is free for small projects.</p>
+
+        <p>Add to your <code>production.py</code>:</p>
+
+        <pre><code class="language-python">SENTRY_DSN = config('SENTRY_DSN', default='')
+if SENTRY_DSN:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=0.1,
+        send_default_pii=False,
+    )</code></pre>
+
+        <p>This initializes Sentry only if a DSN is provided. The <code>traces_sample_rate</code> controls how many requests get performance monitoring (0.1 = 10%). Setting <code>send_default_pii</code> to False prevents accidentally sending user data to Sentry.</p>
+
+        <h2>What We Built</h2>
+
+        <p>Let's recap what you now have:</p>
+
+        <ul>
+          <li>Django REST Framework running in a Docker container</li>
+          <li>PostgreSQL database with persistent storage</li>
+          <li>Nginx handling SSL and serving static files</li>
+          <li>Automatic HTTPS with Let's Encrypt</li>
+          <li>Health checks for all services</li>
+          <li>Non-root user in containers (security)</li>
+          <li>Proper logging</li>
+          <li>Easy deployment workflow</li>
+        </ul>
+
+        <p>This is a real production setup. Not a tutorial shortcut. You can run real apps with real users on this.</p>
+
+        <h2>Next Steps</h2>
+
+        <p>Things you might want to add:</p>
+
+        <ul>
+          <li><strong>CI/CD:</strong> GitHub Actions to auto-deploy on push to main</li>
+          <li><strong>Monitoring:</strong> Set up uptime monitoring (UptimeRobot is free)</li>
+          <li><strong>Backups:</strong> Automated daily database backups to cloud storage</li>
+          <li><strong>CDN:</strong> Put Cloudflare in front for caching and DDoS protection</li>
+          <li><strong>Managed database:</strong> Move PostgreSQL to AWS RDS or DigitalOcean managed database for better reliability</li>
+        </ul>
+
+        <p>The setup I showed you handles most small-to-medium apps just fine. Scale when you need to, not before.</p>
+
+        <p>Still got questions? I'm @maniishbhusal on Twitter. Drop me a message - always happy to help fellow developers figure this stuff out.</p>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal" class="author-avatar">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 3x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="france-django-lasuite.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">France Is Building Its Own Google Workspace - With Django</h2>
+              <p class="blog-card-excerpt">
+                The French government is replacing Microsoft and Google with open-source Django apps. 16k+ stars on GitHub.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 31, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="4-saas-ideas-failed.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Journey</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 8 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">I Validated 4 SaaS Ideas in 2 Weeks. All Failed.</h2>
+              <p class="blog-card-excerpt">
+                I spent 2 weeks validating SaaS ideas without writing code. Zero traction. $25 spent. Here's what I learned.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
