@@ -1,4 +1,48 @@
 <!DOCTYPE html>
+<!--
+  ╔═══════════════════════════════════════════════════════════════════════════╗
+  ║                    BLOG POST CREATION CHECKLIST                           ║
+  ╠═══════════════════════════════════════════════════════════════════════════╣
+  ║ When creating a new post, copy this template and update the following:    ║
+  ║                                                                           ║
+  ║ 1. FILE NAME                                                              ║
+  ║    - Rename file to your post slug: dns-explained.html                    ║
+  ║                                                                           ║
+  ║ 2. SEO META TAGS (inside <head>)                                          ║
+  ║    - Title: "Your Post Title | Manish Bhusal"                             ║
+  ║    - Meta description: 150-160 character summary                          ║
+  ║    - Meta keywords: Relevant keywords                                     ║
+  ║    - og:title, og:description, og:image, og:url                           ║
+  ║    - twitter:title, twitter:description                                   ║
+  ║                                                                           ║
+  ║ 3. FEATURED IMAGE                                                         ║
+  ║    - Upload image to Imgur (1200x630 recommended for OG)                  ║
+  ║    - Update og:image URL in meta tags                                     ║
+  ║    - Update <img> src in .post-featured-image section                     ║
+  ║    - Update alt text with descriptive text                                ║
+  ║                                                                           ║
+  ║ 4. POST HEADER SECTION                                                    ║
+  ║    - Category tag: Web Dev, DevOps, Journey, Learnings                    ║
+  ║    - Date: Format "Jan 31, 2026"                                          ║
+  ║    - Read time: Total words ÷ 200 = minutes                               ║
+  ║    - Post title in <h1>                                                   ║
+  ║                                                                           ║
+  ║ 5. ARTICLE CONTENT                                                        ║
+  ║    - Use: p, h2, h3, ul, pre>code (with language-*), blockquote           ║
+  ║    - Add images with loading="lazy" if needed                             ║
+  ║                                                                           ║
+  ║ 6. RELATED POSTS SECTION                                                  ║
+  ║    - Update the two related post cards with relevant posts                ║
+  ║                                                                           ║
+  ║ 7. BLOG LISTING PAGE (blog/index.html)                                    ║
+  ║    - Add new blog-card with:                                              ║
+  ║      • has-image class if using featured image                            ║
+  ║      • data-category attribute (lowercase: web-dev, devops, journey)      ║
+  ║      • Featured image in .blog-card-image (loading="lazy")                ║
+  ║      • Category, Read time, Title, Excerpt, Date                          ║
+  ║      • Link to the new post                                               ║
+  ╚═══════════════════════════════════════════════════════════════════════════╝
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -105,6 +149,11 @@
 
       <!-- Title Divider -->
       <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image - UPDATE src and alt for each post -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://i.imgur.com/YOUR_IMAGE_ID.png" alt="Your post title - descriptive alt text" loading="eager">
+      </div>
     </div>
   </section>
 
@@ -230,7 +279,7 @@ else:
 
         <!-- Author Bio -->
         <div class="author-bio">
-          <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal" class="author-avatar">
+          <img src="https://i.imgur.com/zHmYohp.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
           <div class="author-info">
             <h4>Manish Bhusal</h4>
             <p>Software Developer from Nepal. 3x Hackathon Winner. Building digital products and learning in public.</p>
