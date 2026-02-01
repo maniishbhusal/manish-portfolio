@@ -52,6 +52,9 @@
   <!-- Blog Styles -->
   <link rel="stylesheet" href="../blog.css">
 
+  <!-- Prism.js Syntax Highlighting - One Dark Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
   <!-- AdSense - Uncomment when approved -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXX" crossorigin="anonymous"></script> -->
 </head>
@@ -202,7 +205,7 @@
           Their <code>people</code> app (team management) follows standard Django conventions. Models, views, serializers - nothing fancy. Just well-organized code.
         </p>
 
-        <pre><code># From their people app - straightforward DRF
+        <pre><code class="language-python"># From their people app - straightforward DRF
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
@@ -407,6 +410,10 @@ class TeamViewSet(viewsets.ModelViewSet):
       </nav>
     </div>
   </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
