@@ -14,6 +14,8 @@
   ║    - Meta keywords: Relevant keywords                                     ║
   ║    - og:title, og:description, og:image, og:url                           ║
   ║    - twitter:title, twitter:description                                   ║
+  ║    - Canonical URL: Update href to your post URL                         ║
+  ║    - Schema Markup: Update headline, description, image, dates           ║
   ║                                                                           ║
   ║ 3. FEATURED IMAGE                                                         ║
   ║    - Upload image to Imgur (1200x630 recommended for OG)                  ║
@@ -75,6 +77,35 @@
   <meta name="twitter:creator" content="@maniishbhusal">
   <meta name="twitter:title" content="Post Title Here">
   <meta name="twitter:description" content="Brief description of your post">
+
+  <!-- Canonical URL - UPDATE FOR EACH POST -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/post-slug.html">
+
+  <!-- Schema Markup / Structured Data - UPDATE FOR EACH POST -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Post Title Here",
+    "description": "Brief description of your post",
+    "image": "https://i.imgur.com/YOUR_IMAGE_ID.png",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-01-31",
+    "dateModified": "2026-01-31",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/post-slug.html"
+    }
+  }
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
