@@ -76,8 +76,28 @@
       <!-- Posts Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
+        <!-- 4 SaaS Ideas Failed Post -->
+        <article class="blog-card" data-category="journey" data-aos="fade-up" data-aos-delay="100">
+          <a href="posts/4-saas-ideas-failed.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Journey</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 8 min read</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">I Validated 4 SaaS Ideas in 2 Weeks. All Failed.</h2>
+              <p class="blog-card-excerpt">
+                I spent 2 weeks validating SaaS ideas without writing code. Zero traction. $25 spent. Here's what actually happened and what I learned about idea validation.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
         <!-- France Django La Suite Post -->
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <article class="blog-card" data-category="web-dev" data-aos="fade-up" data-aos-delay="200">
           <a href="posts/france-django-lasuite.html">
             <div class="blog-card-header">
               <span class="blog-category">Web Dev</span>
@@ -97,7 +117,7 @@
         </article>
 
         <!-- Sample Post 1 -->
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <article class="blog-card" data-category="web-dev" data-aos="fade-up" data-aos-delay="300">
           <a href="posts/template.html">
             <div class="blog-card-header">
               <span class="blog-category">Web Dev</span>
@@ -117,7 +137,7 @@
         </article>
 
         <!-- Sample Post 2 -->
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
+        <article class="blog-card" data-category="devops" data-aos="fade-up" data-aos-delay="400">
           <a href="posts/template.html">
             <div class="blog-card-header">
               <span class="blog-category">DevOps</span>
@@ -137,7 +157,7 @@
         </article>
 
         <!-- Sample Post 3 -->
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="400">
+        <article class="blog-card" data-category="journey" data-aos="fade-up" data-aos-delay="500">
           <a href="posts/template.html">
             <div class="blog-card-header">
               <span class="blog-category">Journey</span>
@@ -157,7 +177,7 @@
         </article>
 
         <!-- Sample Post 4 -->
-        <article class="blog-card" data-aos="fade-up" data-aos-delay="500">
+        <article class="blog-card" data-category="web-dev" data-aos="fade-up" data-aos-delay="600">
           <a href="posts/template.html">
             <div class="blog-card-header">
               <span class="blog-category">Web Dev</span>
@@ -256,12 +276,24 @@
       });
     });
 
-    // Category Filter (basic functionality)
+    // Category Filter
     document.querySelectorAll('.category-filter').forEach(btn => {
       btn.addEventListener('click', () => {
+        // Update active button
         document.querySelectorAll('.category-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        // Future: filter posts by category
+
+        // Get selected category
+        const category = btn.textContent.toLowerCase().replace(' ', '-');
+
+        // Filter posts
+        document.querySelectorAll('.blog-card').forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
   </script>
