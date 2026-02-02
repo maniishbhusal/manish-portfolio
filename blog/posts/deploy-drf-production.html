@@ -217,7 +217,7 @@
           <li>Basic command line knowledge</li>
         </ul>
 
-        <p>I'm using Ubuntu 22.04 for this guide, but any modern Linux works. Adjust package manager commands if you're on a different distro.</p>
+        <p>I'm using Ubuntu 24.04 LTS for this guide, but any modern Linux works. Adjust package manager commands if you're on a different distro.</p>
 
         <h2>Step 1: Organize Your Django Settings</h2>
 
@@ -300,7 +300,7 @@ EMAIL_USE_TLS = True</code></pre>
 
         <pre><code class="language-docker"># Dockerfile
 # Stage 1: Build dependencies
-FROM python:3.11-slim as builder
+FROM python:3.14-slim as builder
 
 WORKDIR /app
 
@@ -321,7 +321,7 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements/production.txt
 
 # Stage 2: Runtime
-FROM python:3.11-slim as runtime
+FROM python:3.14-slim as runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -363,18 +363,30 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health/ || exit 1
 
-# Run gunicorn
-CMD ["gunicorn", "your_project.wsgi:application", \
-     "--bind", "0.0.0.0:8000", \
-     "--workers", "2", \
-     "--threads", "2", \
-     "--worker-class", "gthread", \
-     "--access-logfile", "-", \
-     "--error-logfile", "-"]</code></pre>
+# Run gunicorn with dynamic workers based on CPU cores
+# Formula: (2 × CPU cores) + 1
+CMD ["sh", "-c", "gunicorn your_project.wsgi:application \
+     --bind 0.0.0.0:8000 \
+     --workers $((2 * $(nproc) + 1)) \
+     --threads 2 \
+     --worker-class gthread \
+     --access-logfile - \
+     --error-logfile -"]</code></pre>
 
         <p>The Dockerfile uses a multi-stage build. The first stage (<code>builder</code>) installs build tools like compilers needed to install Python packages with C extensions. It creates a virtual environment and installs all dependencies. The second stage (<code>runtime</code>) starts fresh with a clean image, copies only the compiled virtual environment, and skips the build tools - this keeps the final image around 150MB instead of 800MB.</p>
 
-        <p>We create a non-root user (<code>appuser</code>) because running containers as root is a security risk. The <code>collectstatic</code> command uses dummy environment variables because Django needs them to run, but collectstatic doesn't actually use database connections. The <code>HEALTHCHECK</code> tells Docker how to verify the container is working. Gunicorn runs with 2 workers and 2 threads - a good starting point for small VPS instances.</p>
+        <p>We create a non-root user (<code>appuser</code>) because running containers as root is a security risk. The <code>collectstatic</code> command uses dummy environment variables because Django needs them to run, but collectstatic doesn't actually use database connections. The <code>HEALTHCHECK</code> tells Docker how to verify the container is working.</p>
+
+        <p>The Gunicorn workers formula <code>(2 × CPU cores) + 1</code> is the <a href="https://gunicorn.org/design/#how-many-workers" target="_blank">recommended approach from Gunicorn docs</a>. On a 2-core VPS, this gives you 5 workers. The <code>nproc</code> command returns the number of CPU cores available to the container. Note: more workers ≠ better performance. Gunicorn typically needs only 4-12 workers to handle heavy traffic - monitor and adjust under load.</p>
+
+        <p>The <code>--bind</code> flag tells Gunicorn where to listen for incoming connections from Nginx. It's how Nginx and Gunicorn communicate - Nginx receives requests from users and forwards them to Gunicorn. There are two ways to set this up:</p>
+
+        <ul>
+          <li><strong>TCP binding</strong> (<code>--bind 0.0.0.0:8000</code>): Gunicorn listens on a network port. Nginx connects via <code>http://web:8000</code> over the Docker network. Simple, works across containers.</li>
+          <li><strong>Unix socket</strong> (<code>--bind unix:/run/gunicorn.sock</code>): Gunicorn creates a file on disk. Nginx connects through that file. Faster (~5-10%) but requires shared volume between containers.</li>
+        </ul>
+
+        <p>For Docker, TCP is the standard approach - containers are isolated, so they communicate over the network. Unix sockets add complexity with minimal benefit. For non-Docker deployments where Nginx and Gunicorn run on the same machine, Unix sockets are preferred for the slight performance gain.</p>
 
         <blockquote>
           The dummy environment variables during <code>collectstatic</code> are intentional. Django needs certain settings to run any management command, but collectstatic doesn't actually use them. It just gathers CSS and JS files.
@@ -387,7 +399,7 @@ CMD ["gunicorn", "your_project.wsgi:application", \
         <pre><code class="language-yaml"># docker-compose.production.yml
 services:
   db:
-    image: postgres:15-alpine
+    image: postgres:18-alpine
     container_name: myapp_db
     restart: unless-stopped
     environment:
@@ -433,7 +445,7 @@ services:
       sh -c "python manage.py migrate --noinput &&
              gunicorn your_project.wsgi:application
              --bind 0.0.0.0:8000
-             --workers 2
+             --workers $((2 * $(nproc) + 1))
              --threads 2
              --worker-class gthread"
 
@@ -846,13 +858,14 @@ docker compose -f docker-compose.production.yml logs db</code></pre>
 
         <h3>Out of memory on small VPS</h3>
 
-        <p>If you're on a 1GB VPS and running out of memory:</p>
+        <p>If you're on a 1GB VPS and running out of memory, the dynamic workers formula might create too many workers. Override it with a fixed number:</p>
 
         <pre><code class="language-bash"># Check memory
 free -h
 
-# Reduce gunicorn workers to 1 in docker-compose.production.yml
-# Change: --workers 2 to --workers 1</code></pre>
+# Override dynamic workers with a fixed number in docker-compose.production.yml
+# Change: --workers $((2 * $(nproc) + 1)) to --workers 2
+# Or for very small instances: --workers 1</code></pre>
 
         <h2>Security Checklist</h2>
 
