@@ -173,22 +173,7 @@
           Here's the mental model that finally made DNS click for me: it's organized like a chain of referrals. Each level knows about the level below it, and nobody knows everything.
         </p>
 
-        <pre><code class="language-plaintext">                    . (Root)
-                      │
-        ┌─────────────┼─────────────┐
-        │             │             │
-      .com          .org          .in
-      (TLD)         (TLD)         (TLD)
-        │
-   ┌────┴────┐
-   │         │
-example    google
-(Domain)   (Domain)
-   │
-   ├── api.example.com
-   ├── www.example.com
-   └── mail.example.com
-       (Subdomains)</code></pre>
+        <img src="https://i.imgur.com/3AL3QwE.png" alt="DNS Hierarchy diagram showing Root, TLDs, Domains, and Subdomains" loading="lazy" style="max-width: 100%; height: auto;">
 
         <h3>Root (.)</h3>
 
@@ -380,32 +365,7 @@ Step 9: Browser connects to 93.184.216.34</code></pre>
           Visual representation:
         </p>
 
-        <pre><code class="language-plaintext">Your Browser
-     │
-     ▼
-Local Cache (miss)
-     │
-     ▼
-ISP Resolver ──────► Root Server
-     │                "Ask .com TLD"
-     │                     │
-     │◄────────────────────┘
-     │
-     ▼
-ISP Resolver ──────► .com TLD Server
-     │                "Ask example.com's nameserver"
-     │                     │
-     │◄────────────────────┘
-     │
-     ▼
-ISP Resolver ──────► example.com's Nameserver
-     │                "93.184.216.34"
-     │                     │
-     │◄────────────────────┘
-     │
-     ▼
-Returns IP to browser
-Browser connects to 93.184.216.34</code></pre>
+        <img src="https://i.imgur.com/d1V6Oo9.png" alt="DNS Resolution Process diagram showing the flow from browser through caches to nameserver" loading="lazy" style="max-width: 100%; height: auto;">
 
         <p>
           Each intermediate resolver caches the result based on TTL. Subsequent requests from the same network skip most of this because the resolver already knows the answer. That's why the second visit to a site is faster than the first.
