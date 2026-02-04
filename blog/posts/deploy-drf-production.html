@@ -359,12 +359,6 @@ RUN mkdir -p /app/staticfiles /app/media /app/logs && \
 # Switch to non-root user
 USER appuser
 
-# Collect static files
-RUN SECRET_KEY=build-time-dummy \
-    ALLOWED_HOSTS=localhost \
-    DATABASE_URL=sqlite:///dummy.db \
-    python manage.py collectstatic --noinput
-
 EXPOSE 8000
 
 # Health check
@@ -383,7 +377,7 @@ CMD ["sh", "-c", "gunicorn your_project.wsgi:application \
 
         <p>The Dockerfile uses a multi-stage build. The first stage (<code>builder</code>) installs build tools like compilers needed to install Python packages with C extensions. It creates a virtual environment and installs all dependencies. The second stage (<code>runtime</code>) starts fresh with a clean image, copies only the compiled virtual environment, and skips the build tools - this keeps the final image around 150MB instead of 800MB.</p>
 
-        <p>We create a non-root user (<code>appuser</code>) because running containers as root is a security risk. The <code>collectstatic</code> command uses dummy environment variables because Django needs them to run, but collectstatic doesn't actually use database connections. The <code>HEALTHCHECK</code> tells Docker how to verify the container is working.</p>
+        <p>We create a non-root user (<code>appuser</code>) because running containers as root is a security risk. The <code>HEALTHCHECK</code> tells Docker how to verify the container is working. Notice we're NOT running <code>collectstatic</code> here - we'll do that at container startup instead (explained in the Docker Compose section).</p>
 
         <p>The Gunicorn workers formula <code>(2 × CPU cores) + 1</code> is the <a href="https://gunicorn.org/design/#how-many-workers" target="_blank">recommended approach from Gunicorn docs</a>. On a 2-core VPS, this gives you 5 workers. The <code>nproc</code> command returns the number of CPU cores available to the container. Note: more workers ≠ better performance. Gunicorn typically needs only 4-12 workers to handle heavy traffic - monitor and adjust under load.</p>
 
@@ -395,10 +389,6 @@ CMD ["sh", "-c", "gunicorn your_project.wsgi:application \
         </ul>
 
         <p>For Docker, TCP is the standard approach - containers are isolated, so they communicate over the network. Unix sockets add complexity with minimal benefit. For non-Docker deployments where Nginx and Gunicorn run on the same machine, Unix sockets are preferred for the slight performance gain.</p>
-
-        <blockquote>
-          The dummy environment variables during <code>collectstatic</code> are intentional. Django needs certain settings to run any management command, but collectstatic doesn't actually use them. It just gathers CSS and JS files.
-        </blockquote>
 
         <h2>Step 3: Docker Compose for Orchestration</h2>
 
@@ -450,7 +440,8 @@ services:
     networks:
       - app_network
     command: >
-      sh -c "python manage.py migrate --noinput &&
+      sh -c "python manage.py collectstatic --noinput &&
+             python manage.py migrate --noinput &&
              gunicorn your_project.wsgi:application
              --bind 0.0.0.0:8000
              --workers $((2 * $(nproc) + 1))
@@ -485,7 +476,9 @@ networks:
   app_network:
     driver: bridge</code></pre>
 
-        <p>This defines three services. The <code>db</code> service runs PostgreSQL with a health check that verifies the database is accepting connections. The <code>web</code> service builds your Django app, waits for the database to be healthy before starting (<code>depends_on</code> with <code>condition</code>), then runs migrations and starts Gunicorn. The <code>nginx</code> service acts as a reverse proxy, handling incoming requests on ports 80 and 443.</p>
+        <p>This defines three services. The <code>db</code> service runs PostgreSQL with a health check that verifies the database is accepting connections. The <code>web</code> service builds your Django app, waits for the database to be healthy before starting (<code>depends_on</code> with <code>condition</code>), then runs collectstatic, migrations, and starts Gunicorn. The <code>nginx</code> service acts as a reverse proxy, handling incoming requests on ports 80 and 443.</p>
+
+        <p><strong>Why collectstatic runs at startup, not in Dockerfile:</strong> We mount a named volume at <code>/app/staticfiles</code>. If we ran collectstatic during image build, the volume would shadow those files on subsequent deployments - your new CSS/JS wouldn't appear. Running it at container startup ensures static files are always fresh after each deployment.</p>
 
         <p>Named volumes (<code>postgres_data</code>, <code>static_volume</code>, etc.) persist data between container restarts. The shared volumes let Nginx serve static files directly without going through Django. The <code>app_network</code> allows containers to communicate using service names (like <code>web:8000</code>) as hostnames.</p>
 
