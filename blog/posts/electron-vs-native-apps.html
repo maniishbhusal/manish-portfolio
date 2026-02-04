@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It) | Manish Bhusal</title>
+  <meta name="description" content="OpenAI's Codex is Electron. I read 500+ HN comments about the native vs Electron debate. Here's what I learned about why tech giants choose Electron.">
+  <meta name="keywords" content="Electron apps, native vs Electron, cross-platform development, OpenAI Codex, desktop app development, Tauri, VSCode">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It)">
+  <meta property="og:description" content="OpenAI's Codex is Electron. I read 500+ HN comments about the native vs Electron debate. Here's what I learned about why tech giants choose Electron.">
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-electron-native.jpg">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/electron-vs-native-apps.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It)">
+  <meta name="twitter:description" content="OpenAI's Codex is Electron. I read 500+ HN comments about the native vs Electron debate. Here's what I learned about why tech giants choose Electron.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/electron-vs-native-apps.html">
+
+  <!-- Schema Markup / Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It)",
+    "description": "OpenAI's Codex is Electron. I read 500+ HN comments about the native vs Electron debate. Here's what I learned about why tech giants choose Electron.",
+    "image": "https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-electron-native.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-02-04",
+    "dateModified": "2026-02-04",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/electron-vs-native-apps.html"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - Tomorrow Night Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">Web Dev</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Feb 4, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 7 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It)
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-electron-native.jpg" alt="Electron vs Native Apps - Why billion-dollar companies choose Electron" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <!-- Introduction -->
+        <p>
+          <a href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noopener">OpenAI just dropped their new Codex desktop app</a>. It's Electron. <a href="https://news.ycombinator.com/item?id=46859054" target="_blank" rel="noopener">Hacker News lost its mind</a>.
+        </p>
+
+        <p>
+          The usual debate erupted: "How can a company with billions of dollars not build a native app?" vs "Electron is perfectly fine, stop complaining." I've seen this fight a hundred times. But this time, I actually read through 500+ comments to understand both sides.
+        </p>
+
+        <p>
+          Here's what I learned.
+        </p>
+
+        <h2>The Developer Complaint</h2>
+
+        <p>
+          The frustration is real. Every time a big tech company releases a new desktop app, it's wrapped in Electron. Slack, Discord, Teams, Spotify, Notion, VS Code, and now OpenAI's Codex. It's everywhere.
+        </p>
+
+        <p>
+          And developers notice things regular users don't. They see Task Manager showing 8 separate Chrome processes eating RAM. They feel the slight input lag when typing. They notice their laptop fans spinning up just to run what is essentially a chat app.
+        </p>
+
+        <p>
+          <a href="https://news.ycombinator.com/item?id=46864648" target="_blank" rel="noopener">One comment from the thread</a> put it bluntly:
+        </p>
+
+        <blockquote>
+          "8GB of RAM usage for Codex App is clown-level ridiculous."
+        </blockquote>
+
+        <p>
+          The argument is simple: these companies have resources. They have some of the smartest engineers in the world. They literally build AI that can write code. Yet they ship apps that bundle an entire Chrome browser just to display a text input field?
+        </p>
+
+        <p>
+          To developers who care about efficiency, it feels lazy. It feels like the company doesn't respect the user's machine.
+        </p>
+
+        <h2>The Business Reality</h2>
+
+        <p>
+          But here's the thing. These companies aren't stupid. They're making a deliberate tradeoff.
+        </p>
+
+        <p>
+          <a href="https://news.ycombinator.com/item?id=46863396" target="_blank" rel="noopener">An OpenAI engineer actually responded</a> in the thread:
+        </p>
+
+        <blockquote>
+          "Electron lets us iterate faster and makes it possible to bring the Codex app to Windows and Linux very soon."
+        </blockquote>
+
+        <p>
+          That word keeps coming up: <strong>faster</strong>.
+        </p>
+
+        <p>
+          Building native apps for Windows, Mac, and Linux means maintaining three completely different codebases. Three different UI frameworks. Three different sets of bugs. Three times the testing. Three times the coordination between teams.
+        </p>
+
+        <p>
+          With Electron? Write once, ship everywhere. The same JavaScript and CSS works on all platforms. You can reuse your existing web developers instead of hiring expensive native specialists.
+        </p>
+
+        <p>
+          <a href="https://news.ycombinator.com/item?id=46868869" target="_blank" rel="noopener">One comment framed it perfectly</a>:
+        </p>
+
+        <blockquote>
+          "Do you want to move slower to get 'native feel', or do you want to ship fast and get N times as much feature dev done? In a competitive race while the new features are flowing, development speed always wins."
+        </blockquote>
+
+        <p>
+          In the AI space right now, companies are racing to ship features. Claude Code, Codex, Cursor, Windsurf - everyone is fighting for market share. Taking 6 extra months to build a "proper" native app means your competitor has already captured your users.
+        </p>
+
+        <h2>Here's Where It Gets Messy</h2>
+
+        <p>
+          Here's what made me uncomfortable reading this debate. Both sides are right.
+        </p>
+
+        <p>
+          Developers are right that Electron apps are wasteful. They consume more memory, more CPU, and more disk space than necessary. When every app does this, your computer gets slower even though the hardware keeps getting better.
+        </p>
+
+        <p>
+          But companies are also right that speed-to-market matters more than technical purity. If customers are buying the product, if usage is growing, if revenue is increasing - the engineering decision is justified.
+        </p>
+
+        <p>
+          This is where it gets philosophical. <a href="https://news.ycombinator.com/item?id=46862945" target="_blank" rel="noopener">One developer wrote</a>:
+        </p>
+
+        <blockquote>
+          "Customers simply don't care. I don't recall a single complaint about RAM or disk usage of my Electron-based app in the past 10 years."
+        </blockquote>
+
+        <p>
+          And <a href="https://news.ycombinator.com/item?id=46868644" target="_blank" rel="noopener">another responded</a>:
+        </p>
+
+        <blockquote>
+          "A good software developer cares. It's wrong to assume customers don't care simply because they don't know what's going on under the hood."
+        </blockquote>
+
+        <p>
+          This is the real tension. Should software be built to the standard developers know is possible? Or to the standard customers are willing to accept?
+        </p>
+
+        <h2>The Enterprise Problem</h2>
+
+        <p>
+          There's another angle that came up multiple times in the discussion, and it's cynical but probably true:
+        </p>
+
+        <blockquote>
+          "The people that USE the software are not the people BUYING the software. It's why all enterprise software has trash UX."
+        </blockquote>
+
+        <p>
+          When the person making the purchasing decision doesn't use the product daily, they don't feel the pain of slow loading times and high memory usage. They care about feature checkboxes, security certifications, and pricing.
+        </p>
+
+        <p>
+          Microsoft Teams is a perfect example. Everyone I know complains about Teams being slow and clunky. But it keeps winning enterprise contracts because it checks all the boxes that IT departments care about.
+        </p>
+
+        <p>
+          The people complaining about Electron on Hacker News are a tiny, vocal minority. They're not representative of the broader market that these companies are serving.
+        </p>
+
+        <h2>Alternatives Do Exist</h2>
+
+        <p>
+          The discussion wasn't all doom and gloom. People mentioned several alternatives that try to offer the best of both worlds:
+        </p>
+
+        <ul>
+          <li><strong><a href="https://tauri.app/" target="_blank" rel="noopener">Tauri</a></strong> - Uses the system's native WebView instead of bundling Chrome. Apps are much smaller (10MB vs 140MB+).</li>
+          <li><strong><a href="https://wails.io/" target="_blank" rel="noopener">Wails</a></strong> - Similar to Tauri but for Go developers. One developer in the thread said they built a full app at just 10MB.</li>
+          <li><strong><a href="https://flutter.dev/" target="_blank" rel="noopener">Flutter</a></strong> - Google's cross-platform framework with custom rendering. Not web-based.</li>
+          <li><strong>Qt/QML</strong> - The old reliable. Cross-platform native UI, but requires C++ knowledge.</li>
+        </ul>
+
+        <p>
+          But each has tradeoffs. Tauri and Wails rely on the system WebView, which means different browser versions on different machines. Qt requires C++ developers, who are harder to find than JavaScript developers. Flutter still feels slightly "off" on desktop.
+        </p>
+
+        <p>
+          There's no perfect solution. If there was, everyone would use it.
+        </p>
+
+        <h2>The VS Code Exception</h2>
+
+        <p>
+          One thing that came up repeatedly: <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> is also Electron, and people love it.
+        </p>
+
+        <p>
+          VS Code proves that Electron apps <em>can</em> be performant and well-made. Microsoft invested heavily in optimization. The app feels responsive despite being web technology under the hood.
+        </p>
+
+        <p>
+          So the problem isn't Electron itself. It's that most companies don't put in the same level of effort to optimize their Electron apps. They ship the default configuration and call it done.
+        </p>
+
+        <p>
+          VS Code is the exception. Most Electron apps are the rule.
+        </p>
+
+        <h2>My Take</h2>
+
+        <p>
+          I've used various coding tools - both terminal-based CLIs and Electron apps like VS Code and Cursor. Honestly? The UX difference is noticeable. Terminal apps feel snappier. Native apps feel more integrated with my system.
+        </p>
+
+        <p>
+          But I also understand why companies make the choice they do. Web development won because it standardized everything. Same language, same rendering engine, same accessibility features across every platform. That's a massive win for development velocity.
+        </p>
+
+        <p>
+          The problem isn't Electron. The problem is that Electron makes it too easy to skip optimization. Why spend weeks profiling memory usage when the app already works? Most teams ship the default config and move on to the next feature. VS Code got fast because Microsoft actually put in the work. Most companies don't.
+        </p>
+
+        <p>
+          Maybe AI will change this. Ironic, isn't it? We're using AI coding tools to argue about why those same AI coding tools are built with Electron. Maybe someday an AI will generate optimized native code for each platform automatically.
+        </p>
+
+        <p>
+          Until then, the debate continues. And I think that's okay. The developers complaining are pushing the industry toward better standards. The companies shipping Electron are serving users who need features today, not perfection tomorrow.
+        </p>
+
+        <p>
+          Both are doing their jobs.
+        </p>
+
+        <h2>What Do You Think?</h2>
+
+        <p>
+          I'm genuinely curious. Does app performance matter to you? Have you switched away from a product because it was too slow or bloated? Or do you just care whether it works?
+        </p>
+
+        <p>
+          There's no wrong answer. But I'd love to hear where you stand.
+        </p>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 3x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="dns-explained.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 11 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">DNS Explained - How Domain Names Get Resolved</h2>
+              <p class="blog-card-excerpt">
+                How DNS actually works: hierarchy, records (A, CNAME, MX, TXT), TTL caching, the full resolution process, and commands to debug DNS issues.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 2, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="deploy-drf-production.html">
+            <div class="blog-card-header">
+              <span class="blog-category">DevOps</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 14 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Deploy Django REST Framework to Production</h2>
+              <p class="blog-card-excerpt">
+                The complete guide to deploying DRF on a VPS with Docker, PostgreSQL, Nginx, and free SSL. Real production setup.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
