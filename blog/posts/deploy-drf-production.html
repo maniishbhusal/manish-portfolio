@@ -57,7 +57,7 @@
       "name": "Manish Bhusal"
     },
     "datePublished": "2026-02-01",
-    "dateModified": "2026-02-01",
+    "dateModified": "2026-02-04",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://bhusalmanish.com.np/blog/posts/deploy-drf-production.html"
@@ -301,6 +301,10 @@ EMAIL_USE_TLS = True</code></pre>
         <h2>Step 2: Create the Dockerfile</h2>
 
         <p>Here's where it gets interesting. We're using a multi-stage Docker build to keep the final image small.</p>
+
+        <blockquote>
+          <p><strong>Python 3.14 Compatibility Note:</strong> Python 3.14 is only supported by Django 5.2.8+ and Django 6. If your project uses an older Django version (e.g., because dependencies aren't compatible with newer Django), you'll need to use a lower Python version like <code>python:3.12-slim</code> instead.</p>
+        </blockquote>
 
         <pre><code class="language-docker"># Dockerfile
 # Stage 1: Build dependencies
