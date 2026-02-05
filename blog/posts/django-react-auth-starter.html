@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<!--
+  Blog Post: I Built a Django + React Auth Starter So You Don't Have To
+  Category: Web Dev
+  Published: Feb 5, 2026
+  Read Time: 10 min
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>I Built a Django + React Auth Starter So You Don't Have To | Manish Bhusal</title>
+  <meta name="description" content="A production-ready Django + React authentication starter with JWT, email verification, and password reset. Clone it, configure it, ship it.">
+  <meta name="keywords" content="Django authentication, React auth, JWT authentication, DRF starter, Django REST Framework, React TypeScript, full-stack auth">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I Built a Django + React Auth Starter So You Don't Have To">
+  <meta property="og:description" content="A production-ready Django + React authentication starter with JWT, email verification, and password reset.">
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-django-react-auth-starter.jpg">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/django-react-auth-starter.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="I Built a Django + React Auth Starter So You Don't Have To">
+  <meta name="twitter:description" content="A production-ready Django + React authentication starter with JWT, email verification, and password reset.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/django-react-auth-starter.html">
+
+  <!-- Schema Markup / Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "I Built a Django + React Auth Starter So You Don't Have To",
+    "description": "A production-ready Django + React authentication starter with JWT, email verification, and password reset. Clone it, configure it, ship it.",
+    "image": "https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-django-react-auth-starter.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-02-05",
+    "dateModified": "2026-02-05",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/django-react-auth-starter.html"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - Tomorrow Night Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">Web Dev</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Feb 5, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 10 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        I Built a Django + React Auth Starter So You Don't Have To
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-django-react-auth-starter.jpg" alt="Django + React Auth Starter - Production-ready authentication template" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <h2>Why I Built This</h2>
+
+        <p>
+          Every time I start a new project, the first thing I do is spend days setting up authentication. Login, signup, email verification, password reset, token refresh... it's always the same dance. And honestly? It's exhausting.
+        </p>
+
+        <p>
+          I got tired of copy-pasting the same auth code from project to project. So I built a proper starter template that I can just clone and go. And since I spent the time making it production-ready, I figured someone else might find it useful too.
+        </p>
+
+        <p>
+          The stack: <strong>Django 5.2 + Django REST Framework + SimpleJWT</strong> on the backend, <strong>React 19 + Vite + TypeScript</strong> on the frontend. Nothing fancy, just solid, battle-tested tools that work well together.
+        </p>
+
+        <p>
+          Here's the repo: <a href="https://github.com/maniishbhusal/django-react-auth-starter" target="_blank" rel="noopener">github.com/maniishbhusal/django-react-auth-starter</a>
+        </p>
+
+        <p>
+          You can check out the frontend live here: <a href="https://django-react-auth-starter.vercel.app/" target="_blank" rel="noopener">django-react-auth-starter.vercel.app</a>. The backend isn't hosted, so you can just preview the UI - but that's actually useful. You can see how clean the auth forms are and customize the landing page for your use case, whether it's a SaaS product or a personal project.
+        </p>
+
+        <h2>What You're Getting</h2>
+
+        <h3>Backend (Django/DRF)</h3>
+
+        <ul>
+          <li><strong>Custom User Model</strong> - UUID primary keys (not boring auto-increment IDs) and email-based login</li>
+          <li><strong>JWT Authentication</strong> - Access tokens, refresh tokens, automatic rotation</li>
+          <li><strong>Email Verification</strong> - Users must verify their email before they can use the account</li>
+          <li><strong>Password Reset</strong> - Secure, time-limited reset links sent via email</li>
+          <li><strong>Rate Limiting</strong> - Built-in throttling so someone can't hammer your API</li>
+          <li><strong>Production Security</strong> - HTTPS redirect, secure cookies, HSTS headers... all the stuff you forget to add</li>
+        </ul>
+
+        <h3>Frontend (React + Vite)</h3>
+
+        <ul>
+          <li><strong>React 19 + TypeScript</strong> - Type safety from the start</li>
+          <li><strong>Auth Context + React Query</strong> - Clean state management without Redux overhead</li>
+          <li><strong>Axios Interceptors</strong> - Automatic token refresh when your access token expires</li>
+          <li><strong>Protected Routes</strong> - Route guards that actually handle loading states properly</li>
+          <li><strong>Tailwind CSS + Radix UI</strong> - Clean, accessible UI components</li>
+        </ul>
+
+        <p>Here's what the User model looks like. Notice how email is the primary identifier, not username:</p>
+
+        <pre><code class="language-python"># api/accounts/models.py
+class User(AbstractUser):
+    """Custom user model with email as the primary identifier."""
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    email = models.EmailField(unique=True)
+    full_name = models.CharField(max_length=255, blank=True)
+    agreed_to_terms = models.BooleanField(default=False)
+    agreed_at = models.DateTimeField(null=True, blank=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username"]</code></pre>
+
+        <p>UUID primary keys are a small thing, but they're nicer for security (can't guess user IDs) and work better if you ever need to merge databases.</p>
+
+        <h2>Getting Started</h2>
+
+        <h3>Backend Setup</h3>
+
+        <p>Clone the repo and set up the Django backend first:</p>
+
+        <pre><code class="language-bash"># Clone it
+git clone https://github.com/maniishbhusal/django-react-auth-starter.git
+cd django-react-auth-starter
+
+# Set up Python environment
+cd api
+python -m venv .venv
+
+# Activate it (Windows)
+.venv\Scripts\activate
+
+# Or on Mac/Linux
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements/dev.txt
+
+# Set up environment variables
+cp .env.example .env
+
+# Run migrations
+python manage.py migrate
+
+# Start the server
+python manage.py runserver</code></pre>
+
+        <p>Your backend is now running at <code>http://localhost:8000</code>.</p>
+
+        <p>Here's the thing that makes local development painless - the development settings use SQLite (no database setup needed) and a console email backend (emails print to your terminal instead of actually sending). Zero external dependencies to get started:</p>
+
+        <pre><code class="language-python"># api/config/settings/development.py
+DEBUG = True
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+# Use SQLite for local development
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": str(BASE_DIR / "db.sqlite3"),
+    }
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Email: Use console backend for local development (prints to terminal)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"</code></pre>
+
+        <p>When you register a new user, you'll see the activation email printed right in your terminal. No need to set up Mailgun or SendGrid just to test.</p>
+
+        <h3>Frontend Setup</h3>
+
+        <p>Open a new terminal (keep the backend running) and set up React:</p>
+
+        <pre><code class="language-bash"># From the project root
+cd web
+
+# Install dependencies
+npm install
+
+# Set up environment
+cp .env.example .env
+
+# Start dev server
+npm run dev</code></pre>
+
+        <p>Frontend runs at <code>http://localhost:5173</code>. The only environment variable you need is the API URL:</p>
+
+        <pre><code class="language-bash"># web/.env
+VITE_API_URL=http://localhost:8000</code></pre>
+
+        <p>Both servers need to run at the same time. Backend on 8000, frontend on 5173. CORS is already configured to allow this.</p>
+
+        <h2>How the Auth Actually Works</h2>
+
+        <h3>The JWT Dance</h3>
+
+        <p>When a user logs in, they get two tokens:</p>
+
+        <ul>
+          <li><strong>Access token</strong> - Short-lived (60 minutes). This is what you send with every API request.</li>
+          <li><strong>Refresh token</strong> - Long-lived (7 days). Used to get a new access token when the old one expires.</li>
+        </ul>
+
+        <p>Here's the JWT configuration on the backend:</p>
+
+        <pre><code class="language-python"># api/config/settings/base.py
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+}</code></pre>
+
+        <p>The <code>ROTATE_REFRESH_TOKENS</code> setting is important. Every time you use the refresh token to get a new access token, you also get a new refresh token. The old refresh token gets blacklisted. This way, if someone steals your refresh token, it'll only work once.</p>
+
+        <p>But here's where the frontend magic happens. You don't want to manually check if tokens are expired and refresh them. That's tedious. Instead, we use Axios interceptors to do it automatically:</p>
+
+        <pre><code class="language-typescript">// web/src/lib/api-client.ts
+let isRefreshing = false
+let failedQueue: Array&lt;{
+  resolve: (token: string) =&gt; void
+  reject: (error: unknown) =&gt; void
+}&gt; = []
+
+const processQueue = (error: unknown, token: string | null = null) =&gt; {
+  failedQueue.forEach((prom) =&gt; {
+    if (error) {
+      prom.reject(error)
+    } else if (token) {
+      prom.resolve(token)
+    }
+  })
+  failedQueue = []
+}
+
+apiClient.interceptors.response.use(
+  (response) =&gt; response,
+  async (error: AxiosError) =&gt; {
+    const originalRequest = error.config as InternalAxiosRequestConfig &amp; {
+      _retry?: boolean
+    }
+
+    // If error is 401 and we haven't retried yet
+    if (error.response?.status === 401 &amp;&amp; !originalRequest._retry) {
+      if (isRefreshing) {
+        // Queue the request while refreshing
+        return new Promise((resolve, reject) =&gt; {
+          failedQueue.push({ resolve, reject })
+        })
+          .then((token) =&gt; {
+            originalRequest.headers.Authorization = `Bearer ${token}`
+            return apiClient(originalRequest)
+          })
+          .catch((err) =&gt; Promise.reject(err))
+      }
+
+      originalRequest._retry = true
+      isRefreshing = true
+
+      const tokens = getStoredTokens()
+      if (!tokens?.refresh) {
+        clearStoredTokens()
+        isRefreshing = false
+        return Promise.reject(error)
+      }
+
+      try {
+        const response = await axios.post(`${API_URL}/auth/jwt/refresh/`, {
+          refresh: tokens.refresh,
+        })
+
+        const newTokens = {
+          access: response.data.access,
+          refresh: response.data.refresh || tokens.refresh,
+        }
+        setStoredTokens(newTokens)
+
+        processQueue(null, newTokens.access)
+        originalRequest.headers.Authorization = `Bearer ${newTokens.access}`
+
+        return apiClient(originalRequest)
+      } catch (refreshError) {
+        processQueue(refreshError, null)
+        clearStoredTokens()
+        return Promise.reject(refreshError)
+      } finally {
+        isRefreshing = false
+      }
+    }
+
+    return Promise.reject(error)
+  }
+)</code></pre>
+
+        <p>The part that confused me at first was the queue. Why do we need it?</p>
+
+        <p>Imagine this: your access token expires, and your app makes 5 API calls at almost the same time. Without the queue, all 5 would try to refresh the token simultaneously, creating a race condition mess. With the queue, the first request triggers a refresh, and the other 4 wait patiently. Once the refresh completes, all 5 requests retry with the new token.</p>
+
+        <blockquote>
+          The queue pattern is one of those things that seems over-engineered until you hit the race condition bug in production. Then you're very grateful it's there.
+        </blockquote>
+
+        <h2>Protecting Your Routes</h2>
+
+        <p>The starter includes two route guard components: <code>ProtectedRoute</code> and <code>GuestRoute</code>.</p>
+
+        <p>ProtectedRoute is for pages that require authentication (like a dashboard). GuestRoute is the opposite - for pages that only non-authenticated users should see (like login/signup).</p>
+
+        <pre><code class="language-typescript">// web/src/components/auth/ProtectedRoute.tsx
+import { Navigate, useLocation } from "react-router-dom"
+import { useAuth } from "@/hooks/use-auth"
+
+interface ProtectedRouteProps {
+  children: React.ReactNode
+}
+
+export function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const { isAuthenticated, isLoading } = useAuth()
+  const location = useLocation()
+
+  if (isLoading) {
+    return (
+      &lt;div className="flex min-h-screen items-center justify-center"&gt;
+        &lt;div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" /&gt;
+      &lt;/div&gt;
+    )
+  }
+
+  if (!isAuthenticated) {
+    // Redirect to login, but save the attempted url
+    return &lt;Navigate to="/login" state={{ from: location }} replace /&gt;
+  }
+
+  return &lt;&gt;{children}&lt;/&gt;
+}</code></pre>
+
+        <p>The loading state is important. Without it, you get a flash of the login page even when the user is authenticated - just because the auth check hasn't completed yet. Looks janky.</p>
+
+        <p>Also notice how we save <code>location</code> in the redirect state. After the user logs in, we can send them back to where they were trying to go, not just dump them on the homepage.</p>
+
+        <p>Usage in your routes is straightforward:</p>
+
+        <pre><code class="language-typescript">// web/src/App.tsx
+&lt;Route
+  path="/dashboard"
+  element={
+    &lt;ProtectedRoute&gt;
+      &lt;DashboardPage /&gt;
+    &lt;/ProtectedRoute&gt;
+  }
+/&gt;</code></pre>
+
+        <h2>The Email Verification Flow</h2>
+
+        <p>When a user registers, they can't log in immediately. They need to click a verification link in their email first. This prevents spam accounts and ensures the email is real.</p>
+
+        <p>The flow works like this:</p>
+
+        <ol>
+          <li>User registers via the React signup form</li>
+          <li>Django creates the user (inactive) and generates a unique token</li>
+          <li>Django sends an email with a link like: <code>https://yourapp.com/activate/{uid}/{token}</code></li>
+          <li>User clicks the link, which opens your React app</li>
+          <li>React app calls the Django activation endpoint with the uid and token</li>
+          <li>Django activates the user</li>
+        </ol>
+
+        <p>The tricky part is making sure email links point to your React frontend, not Django. That's what the custom email classes handle:</p>
+
+        <pre><code class="language-python"># api/accounts/email.py
+class ActivationEmail(BaseActivationEmail):
+    """Custom activation email with frontend URL."""
+
+    template_name = "accounts/email/activation.html"
+
+    def get_context_data(self) -&gt; dict:
+        """Add frontend URL to context."""
+        context = super().get_context_data()
+        context["frontend_url"] = settings.FRONTEND_URL
+        context["activation_url"] = (
+            f"{settings.FRONTEND_URL}/activate/{context['uid']}/{context['token']}"
+        )
+        context["site_name"] = "Your App"
+        return context</code></pre>
+
+        <p>The <code>FRONTEND_URL</code> setting in your <code>.env</code> file controls where these links point. In development it's <code>http://localhost:5173</code>, in production it's your actual domain.</p>
+
+        <h2>Taking It to Production</h2>
+
+        <p>The starter includes separate settings files for development and production. Here's what the production security settings look like:</p>
+
+        <pre><code class="language-python"># api/config/settings/production.py
+DEBUG = False
+
+# Security
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"</code></pre>
+
+        <p>All the security headers you need but always forget to add. HSTS forces HTTPS, secure cookies prevent session hijacking over HTTP, X-Frame-Options blocks clickjacking attacks.</p>
+
+        <h3>Production Checklist</h3>
+
+        <p>Before you deploy, make sure you:</p>
+
+        <ul>
+          <li>Switch <code>DJANGO_SETTINGS_MODULE</code> to <code>config.settings.production</code></li>
+          <li>Set up PostgreSQL (not SQLite)</li>
+          <li>Configure a real email provider (Resend, SendGrid, AWS SES, etc.)</li>
+          <li>Set <code>ALLOWED_HOSTS</code> to your domain</li>
+          <li>Set <code>CORS_ALLOWED_ORIGINS</code> to your frontend domain</li>
+          <li>Generate a strong <code>SECRET_KEY</code> (don't use the example one!)</li>
+          <li>Set up proper environment variables (don't commit secrets)</li>
+        </ul>
+
+        <p>For a complete production deployment guide with Docker, Nginx, and free SSL, check out my other post: <a href="deploy-drf-production.html">Deploy Django REST Framework to Production</a>.</p>
+
+        <p>The <code>.env.example</code> file shows you everything you need to configure:</p>
+
+        <pre><code class="language-bash"># api/.env.example
+DJANGO_SETTINGS_MODULE=config.settings.development
+SECRET_KEY=your-super-secret-key-change-in-production
+DEBUG=True
+
+# Database (PostgreSQL for production)
+DB_NAME=authdb
+DB_USER=postgres
+DB_PASSWORD=your-database-password
+DB_HOST=localhost
+DB_PORT=5432
+
+# Email (SMTP)
+EMAIL_HOST=smtp.resend.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=resend
+EMAIL_HOST_PASSWORD=your-resend-api-key
+DEFAULT_FROM_EMAIL=noreply@example.com
+
+# Frontend URL (for email links)
+FRONTEND_URL=http://localhost:5173</code></pre>
+
+        <h2>Tests Included</h2>
+
+        <p>The backend includes a solid test suite using pytest. Tests cover registration, JWT token flow, user profile, and the model itself.</p>
+
+        <p>Run them with:</p>
+
+        <pre><code class="language-bash">cd api
+pytest</code></pre>
+
+        <p>The test fixtures make it easy to write new tests:</p>
+
+        <pre><code class="language-python"># api/conftest.py provides:
+# - api_client: Unauthenticated API client
+# - authenticated_client: Client with valid JWT
+# - user: An active test user
+# - inactive_user: A user who hasn't activated yet
+# - user_data: Valid registration data</code></pre>
+
+        <p>Here's what a test looks like:</p>
+
+        <pre><code class="language-python"># api/accounts/tests/test_registration.py
+@pytest.mark.django_db
+class TestUserRegistration:
+    url = "/api/v1/auth/users/"
+
+    def test_register_user_success(self, api_client: APIClient, user_data: dict):
+        response = api_client.post(self.url, user_data, format="json")
+        assert response.status_code == status.HTTP_201_CREATED
+        assert response.data["email"] == user_data["email"]
+        assert "password" not in response.data</code></pre>
+
+        <p>Nothing fancy, just straightforward tests that verify the API works as expected.</p>
+
+        <h2>What's Next?</h2>
+
+        <p>This starter gives you a solid authentication foundation. But there's always more you could add:</p>
+
+        <ul>
+          <li><strong>Social Authentication</strong> - Google, GitHub, etc. (django-allauth integrates well)</li>
+          <li><strong>Two-Factor Authentication</strong> - TOTP or SMS-based 2FA</li>
+          <li><strong>User Profile Management</strong> - Avatar upload, profile editing</li>
+          <li><strong>Admin Dashboard</strong> - User management interface</li>
+        </ul>
+
+        <p>But that's the point of a starter - it gives you the basics so you can focus on building the actual features of your app, not reimplementing auth for the hundredth time.</p>
+
+        <p>Clone it, customize it, ship it. And if you find bugs or have improvements, PRs are welcome: <a href="https://github.com/maniishbhusal/django-react-auth-starter" target="_blank" rel="noopener">github.com/maniishbhusal/django-react-auth-starter</a></p>
+
+        <p>Now go build something cool. And when you do, I'd love to hear about it.</p>
+
+        <hr>
+
+        <p><em>Questions? Hit me up on Twitter: <a href="https://twitter.com/maniishbhusal" target="_blank" rel="noopener">@maniishbhusal</a></em></p>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 3x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="deploy-drf-production.html">
+            <div class="blog-card-header">
+              <span class="blog-category">DevOps</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 14 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Deploy Django REST Framework to Production: Docker, Nginx, SSL</h2>
+              <p class="blog-card-excerpt">
+                The complete guide to deploying DRF on a VPS with Docker, PostgreSQL, Nginx, and free SSL.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="france-django-lasuite.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">France Is Building Its Own Google Workspace — With Django</h2>
+              <p class="blog-card-excerpt">
+                The French government is replacing Microsoft and Google with open-source Django apps. Here's why this matters.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Jan 31, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
