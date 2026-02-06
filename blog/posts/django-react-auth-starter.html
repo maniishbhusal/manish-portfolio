@@ -176,6 +176,11 @@
           You can check out the frontend live here: <a href="https://django-react-auth-starter.vercel.app/" target="_blank" rel="noopener">django-react-auth-starter.vercel.app</a>. The backend isn't hosted, so you can just preview the UI - but that's actually useful. You can see how clean the auth forms are and customize the landing page for your use case, whether it's a SaaS product or a personal project.
         </p>
 
+        <figure class="post-image">
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/django-react-auth-starter/landing-page-django-starter.png" alt="AuthKit landing page - Ship Authentication in Minutes, Not Days - with Django 5, React 19, TypeScript, JWT, and PostgreSQL" loading="lazy">
+          <figcaption>The starter's landing page - clean, modern, and ready to customize</figcaption>
+        </figure>
+
         <h2>What You're Getting</h2>
 
         <h3>Backend (Django/DRF)</h3>
@@ -215,6 +220,95 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["username"]</code></pre>
 
         <p>UUID primary keys are a small thing, but they're nicer for security (can't guess user IDs) and work better if you ever need to merge databases.</p>
+
+        <h2>Why Djoser? (And Not Building Auth From Scratch)</h2>
+
+        <p>This starter uses <a href="https://djoser.readthedocs.io/" target="_blank" rel="noopener">Djoser</a> for authentication endpoints. I could've built all the auth endpoints manually - registration, activation, password reset. But why? Djoser gives you battle-tested endpoints out of the box. It handles the boring stuff so you can focus on your actual app.</p>
+
+        <p>Here's the Djoser configuration:</p>
+
+        <pre><code class="language-python"># api/config/settings/base.py
+DJOSER = {
+    "LOGIN_FIELD": "email",
+    "USER_CREATE_PASSWORD_RETYPE": True,
+    "SET_PASSWORD_RETYPE": True,
+    "PASSWORD_RESET_CONFIRM_RETYPE": True,
+    "SEND_ACTIVATION_EMAIL": True,
+    "SEND_CONFIRMATION_EMAIL": True,
+    "ACTIVATION_URL": "activate/{uid}/{token}",
+    "PASSWORD_RESET_CONFIRM_URL": "password-reset/{uid}/{token}",
+    "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
+    "USERNAME_CHANGED_EMAIL_CONFIRMATION": True,
+    "SERIALIZERS": {
+        "user_create": "accounts.serializers.UserCreateSerializer",
+        "user_create_password_retype": "accounts.serializers.UserCreateSerializer",
+        "user": "accounts.serializers.UserSerializer",
+        "current_user": "accounts.serializers.UserSerializer",
+    },
+    "EMAIL": {
+        "activation": "accounts.email.ActivationEmail",
+        "confirmation": "accounts.email.ConfirmationEmail",
+        "password_reset": "accounts.email.PasswordResetEmail",
+        "password_changed_confirmation": "accounts.email.PasswordChangedConfirmationEmail",
+    },
+}</code></pre>
+
+        <p>Let me break down what each setting does:</p>
+
+        <h3>Login &amp; Password Settings</h3>
+
+        <ul>
+          <li><code>LOGIN_FIELD: "email"</code> - Users log in with email, not username</li>
+          <li><code>USER_CREATE_PASSWORD_RETYPE: True</code> - Registration requires password confirmation (password + re_password)</li>
+          <li><code>SET_PASSWORD_RETYPE: True</code> - Changing password requires confirmation too</li>
+          <li><code>PASSWORD_RESET_CONFIRM_RETYPE: True</code> - Same for password reset</li>
+        </ul>
+
+        <h3>Email Settings</h3>
+
+        <ul>
+          <li><code>SEND_ACTIVATION_EMAIL: True</code> - New users get an activation email</li>
+          <li><code>SEND_CONFIRMATION_EMAIL: True</code> - Users get a confirmation after activation</li>
+          <li><code>PASSWORD_CHANGED_EMAIL_CONFIRMATION: True</code> - Notify users when their password changes (security measure)</li>
+          <li><code>USERNAME_CHANGED_EMAIL_CONFIRMATION: True</code> - Same for username/email changes</li>
+        </ul>
+
+        <h3>URL Settings</h3>
+
+        <ul>
+          <li><code>ACTIVATION_URL: "activate/{uid}/{token}"</code> - The path in email links for activation</li>
+          <li><code>PASSWORD_RESET_CONFIRM_URL: "password-reset/{uid}/{token}"</code> - Path for password reset links</li>
+        </ul>
+
+        <p>These URLs get combined with <code>FRONTEND_URL</code> to create full links like <code>http://localhost:5173/activate/MQ/abc123...</code></p>
+
+        <h3>Custom Serializers</h3>
+
+        <p>Djoser lets you override the default serializers. I use custom ones to add fields like <code>full_name</code> and <code>agreed_to_terms</code>:</p>
+
+        <pre><code class="language-python">"SERIALIZERS": {
+    "user_create": "accounts.serializers.UserCreateSerializer",
+    "user_create_password_retype": "accounts.serializers.UserCreateSerializer",
+    "user": "accounts.serializers.UserSerializer",
+    "current_user": "accounts.serializers.UserSerializer",
+}</code></pre>
+
+        <h3>Custom Email Classes</h3>
+
+        <p>The default Djoser emails are plain. I override them with custom HTML templates:</p>
+
+        <pre><code class="language-python">"EMAIL": {
+    "activation": "accounts.email.ActivationEmail",
+    "confirmation": "accounts.email.ConfirmationEmail",
+    "password_reset": "accounts.email.PasswordResetEmail",
+    "password_changed_confirmation": "accounts.email.PasswordChangedConfirmationEmail",
+}</code></pre>
+
+        <p>Each custom email class points to an HTML template and adds the <code>FRONTEND_URL</code> to the context so links go to your React app, not Django.</p>
+
+        <blockquote>
+          Djoser gives you the endpoints. SimpleJWT handles the tokens. You just wire them together and customize what you need. That's the whole point of this starter - all the wiring is already done.
+        </blockquote>
 
         <h2>Getting Started</h2>
 
@@ -274,6 +368,10 @@ CORS_ALLOWED_ORIGINS = [
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"</code></pre>
 
         <p>When you register a new user, you'll see the activation email printed right in your terminal. No need to set up Mailgun or SendGrid just to test.</p>
+
+        <blockquote>
+          <strong>Gotcha:</strong> The console email uses quoted-printable encoding, which breaks long URLs with <code>=</code> and line breaks. If clicking the activation link fails, manually reconstruct the URL by removing <code>=</code> at line ends and joining the parts. Or just grab the <code>uid</code> and <code>token</code> from the URL and test directly in Swagger: <code>POST /api/v1/auth/users/activation/</code> with <code>{"uid": "...", "token": "..."}</code>.
+        </blockquote>
 
         <h3>Frontend Setup</h3>
 

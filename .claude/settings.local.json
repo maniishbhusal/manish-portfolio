@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"\\(Get-Content ''C:\\\\Users\\\\Manish\\\\VS Code\\\\projects\\\\manish-portfolio\\\\blog\\\\posts\\\\django-react-auth-starter.html'' | ForEach-Object { $_-replace ''<[^>]+>'','''' } | Where-Object { $_Trim\\(\\) -ne '''' } | ForEach-Object { \\($_-split ''\\\\s+''\\).Count } | Measure-Object -Sum\\).Sum\")"
+    ]
+  }
+}
