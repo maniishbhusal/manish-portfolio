@@ -58,8 +58,8 @@
       "@type": "Person",
       "name": "Manish Bhusal"
     },
-    "datePublished": "2026-02-05",
-    "dateModified": "2026-02-05",
+    "datePublished": "2026-02-06",
+    "dateModified": "2026-02-06",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://bhusalmanish.com.np/blog/posts/django-react-auth-starter.html"
@@ -129,9 +129,9 @@
       <div class="post-meta mt-8" data-aos="fade-up">
         <span class="blog-category">Web Dev</span>
         <span class="post-meta-divider"></span>
-        <span><i class="far fa-calendar"></i> Feb 5, 2026</span>
+        <span><i class="far fa-calendar"></i> Feb 6, 2026</span>
         <span class="post-meta-divider"></span>
-        <span><i class="far fa-clock"></i> 10 min read</span>
+        <span><i class="far fa-clock"></i> 15 min read</span>
       </div>
 
       <!-- Post Title -->
@@ -298,6 +298,214 @@ VITE_API_URL=http://localhost:8000</code></pre>
 
         <p>Both servers need to run at the same time. Backend on 8000, frontend on 5173. CORS is already configured to allow this.</p>
 
+        <h2>API Endpoints &amp; Swagger Documentation</h2>
+
+        <p>The backend comes with auto-generated API documentation using drf-spectacular. In development mode, you get both Swagger UI and ReDoc:</p>
+
+        <ul>
+          <li><strong>Swagger UI:</strong> <code>http://localhost:8000/api/docs/</code></li>
+          <li><strong>ReDoc:</strong> <code>http://localhost:8000/api/redoc/</code></li>
+          <li><strong>OpenAPI Schema:</strong> <code>http://localhost:8000/api/schema/</code></li>
+        </ul>
+
+        <img src="https://cdn.bhusalmanish.com.np/Article%20Images/django-react-auth-starter/swagger-django-react.png" alt="Swagger UI showing all authentication endpoints for Django + React Auth API" loading="lazy">
+
+        <p>The documentation is only available when <code>DEBUG=True</code>. In production, these routes are hidden:</p>
+
+        <pre><code class="language-python"># api/config/urls.py
+from django.conf import settings
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    # Auth endpoints (Djoser)
+    path("api/v1/auth/", include("djoser.urls")),
+    path("api/v1/auth/", include("djoser.urls.jwt")),
+    # API endpoints
+    path("api/v1/", include("accounts.urls")),
+]
+
+# API Documentation - only available in DEBUG mode
+if settings.DEBUG:
+    from drf_spectacular.views import (
+        SpectacularAPIView,
+        SpectacularRedocView,
+        SpectacularSwaggerView,
+    )
+
+    urlpatterns += [
+        path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+        path(
+            "api/docs/",
+            SpectacularSwaggerView.as_view(url_name="schema"),
+            name="swagger-ui",
+        ),
+        path(
+            "api/redoc/",
+            SpectacularRedocView.as_view(url_name="schema"),
+            name="redoc",
+        ),
+    ]</code></pre>
+
+        <h3>Available Endpoints</h3>
+
+        <p>All auth endpoints are prefixed with <code>/api/v1/auth/</code>. Here's the frontend API layer that shows every endpoint used:</p>
+
+        <pre><code class="language-typescript">// web/src/lib/auth-api.ts
+import { apiClient } from "./api-client"
+import type {
+  RegisterRequest,
+  RegisterResponse,
+  LoginRequest,
+  LoginResponse,
+  ActivateRequest,
+  ResendActivationRequest,
+  ForgotPasswordRequest,
+  ResetPasswordRequest,
+  RefreshTokenRequest,
+  RefreshTokenResponse,
+  User,
+} from "@/types/auth"
+
+// POST /api/v1/auth/users/
+export async function register(
+  data: RegisterRequest
+): Promise&lt;RegisterResponse&gt; {
+  const response = await apiClient.post&lt;RegisterResponse&gt;("/auth/users/", data)
+  return response.data
+}
+
+// POST /api/v1/auth/jwt/create/
+export async function login(data: LoginRequest): Promise&lt;LoginResponse&gt; {
+  const response = await apiClient.post&lt;LoginResponse&gt;(
+    "/auth/jwt/create/",
+    data
+  )
+  return response.data
+}
+
+// POST /api/v1/auth/jwt/refresh/
+export async function refreshToken(
+  data: RefreshTokenRequest
+): Promise&lt;RefreshTokenResponse&gt; {
+  const response = await apiClient.post&lt;RefreshTokenResponse&gt;(
+    "/auth/jwt/refresh/",
+    data
+  )
+  return response.data
+}
+
+// POST /api/v1/auth/users/activation/
+export async function activate(data: ActivateRequest): Promise&lt;void&gt; {
+  await apiClient.post("/auth/users/activation/", data)
+}
+
+// POST /api/v1/auth/users/resend_activation/
+export async function resendActivation(
+  data: ResendActivationRequest
+): Promise&lt;void&gt; {
+  await apiClient.post("/auth/users/resend_activation/", data)
+}
+
+// POST /api/v1/auth/users/reset_password/
+export async function forgotPassword(
+  data: ForgotPasswordRequest
+): Promise&lt;void&gt; {
+  await apiClient.post("/auth/users/reset_password/", data)
+}
+
+// POST /api/v1/auth/users/reset_password_confirm/
+export async function resetPassword(data: ResetPasswordRequest): Promise&lt;void&gt; {
+  await apiClient.post("/auth/users/reset_password_confirm/", data)
+}
+
+// GET /api/v1/auth/users/me/
+export async function getMe(): Promise&lt;User&gt; {
+  const response = await apiClient.get&lt;User&gt;("/auth/users/me/")
+  return response.data
+}</code></pre>
+
+        <h3>Request &amp; Response Types</h3>
+
+        <p>Every endpoint is fully typed. Here are the TypeScript interfaces that match the API:</p>
+
+        <pre><code class="language-typescript">// web/src/types/auth.ts
+export interface User {
+  id: string
+  email: string
+  full_name: string
+  agreed_to_terms: boolean
+  agreed_at: string | null
+  date_joined: string
+}
+
+export interface RegisterRequest {
+  email: string
+  username: string
+  password: string
+  re_password: string
+  full_name: string
+  agreed_to_terms: boolean
+}
+
+export interface RegisterResponse {
+  id: string
+  email: string
+  full_name: string
+}
+
+export interface LoginRequest {
+  email: string
+  password: string
+}
+
+export interface LoginResponse {
+  access: string
+  refresh: string
+}
+
+export interface ActivateRequest {
+  uid: string
+  token: string
+}
+
+export interface ResendActivationRequest {
+  email: string
+}
+
+export interface ForgotPasswordRequest {
+  email: string
+}
+
+export interface ResetPasswordRequest {
+  uid: string
+  token: string
+  new_password: string
+  re_new_password: string
+}
+
+export interface RefreshTokenRequest {
+  refresh: string
+}
+
+export interface RefreshTokenResponse {
+  access: string
+  refresh: string
+}
+
+export interface ApiError {
+  [key: string]: string[] | string
+}</code></pre>
+
+        <p>For authenticated endpoints, include the JWT token in the header:</p>
+
+        <pre><code class="language-bash">Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</code></pre>
+
+        <p>
+          <strong>Pro tip:</strong> Use Swagger UI to test endpoints directly in the browser. Click the "Authorize" button, paste your access token, and you can test authenticated endpoints without Postman.
+        </p>
+
         <h2>How the Auth Actually Works</h2>
 
         <h3>The JWT Dance</h3>
@@ -411,6 +619,11 @@ apiClient.interceptors.response.use(
         <h3>Understanding "Remember Me" in JWT Authentication</h3>
 
         <p>A common feature in login forms is the "Remember Me" checkbox. The implementation uses different browser storage types based on the user's preference:</p>
+
+        <figure class="post-image">
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/django-react-auth-starter/remember-me-login.png" alt="Login form with Remember Me checkbox, email and password fields" loading="lazy">
+          <figcaption>The login form with "Remember Me" checkbox</figcaption>
+        </figure>
 
         <ul>
           <li><strong>Session Storage</strong> ("Remember Me" unchecked) - Data persists only for the current tab. Open a new tab? Empty storage. Close the browser? Gone.</li>
@@ -657,6 +870,15 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
     &lt;/ProtectedRoute&gt;
   }
 /&gt;</code></pre>
+
+        <p>Here's what the dashboard looks like when a user is logged in:</p>
+
+        <figure class="post-image">
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/django-react-auth-starter/loggedin-ui-dashboard.png" alt="Dashboard showing logged-in user with welcome message and email display" loading="lazy">
+          <figcaption>The starter dashboard - customize this for your application</figcaption>
+        </figure>
+
+        <p>This is just a minimal starter dashboard to show the auth is working. You'll want to replace it with your actual app content - user settings, data visualizations, whatever your app needs. The important parts (auth context, protected routes) are already wired up and ready.</p>
 
         <h2>The Email Verification Flow</h2>
 
