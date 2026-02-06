@@ -408,6 +408,206 @@ apiClient.interceptors.response.use(
           The queue pattern is one of those things that seems over-engineered until you hit the race condition bug in production. Then you're very grateful it's there.
         </blockquote>
 
+        <h3>Understanding "Remember Me" in JWT Authentication</h3>
+
+        <p>A common feature in login forms is the "Remember Me" checkbox. The implementation uses different browser storage types based on the user's preference:</p>
+
+        <ul>
+          <li><strong>Session Storage</strong> ("Remember Me" unchecked) - Data persists only for the current tab. Open a new tab? Empty storage. Close the browser? Gone.</li>
+          <li><strong>Local Storage</strong> ("Remember Me" checked) - Data persists across all tabs and survives browser restarts. You stay logged in until you explicitly log out.</li>
+        </ul>
+
+        <p>Here's how we handle token storage based on user preference:</p>
+
+        <pre><code class="language-typescript">// web/src/lib/api-client.ts
+const TOKEN_KEY = "auth_tokens"
+const STORAGE_TYPE_KEY = "auth_storage_type"
+
+export function setStoredTokens(
+  tokens: StoredTokens,
+  rememberMe: boolean = true
+): void {
+  // Clear from both storages first
+  localStorage.removeItem(TOKEN_KEY)
+  sessionStorage.removeItem(TOKEN_KEY)
+
+  // Store based on rememberMe preference
+  if (rememberMe) {
+    localStorage.setItem(STORAGE_TYPE_KEY, "local")
+    localStorage.setItem(TOKEN_KEY, JSON.stringify(tokens))
+  } else {
+    localStorage.setItem(STORAGE_TYPE_KEY, "session")
+    sessionStorage.setItem(TOKEN_KEY, JSON.stringify(tokens))
+  }
+}</code></pre>
+
+        <p><strong>When "Remember Me" is unchecked:</strong></p>
+        <ul>
+          <li>Tab 1 (logged in): Token in sessionStorage → Dashboard works</li>
+          <li>Tab 2 (new tab): sessionStorage is empty → Redirects to login</li>
+          <li>Hard refresh in Tab 1: Same sessionStorage → Still works</li>
+          <li>Close browser: Token is gone → Must log in again</li>
+        </ul>
+
+        <p><strong>When "Remember Me" is checked:</strong></p>
+        <ul>
+          <li>All tabs share the token from localStorage</li>
+          <li>Browser restart: Still logged in</li>
+        </ul>
+
+        <h3>Common Pitfall: Token Refresh Bug</h3>
+
+        <p>Watch out for this bug in the token refresh interceptor:</p>
+
+        <pre><code class="language-typescript">// ❌ BUG: Missing rememberMe parameter
+setStoredTokens(newTokens)  // Defaults to rememberMe=true!
+
+// ✅ FIX: Preserve the user's storage preference
+const storageType = localStorage.getItem(STORAGE_TYPE_KEY)
+const rememberMe = storageType === "local"
+setStoredTokens(newTokens, rememberMe)</code></pre>
+
+        <p>Without this fix, when a token refreshes, it will always store in localStorage regardless of the user's original "Remember Me" choice. This means a user who unchecked "Remember Me" would suddenly have persistent sessions after their first token refresh.</p>
+
+        <p>
+          <strong>Debugging Tip:</strong> If tokens appear in unexpected storage, open DevTools → Application tab. Check both Local Storage and Session Storage for "auth_tokens". Look at "auth_storage_type" to see what preference was set.
+        </p>
+
+        <h2>State Management with TanStack React Query</h2>
+
+        <p>I used to reach for Redux for everything. Then I realized most of my "state" was just server data - user info, API responses, stuff like that. TanStack React Query handles this way better.</p>
+
+        <p>The setup is minimal. In the entry point, we wrap the app with QueryClientProvider:</p>
+
+        <pre><code class="language-typescript">// web/src/main.tsx
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+})
+
+createRoot(document.getElementById("root")!).render(
+  &lt;StrictMode&gt;
+    &lt;QueryClientProvider client={queryClient}&gt;
+      &lt;BrowserRouter&gt;
+        &lt;AuthProvider&gt;
+          &lt;App /&gt;
+          &lt;Toaster position="top-right" richColors /&gt;
+        &lt;/AuthProvider&gt;
+      &lt;/BrowserRouter&gt;
+    &lt;/QueryClientProvider&gt;
+  &lt;/StrictMode&gt;
+)</code></pre>
+
+        <p>For auth operations, I created custom hooks using <code>useMutation</code>. Each hook handles one specific action - login, register, activate, password reset, etc:</p>
+
+        <pre><code class="language-typescript">// web/src/hooks/use-auth-mutations.ts
+import { useMutation } from "@tanstack/react-query"
+import { AxiosError } from "axios"
+import {
+  register,
+  login as loginApi,
+  activate,
+  resendActivation,
+  forgotPassword,
+  resetPassword,
+} from "@/lib/auth-api"
+import { useAuth } from "@/hooks/use-auth"
+import type {
+  RegisterRequest,
+  RegisterResponse,
+  LoginRequest,
+  LoginResponse,
+  ActivateRequest,
+  ResendActivationRequest,
+  ForgotPasswordRequest,
+  ResetPasswordRequest,
+  ApiError,
+} from "@/types/auth"
+
+export function useRegister() {
+  return useMutation&lt;RegisterResponse, AxiosError&lt;ApiError&gt;, RegisterRequest&gt;({
+    mutationFn: register,
+  })
+}
+
+interface LoginMutationVariables extends LoginRequest {
+  rememberMe?: boolean
+}
+
+export function useLogin() {
+  const { login } = useAuth()
+
+  return useMutation&lt;
+    LoginResponse,
+    AxiosError&lt;ApiError&gt;,
+    LoginMutationVariables
+  &gt;({
+    mutationFn: ({ email, password }) =&gt; loginApi({ email, password }),
+    onSuccess: async (data, variables) =&gt; {
+      await login(
+        {
+          access: data.access,
+          refresh: data.refresh,
+        },
+        variables.rememberMe ?? true
+      )
+    },
+  })
+}
+
+export function useActivate() {
+  return useMutation&lt;void, AxiosError&lt;ApiError&gt;, ActivateRequest&gt;({
+    mutationFn: activate,
+  })
+}
+
+export function useResendActivation() {
+  return useMutation&lt;void, AxiosError&lt;ApiError&gt;, ResendActivationRequest&gt;({
+    mutationFn: resendActivation,
+  })
+}
+
+export function useForgotPassword() {
+  return useMutation&lt;void, AxiosError&lt;ApiError&gt;, ForgotPasswordRequest&gt;({
+    mutationFn: forgotPassword,
+  })
+}
+
+export function useResetPassword() {
+  return useMutation&lt;void, AxiosError&lt;ApiError&gt;, ResetPasswordRequest&gt;({
+    mutationFn: resetPassword,
+  })
+}</code></pre>
+
+        <p>The beauty of this approach? Each mutation gives you <code>isPending</code>, <code>isError</code>, <code>error</code>, and <code>isSuccess</code> states for free. The type generics like <code>useMutation&lt;RegisterResponse, AxiosError&lt;ApiError&gt;, RegisterRequest&gt;</code> ensure full type safety - you get autocomplete for both the request and response.</p>
+
+        <p>The <code>useLogin</code> hook is special. Notice how it integrates with AuthContext - on success, it calls <code>login()</code> which stores the tokens and fetches the user data.</p>
+
+        <p>When the user logs out, we clear the React Query cache to remove any cached user data:</p>
+
+        <pre><code class="language-typescript">// web/src/context/AuthContext.tsx
+import { useQueryClient } from "@tanstack/react-query"
+
+const queryClient = useQueryClient()
+
+const logout = useCallback(() =&gt; {
+  clearStoredTokens()
+  setUser(null)
+  queryClient.clear()
+}, [queryClient])</code></pre>
+
+        <p>The <code>staleTime: 5 * 60 * 1000</code> setting means data is considered fresh for 5 minutes. During that time, if you navigate away and come back, React Query serves the cached data instantly instead of hitting the API again. Small thing, but it makes the app feel snappy.</p>
+
+        <blockquote>
+          React Query for API calls and caching, React Context for auth state. That's it. No Redux, no Zustand, no complexity. Sometimes less really is more.
+        </blockquote>
+
         <h2>Protecting Your Routes</h2>
 
         <p>The starter includes two route guard components: <code>ProtectedRoute</code> and <code>GuestRoute</code>.</p>
