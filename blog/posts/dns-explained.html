@@ -479,8 +479,8 @@ edge://net-internals/#dns</code></pre>
         <pre><code class="language-bash"># Windows (Command Prompt)
 ipconfig /displaydns
 
-# Mac
-sudo dscacheutil -cachedump
+# Mac (no built-in way to view cache, but you can query specific domains)
+dscacheutil -q host -a name example.com
 
 # Linux
 # Most distros use systemd-resolved
@@ -559,33 +559,10 @@ example.com    A    93.184.216.36</code></pre>
           DNS caching reduces lookup time and load on DNS servers. But it makes instant updates impossible. If you change an IP and TTL is 24 hours, some users will hit the old IP for up to 24 hours.
         </p>
 
-        <h2>Quick Reference</h2>
-
-        <pre><code class="language-plaintext">┌─────────────┬────────────────────────────────────────┐
-│ Term        │ What it does                           │
-├─────────────┼────────────────────────────────────────┤
-│ Root        │ Top of DNS tree, knows TLD locations   │
-│ TLD         │ .com, .org, .io - knows domains under  │
-│ Domain      │ What you buy (example, google)         │
-│ Subdomain   │ What you create free (api, www, mail)  │
-├─────────────┼────────────────────────────────────────┤
-│ A Record    │ Domain → IPv4 address                  │
-│ AAAA Record │ Domain → IPv6 address                  │
-│ CNAME       │ Domain → Another domain (alias)        │
-│ MX          │ Where to send email                    │
-│ TXT         │ Verification, SPF, DKIM, DMARC         │
-├─────────────┼────────────────────────────────────────┤
-│ TTL         │ Cache duration in seconds              │
-│ Resolver    │ Server that finds IPs for you          │
-└─────────────┴────────────────────────────────────────┘</code></pre>
-
         <p>
           DNS broke my site for three hours. But now I actually understand it - not just what it does, but how it works. Next time something doesn't propagate, I'll know exactly where to look.
         </p>
 
-        <p>
-          What's something you use every day but never really understood until it broke?
-        </p>
 
         <!-- Newsletter Signup -->
         <div class="newsletter-box">
