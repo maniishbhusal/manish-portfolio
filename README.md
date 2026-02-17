@@ -152,6 +152,10 @@ Decentralized AI platform building permissionless agent networks fueled by real-
 
 | Year | Achievement |
 |------|-------------|
+| 2026 | **Blog featured on Hacker News** - DNS article reached 30,000+ readers in one week |
+| 2026 | **Shared by Microsoft's Deputy CISO** on LinkedIn |
+| 2026 | **Google AdSense approved** with only 6 blog posts |
+| 2026 | **Invited to contribute to Aden (YC W20)** - AI agent infrastructure startup |
 | 2026 | **Provincial Winner** - Code for Impact: U.S.-Nepal Tech Innovation Hackathon (U.S. Embassy Nepal & Aadyanta Advisory) - [Featured in The Kathmandu Post](https://kathmandupost.com/money/2026/01/20/us-embassy-nepal-aadyanta-advisory-roll-out-nationwide-code-for-impact-tech-hackathon) |
 | 2026 | **1st Runner Up** - Innovation Business Idea Competition (Cottage & Small Industries Office, Tulsipur) for NeuroCare |
 | 2025 | **2nd Runner Up** - Code for Change 2025 (Nepal's Biggest Hackathon) for AutiSahara |
@@ -159,6 +163,15 @@ Decentralized AI platform building permissionless agent networks fueled by real-
 | 2025 | **Honorable Mention** - HimalAI AI/Web3 Hackathon for SpeakEasyAI |
 | 2024 | Proud Participant - Nepal's Biggest Hackathon (Code for Change) |
 | 2023 | **Champion** - IT Project Showcase at Ambikeshwari College |
+
+---
+
+## Blog
+
+I write technical articles at [bhusalmanish.com.np/blog](https://www.bhusalmanish.com.np/blog). My DNS deep dive article hit the front page of Hacker News and was shared by Microsoft's Deputy CISO.
+
+- Google AdSense approved with just 5 posts
+- 13,000+ readers on a single article in one week
 
 ---
 
