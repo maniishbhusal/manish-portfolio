@@ -366,7 +366,7 @@
         // Filter posts
         document.querySelectorAll('.blog-card').forEach(card => {
           if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
+            card.style.display = '';
           } else {
             card.style.display = 'none';
           }
