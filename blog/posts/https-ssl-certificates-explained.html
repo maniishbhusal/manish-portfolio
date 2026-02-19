@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website | Manish Bhusal</title>
+  <meta name="description" content="How HTTPS actually works: certificate authorities, digital signatures, the TLS handshake, and why hackers can't fake certificates. A developer's deep dive.">
+  <meta name="keywords" content="HTTPS explained, SSL certificates, TLS handshake, certificate authority, digital signatures, asymmetric encryption, symmetric encryption, chain of trust, browser security">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website">
+  <meta property="og:description" content="How HTTPS actually works: certificate authorities, digital signatures, the TLS handshake, and why hackers can't fake certificates.">
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/HTTPS%20%26%20SSL%20Certificates%20Explained%20(1).jpg">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website">
+  <meta name="twitter:description" content="How HTTPS actually works: certificate authorities, digital signatures, the TLS handshake, and why hackers can't fake certificates.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html">
+
+  <!-- Schema Markup / Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website",
+    "description": "How HTTPS actually works: certificate authorities, digital signatures, the TLS handshake, and why hackers can't fake certificates. A developer's deep dive.",
+    "image": "https://cdn.bhusalmanish.com.np/Featured%20Image/HTTPS%20%26%20SSL%20Certificates%20Explained%20(1).jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-02-19",
+    "dateModified": "2026-02-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - Tomorrow Night Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">Web Dev</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Feb 19, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 14 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/HTTPS%20%26%20SSL%20Certificates%20Explained%20(1).jpg" alt="HTTPS and SSL Certificates Explained - How browser security and encryption actually work" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <p>
+          I've been using HTTPS every day for years. I see the padlock icon in the browser, I know "this site is secure," and I move on with my life. It works. I don't think about it.
+        </p>
+
+        <p>
+          Then someone asked me how HTTPS actually works. Not "what does HTTPS do" - I knew that. Encrypts data. Secure connection. But <em>how</em>. How does your browser know a certificate is real? How does encryption get set up? Why can't a hacker just... make their own certificate?
+        </p>
+
+        <p>
+          I couldn't answer any of it.
+        </p>
+
+        <p>
+          A few weeks ago I wrote about <a href="dns-explained.html">how DNS works</a> - how a domain name gets resolved to an IP address. That covers the first half of what happens when you type a URL. But after your browser finds the server, there's this whole other process that happens before a single byte of your actual data gets sent. That's what this post is about.
+        </p>
+
+        <h2>The Problem HTTPS Solves</h2>
+
+        <p>
+          HTTP sends everything in plain text. Your password, your credit card number, your messages - all of it travels across the internet as readable text. Anyone sitting in the middle (the WiFi owner at that coffee shop, your ISP, an attacker on the network) can read every single thing you send and receive.
+        </p>
+
+        <p>
+          HTTPS fixes this with two things: <strong>encryption</strong> and <strong>identity verification</strong>.
+        </p>
+
+        <p>
+          Encryption scrambles your data so interceptors see garbage. But encryption alone isn't enough. If you encrypt your credit card number and send it to a hacker who's pretending to be Amazon, encryption didn't save you. You encrypted it perfectly - and delivered it straight to the wrong person.
+        </p>
+
+        <blockquote>
+          Encryption without verification is useless. You need to know who you're talking to before you start sharing secrets.
+        </blockquote>
+
+        <p>
+          This is where SSL/TLS certificates come in. They prove that the website you're talking to is actually who it claims to be.
+        </p>
+
+        <h2>What Is a Certificate Authority?</h2>
+
+        <p>
+          A Certificate Authority (CA) is a trusted organization that vouches for websites. Think of it like a notary public. When Spotify wants to prove it's really Spotify, it doesn't just say "trust me." It gets a certificate signed by a CA that your browser already trusts.
+        </p>
+
+        <p>
+          Some well-known CAs: <strong>Let's Encrypt</strong> (free, and by far the most popular), <strong>DigiCert</strong>, <strong>Cloudflare</strong>, <strong>Google Trust Services</strong>.
+        </p>
+
+        <p>
+          Your browser ships with a pre-installed list of around 150 trusted root CAs. Chrome, Firefox, Safari - they all maintain their own lists. If a certificate is signed by a CA that's not on the list, your browser won't trust it. The browser makers essentially decide which CAs are trustworthy enough.
+        </p>
+
+        <h2>How a Website Gets a Certificate</h2>
+
+        <p>
+          Let's say Spotify wants HTTPS. Here's what actually happens:
+        </p>
+
+        <p>
+          Spotify generates a key pair - a <strong>private key</strong> (secret, stays on Spotify's servers, never shared) and a <strong>public key</strong> (can be shared with anyone).
+        </p>
+
+        <p>
+          Spotify then sends a Certificate Signing Request (CSR) to a CA like DigiCert. The CSR contains the domain name (<code>spotify.com</code>) and Spotify's public key.
+        </p>
+
+        <p>
+          DigiCert needs to verify that whoever sent this request actually owns <code>spotify.com</code>. They do this by asking Spotify to add a specific TXT record to their DNS settings. Only the real domain owner can modify DNS records - if you've read my <a href="dns-explained.html">DNS post</a>, you know what TXT records are. Spotify adds the record, DigiCert checks it, ownership confirmed.
+        </p>
+
+        <p>
+          DigiCert creates a certificate containing: the domain name, Spotify's public key, the issuer (DigiCert), and an expiry date. Then DigiCert signs this certificate with their own private key and sends it back. Spotify installs it on their server.
+        </p>
+
+        <pre><code class="language-plaintext">Spotify generates key pair (public + private)
+         ↓
+Spotify sends CSR to DigiCert (domain + public key)
+         ↓
+DigiCert verifies domain ownership (DNS TXT record)
+         ↓
+DigiCert creates and signs the certificate
+         ↓
+Spotify installs certificate on server</code></pre>
+
+        <p>
+          That's it. Spotify now has a signed certificate that any browser in the world can verify.
+        </p>
+
+        <h2>How Signing Works</h2>
+
+        <p>
+          When I say DigiCert "signs" the certificate, here's what's actually happening under the hood:
+        </p>
+
+        <ul>
+          <li>DigiCert takes the certificate content and runs it through a hash function. A hash is like a fingerprint - same input always gives the same output, but even a tiny change produces a completely different result. The hash might be something like <code>9f2k4m8n3p</code>.</li>
+          <li>DigiCert encrypts this hash with their <strong>private key</strong>. The result - let's say <code>x7#mK9$pL2</code> - is the digital signature.</li>
+          <li>DigiCert attaches this signature to the certificate.</li>
+        </ul>
+
+        <p>
+          Only DigiCert can create this signature because only DigiCert has the private key. That's the whole point.
+        </p>
+
+        <pre><code class="language-python"># What the CA does when signing a certificate
+certificate_content = "domain=spotify.com, public_key=abc123, expiry=2026-12-31"
+
+# Step 1: Hash the content
+hash_value = sha256(certificate_content)  # → "9f2k4m8n3p"
+
+# Step 2: Encrypt the hash with CA's private key
+signature = encrypt(hash_value, ca_private_key)  # → "x7#mK9$pL2"
+
+# Step 3: Attach signature to certificate
+certificate.signature = signature</code></pre>
+
+        <h2>How Your Browser Verifies</h2>
+
+        <p>
+          You type <code>spotify.com</code> in your browser. DNS resolves it to an IP. Your browser connects and the server sends back its certificate with the attached signature.
+        </p>
+
+        <p>
+          Now your browser does the reverse:
+        </p>
+
+        <ul>
+          <li>It sees the certificate was issued by DigiCert. It finds DigiCert's public key (pre-installed in the browser).</li>
+          <li>It decrypts the signature using DigiCert's public key. This gives back the original hash: <code>9f2k4m8n3p</code>.</li>
+          <li>It takes the certificate content it just received and hashes it independently. If nothing was tampered with, this also produces <code>9f2k4m8n3p</code>.</li>
+          <li>It compares the two hashes.</li>
+        </ul>
+
+        <p>
+          If they match - the certificate is genuine. Proceed securely. If they don't match - something was tampered with. Show a warning.
+        </p>
+
+        <pre><code class="language-python"># What your browser does when it receives a certificate
+signature = certificate.signature
+content = certificate.content
+
+# Decrypt the signature with the CA's public key
+original_hash = decrypt(signature, ca_public_key)  # → "9f2k4m8n3p"
+
+# Hash the content independently
+my_hash = sha256(content)  # → "9f2k4m8n3p"
+
+# Compare
+if original_hash == my_hash:
+    print("Certificate is genuine. Proceed.")
+else:
+    print("WARNING: Certificate may be forged!")</code></pre>
+
+        <p>
+          "Independently" is the key word here. The browser doesn't trust the hash that came with the certificate. It computes its own. That's what makes the whole thing work.
+        </p>
+
+        <h2>Why Hackers Can't Fake Certificates</h2>
+
+        <p>
+          This is the part that confused me the most. A hacker wants to pretend to be <code>spotify.com</code>. They create a fake certificate. Now they need to sign it so browsers accept it. What are their options?
+        </p>
+
+        <h3>Option 1: Sign With DigiCert's Private Key</h3>
+
+        <p>
+          Impossible. The hacker doesn't have DigiCert's private key. That key is stored in hardware security modules in secure facilities. Nobody outside DigiCert has access to it.
+        </p>
+
+        <h3>Option 2: Sign With Their Own Key</h3>
+
+        <p>
+          They can try. But when your browser decrypts the signature using DigiCert's public key, it'll get garbage. The math doesn't work - a signature created with key A can only be correctly decrypted with key A's corresponding public key, not someone else's. No match. Warning shown.
+        </p>
+
+        <h3>Option 3: Copy the Signature From the Real Certificate</h3>
+
+        <p>
+          The hacker grabs Spotify's real certificate and copies its signature onto their fake certificate. Won't work. The fake certificate has different content (the hacker's public key instead of Spotify's), so when the browser hashes the fake content, it gets a different hash. The copied signature decrypts to the old hash. They don't match. Warning shown.
+        </p>
+
+        <h3>Option 4: Just Guess a Valid Signature</h3>
+
+        <p>
+          Mathematically impossible. The number of possible signatures is so large that brute-forcing one would take longer than the age of the universe. Not an exaggeration.
+        </p>
+
+        <blockquote>
+          Public keys can only VERIFY signatures, not CREATE them. Everyone has the public key - that's by design. But to create a valid signature, you need the private key. And only the CA has it.
+        </blockquote>
+
+        <p>
+          The hacker is stuck. Every option is a dead end.
+        </p>
+
+        <h2>The HTTPS Handshake</h2>
+
+        <p>
+          Once the certificate is verified, your browser and the server need to set up encryption. This happens through what's called the TLS handshake. It takes milliseconds, but a lot is happening:
+        </p>
+
+        <p>
+          <strong>Step 1 - Client Hello:</strong> Your browser tells the server "I want a secure connection" and lists the encryption methods it supports (TLS 1.3, TLS 1.2, etc.).
+        </p>
+
+        <p>
+          <strong>Step 2 - Server Hello:</strong> The server picks an encryption method and says "Let's use TLS 1.3. Here's my certificate."
+        </p>
+
+        <p>
+          <strong>Step 3 - Certificate Verification:</strong> Your browser verifies the certificate is genuine using the process I described above.
+        </p>
+
+        <p>
+          <strong>Step 4 - Key Exchange:</strong> The browser generates a random secret, encrypts it with the server's public key (from the certificate), and sends it over. Only the server can decrypt this because only the server has the matching private key. Now both sides have the same shared secret.
+        </p>
+
+        <p>
+          <strong>Step 5 - Symmetric Encryption Begins:</strong> Both sides derive a session key from the shared secret. All further communication is encrypted with this key. Fast symmetric encryption from this point on.
+        </p>
+
+        <pre><code class="language-plaintext">Browser → Server:  "Hello. I support TLS 1.3, TLS 1.2."
+Server → Browser:  "Let's use TLS 1.3. Here's my certificate."
+Browser:           Verifies certificate is genuine ✓
+Browser → Server:  Sends encrypted shared secret (using server's public key)
+Server:            Decrypts with private key. Both now share a secret.
+All data after:    Encrypted with fast symmetric key derived from secret</code></pre>
+
+        <h2>Why Two Types of Encryption?</h2>
+
+        <p>
+          I kept reading about "asymmetric" and "symmetric" encryption and it felt unnecessarily complicated. Why not just use one type?
+        </p>
+
+        <p>
+          <strong>Asymmetric encryption</strong> (public/private key pairs) is secure but slow. Really slow. You wouldn't want to encrypt every single packet of a Netflix stream with it. It's used only for the initial handshake - to safely exchange a secret between two parties who've never talked before.
+        </p>
+
+        <p>
+          <strong>Symmetric encryption</strong> (one shared key on both sides) is fast. Like, orders of magnitude faster. But it has a chicken-and-egg problem: both sides need the same key, and how do you share a key safely over an insecure connection?
+        </p>
+
+        <p>
+          You use asymmetric encryption to share the key. Then switch to symmetric for everything else.
+        </p>
+
+        <blockquote>
+          Use the slow secure method once to set up a shared secret. Then use the fast method for all actual data. That's the whole trick.
+        </blockquote>
+
+        <h2>When Verification Fails</h2>
+
+        <p>
+          You've seen the "Your connection is not private" page in Chrome. Now you know what's actually going wrong behind the scenes. It's one of these:
+        </p>
+
+        <ul>
+          <li><strong>Certificate expired</strong> - Let's Encrypt certificates last 90 days. If the site admin forgot to renew (or their auto-renewal broke), the certificate is dead. This happens more often than you'd think.</li>
+          <li><strong>Wrong domain</strong> - The certificate says <code>spotify.com</code> but you're on <code>sp0tify.com</code>. The domain in the certificate doesn't match the domain you're visiting.</li>
+          <li><strong>Self-signed certificate</strong> - Someone generated their own certificate without going through a trusted CA. The browser has no way to verify it. Common on local development servers.</li>
+          <li><strong>Unknown CA</strong> - The certificate was signed by a CA that's not in the browser's trust list.</li>
+          <li><strong>Certificate revoked</strong> - The CA explicitly revoked the certificate, usually because the private key was compromised.</li>
+        </ul>
+
+        <p>
+          Don't bypass these warnings unless you know exactly what you're doing. They exist because something in the trust chain broke.
+        </p>
+
+        <h2>Some Questions I Had</h2>
+
+        <p>
+          While learning all this, I kept running into the same few questions. If you're thinking the same things, here's what I figured out.
+        </p>
+
+        <h3>What does "browser hashes independently" actually mean?</h3>
+
+        <p>
+          The certificate has two parts: the content (domain, public key, expiry, issuer info) and the signature.
+        </p>
+
+        <p>
+          The signature is just the hash of the content, encrypted with the CA's private key. When the browser receives the certificate, it gets the original hash by decrypting the signature with the CA's public key. Then it takes the certificate content it received and runs the <em>same</em> hash function on it. "Independently" means the browser is doing its own math - not trusting what the server or anyone else claims the hash should be.
+        </p>
+
+        <p>
+          If a hacker modified the certificate content (swapped in their own public key, for example), the hash would change. The decrypted signature would say <code>9f2k4m8n3p</code> but the browser's independent calculation would say <code>7x9pqr2m1k</code>. No match. Tampered.
+        </p>
+
+        <h3>Does this happen every single time I visit a site?</h3>
+
+        <p>
+          The full handshake happens on the first connection. After that, TLS has a session resumption feature - the browser and server can reuse the previously negotiated session parameters, skipping the expensive certificate verification and key exchange. This is why the first page load feels slightly slower than subsequent ones.
+        </p>
+
+        <p>
+          If you close the browser and come back later, a new handshake happens. But browsers cache session tickets for a short time, so reconnecting within a few minutes is usually fast. Certificates themselves are typically cached too.
+        </p>
+
+        <p>
+          And certificates expire. Let's Encrypt issues them for 90 days. Other CAs go up to a year. After expiry, the website needs a new one.
+        </p>
+
+        <h3>Hackers have the public key too. So what stops them?</h3>
+
+        <p>
+          Yes, hackers have the public key. Everyone does. It's literally public.
+        </p>
+
+        <p>
+          But public keys can only decrypt signatures - they can't create them. Think of it like a wax seal. DigiCert's private key is the stamp that creates the seal. The public key is a mold that lets you check if a seal is genuine. Everyone has the mold. Only DigiCert has the stamp.
+        </p>
+
+        <p>
+          With the public key, a hacker can verify existing signatures. That's it. They can confirm "yep, DigiCert signed this." Completely useless for attacking anything.
+        </p>
+
+        <p>
+          To create a new valid signature, you need to encrypt the hash with the private key. The hacker doesn't have it. If they try to encrypt with the public key instead, the math breaks - decrypting a public-key-encrypted value with the same public key doesn't produce a valid result.
+        </p>
+
+        <p>
+          The math only works one way: private key encrypts, public key decrypts. That's asymmetric cryptography. The public key being public isn't a vulnerability. It's the entire design.
+        </p>
+
+        <p>
+          I use HTTPS every day. Now I actually know what happens between typing a URL and seeing that padlock icon. The whole security model boils down to one principle: <strong>private keys create, public keys verify</strong>. Without the private key, you can't forge anything. With the <a href="dns-explained.html">DNS knowledge</a> from my last post and this, I now understand the full chain - from domain name to IP address to verified, encrypted connection.
+        </p>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-box">
+          <h3>Get the next one.</h3>
+          <p>New posts on building, breaking, and shipping products. Straight to your inbox.</p>
+          <script async data-uid="b48514915e" src="https://maniishbhusal.kit.com/b48514915e/index.js"></script>
+        </div>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 4x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="dns-explained.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Web Dev</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 11 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">DNS Explained - How Domain Names Get Resolved</h2>
+              <p class="blog-card-excerpt">
+                How DNS actually works: hierarchy, records, TTL caching, and the full resolution process from browser to nameserver.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 2, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="deploy-drf-production.html">
+            <div class="blog-card-header">
+              <span class="blog-category">DevOps</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 14 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Deploy Django REST Framework to Production: Docker, Nginx & SSL</h2>
+              <p class="blog-card-excerpt">
+                The complete guide to deploying DRF on a VPS with Docker, PostgreSQL, Nginx, and free SSL certificates.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
