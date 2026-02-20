@@ -160,15 +160,11 @@
         </p>
 
         <p>
-          But the benchmark setup doesn't look like real software development. In a benchmark, you get a well-specified problem, you generate code, and you get graded on whether the output is correct. That's it.
+          Older benchmarks like HumanEval work exactly like that - you get an isolated function to write, and you're graded on whether it passes unit tests. Newer benchmarks like <a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a> are more realistic. They give the model real GitHub issues from real repos and ask it to generate patches. That's closer to actual development.
         </p>
 
         <p>
-          Real coding work looks different. You have a file tree with hundreds of files. You need to read the right files to understand context. You edit specific lines without breaking the lines around them. You call tools in a sequence. You hit a problem, you stop and ask the user, you continue. You manage a chain of actions across time. None of that shows up in the benchmark.
-        </p>
-
-        <p>
-          A model that scores 80% on isolated code generation might score 20% on the actual workflow of getting something done. Those are measuring fundamentally different things.
+          But even SWE-bench is still a controlled environment. Real coding work has more going on. You're managing a conversation with the user. You're deciding which files to read and which to skip. You're making targeted edits without breaking surrounding code. You're hitting unexpected errors and deciding whether to ask for help or try a different approach. You're staying on task across 20+ steps without drifting. That kind of sustained, interactive workflow is hard to capture in any benchmark.
         </p>
 
         <h2>The Process vs. Raw Intelligence Gap</h2>
@@ -178,11 +174,11 @@
         </p>
 
         <p>
-          That means reading files before touching them. Making targeted edits instead of rewriting entire files unnecessarily. Communicating what it's doing and why. Knowing when to act and when to stop and ask. Staying on the original task instead of getting distracted by adjacent issues it noticed.
+          To be clear - every major coding agent can read files, edit code, and run terminal commands. <a href="https://openai.com/codex/" target="_blank" rel="noopener">Codex</a>, <a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/" target="_blank" rel="noopener">Antigravity</a>, Gemini CLI - they all have these capabilities. The difference is in how consistently the model behind them executes the workflow. Reading the right files before making changes. Making targeted edits instead of rewriting entire files unnecessarily. Knowing when to act and when to stop and ask. Staying on the original task instead of getting distracted.
         </p>
 
         <p>
-          Other models write good code. The code itself is often excellent - sometimes arguably better than Claude's on a per-snippet basis. The failure isn't in the quality of any individual output. It's in the orchestration. They loop. They lose track of what they were doing. They use tools incorrectly. They edit files in ways that break surrounding context. They need constant steering.
+          All these tools can do it. Claude does it more reliably. Other models produce excellent code - sometimes arguably better than Claude's on a per-snippet basis. The gap isn't in any individual output. It's in the consistency across a full task. They loop more often. They lose track of what they were doing mid-sequence. They make edits that break surrounding context. They need more steering to stay on track. Not always - but often enough that it changes how much you can trust the tool to work unsupervised.
         </p>
 
         <blockquote>
@@ -192,42 +188,24 @@
         <h2>What "Good at Coding" Actually Requires</h2>
 
         <p>
-          Generating correct code is maybe 40% of what an AI coding assistant needs to do well. Here's the rest:
+          Generating correct code is maybe 40% of what an AI coding assistant needs to do well. The other 60% is everything around the code:
         </p>
 
         <ul>
-          <li>Using file editing tools without corrupting surrounding code</li>
-          <li>Knowing which files to read before making changes</li>
+          <li>Editing files without corrupting surrounding code</li>
+          <li>Reading the right files before making changes</li>
           <li>Completing a multi-step task without losing the thread halfway through</li>
           <li>Communicating clearly about what it's doing and what it found</li>
-          <li>Recognizing when something is unclear and asking before assuming</li>
-          <li>Not going off-script and making unrequested changes to unrelated files</li>
+          <li>Knowing when to ask instead of assuming</li>
+          <li>Staying on task instead of making unrequested changes to unrelated files</li>
         </ul>
 
         <p>
-          When I'm using Claude Code for a real task - building out an API endpoint, debugging a production issue, refactoring a component - it handles all of these. It reads the relevant files first. It makes surgical edits. When it's unsure about something, it tells me. When it finishes, I can see exactly what it did and why.
+          Every major coding agent attempts all of these. The question is how often they succeed at each one across a full task. In my experience using Claude Code daily - building API endpoints, debugging production issues, refactoring components - it hits these consistently. Not perfectly, but consistently enough that I don't feel like I need to watch every step.
         </p>
 
         <p>
-          I've tried the same tasks with competing tools. The code generation part is often comparable. Everything around the code generation is where they fall apart.
-        </p>
-
-        <h2>The Communication Gap Is Bigger Than You'd Expect</h2>
-
-        <p>
-          One thing I didn't expect to matter as much as it does: how the AI communicates while it's working.
-        </p>
-
-        <p>
-          Claude tells you what it's doing. "I'm reading this file to understand the existing pattern before making changes." "I'm not sure if you want me to modify the test file too - should I?" That running commentary lets you catch problems before they compound. If it's headed in the wrong direction, you can stop it early.
-        </p>
-
-        <p>
-          Some competing models produce thinking output that's essentially useless. Verbose, formatted, but not communicating anything about what they plan to do or what problems they've encountered. One model's thinking tokens are basically "I'm now completely immersed in the problem" repeated in different ways. You're left watching a wall of text and then getting an output that may or may not be right.
-        </p>
-
-        <p>
-          For a one-shot question, communication quality is cosmetic. For a 20-step agentic task involving multiple files, bad communication means you don't know where things went wrong until something is already broken. And by then you've lost ten minutes.
+          With other tools, I find myself intervening more. The code they generate is often just as good. But somewhere in the middle of a multi-file task, something slips - a file gets partially overwritten, or the model goes off and starts "improving" something I didn't ask about. That's the gap. It's not about capability. It's about how often the tool stays on track without you having to course-correct.
         </p>
 
         <h2>Why Google Has a Structural Problem Here</h2>
