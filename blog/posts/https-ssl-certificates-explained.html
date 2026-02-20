@@ -31,6 +31,7 @@
   <meta name="twitter:creator" content="@maniishbhusal">
   <meta name="twitter:title" content="HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website">
   <meta name="twitter:description" content="How HTTPS actually works: certificate authorities, digital signatures, the TLS handshake, and why hackers can't fake certificates.">
+  <meta name="twitter:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/HTTPS%20%26%20SSL%20Certificates%20Explained%20(1).jpg">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html">
@@ -53,11 +54,61 @@
       "name": "Manish Bhusal"
     },
     "datePublished": "2026-02-19",
-    "dateModified": "2026-02-19",
+    "dateModified": "2026-02-20",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html"
     }
+  }
+  </script>
+
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does 'browser hashes independently' actually mean in HTTPS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The certificate has two parts: the content and the signature. The browser doesn't trust the hash that came with the certificate. It decrypts the signature with the CA's public key to get the original hash, then runs the same hash function on the certificate content itself. If they match, the certificate is genuine. If a hacker modified the content, the hashes won't match."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does HTTPS verification happen every time I visit a website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The full TLS handshake happens on the first connection. After that, TLS has session resumption - the browser and server reuse previously negotiated session parameters, skipping the expensive certificate verification and key exchange. Browsers cache session tickets for a short time, so reconnecting within minutes is usually fast."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "If hackers have the public key, what stops them from faking certificates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Public keys can only verify signatures, not create them. To create a valid digital signature, you need the private key, which only the Certificate Authority has. A hacker can confirm that a CA signed something, but they cannot forge a new signature. The public key being public is not a vulnerability - it is the entire design of asymmetric cryptography."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between DV, OV, and EV SSL certificates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DV (Domain Validation) only proves you own the domain - this is what Let's Encrypt gives you and is sufficient for most websites. OV (Organization Validation) also verifies that your organization legally exists. EV (Extended Validation) is the most thorough, requiring extensive verification of the business. The encryption is the same for all three - the difference is how much identity verification was done."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can my employer or school see my HTTPS traffic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If they install a custom root CA certificate on your device (common on corporate and school networks), yes. This is called TLS interception. Your device trusts their CA, so they can issue certificates for any domain, decrypt your traffic, inspect it, and re-encrypt it. This is legitimate on managed devices but you should be aware of it. On your personal devices, this does not apply."
+        }
+      }
+    ]
   }
   </script>
 
@@ -125,7 +176,7 @@
         <span class="post-meta-divider"></span>
         <span><i class="far fa-calendar"></i> Feb 19, 2026</span>
         <span class="post-meta-divider"></span>
-        <span><i class="far fa-clock"></i> 14 min read</span>
+        <span><i class="far fa-clock"></i> 20 min read</span>
       </div>
 
       <!-- Post Title -->
@@ -164,7 +215,47 @@
           A few weeks ago I wrote about <a href="dns-explained.html">how DNS works</a> - how a domain name gets resolved to an IP address. That covers the first half of what happens when you type a URL. But after your browser finds the server, there's this whole other process that happens before a single byte of your actual data gets sent. That's what this post is about.
         </p>
 
-        <h2>The Problem HTTPS Solves</h2>
+        <!-- Table of Contents -->
+        <nav class="toc-box">
+          <h3>In This Post</h3>
+          <ol>
+            <li><a href="#ssl-vs-tls">SSL vs TLS - Quick Clarification</a></li>
+            <li><a href="#the-problem-https-solves">The Problem HTTPS Solves</a></li>
+            <li><a href="#what-is-a-certificate-authority">What Is a Certificate Authority?</a></li>
+            <li><a href="#how-a-website-gets-a-certificate">How a Website Gets a Certificate</a></li>
+            <li><a href="#whats-inside-a-certificate">What's Actually Inside a Certificate</a></li>
+            <li><a href="#how-signing-works">How Signing Works</a></li>
+            <li><a href="#how-your-browser-verifies">How Your Browser Verifies</a></li>
+            <li><a href="#the-chain-of-trust">The Chain of Trust</a></li>
+            <li><a href="#why-hackers-cant-fake-certificates">Why Hackers Can't Fake Certificates</a></li>
+            <li><a href="#the-https-handshake">The HTTPS Handshake</a></li>
+            <li><a href="#why-two-types-of-encryption">Why Two Types of Encryption?</a></li>
+            <li><a href="#when-verification-fails">When Verification Fails</a></li>
+            <li><a href="#hsts-and-mixed-content">HSTS and Mixed Content</a></li>
+            <li><a href="#try-it-yourself">Try It Yourself</a></li>
+            <li><a href="#some-questions-i-had">Some Questions I Had</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="ssl-vs-tls">SSL vs TLS - Quick Clarification</h2>
+
+        <p>
+          Before we get into it, you'll see me say "SSL" and "TLS" in this post. They're related but not the same thing.
+        </p>
+
+        <p>
+          SSL (Secure Sockets Layer) was the original protocol for encrypting web traffic. It was created by Netscape back in the mid-90s. SSL 3.0 was the last version, and it's been officially deprecated since 2015 because of security vulnerabilities.
+        </p>
+
+        <p>
+          TLS (Transport Layer Security) is the replacement. TLS 1.2 and TLS 1.3 are what your browser actually uses today. TLS 1.3 is the latest and fastest - it cut the handshake down to a single round trip.
+        </p>
+
+        <p>
+          But here's the thing - everyone still says "SSL certificate." It's technically a TLS certificate, but the old name stuck. Kind of like how people still say "roll down the window" even though car windows are electric now. Throughout this post, when I say SSL, I mean TLS. When I say SSL certificate, I mean TLS certificate. Same thing.
+        </p>
+
+        <h2 id="the-problem-https-solves">The Problem HTTPS Solves</h2>
 
         <p>
           HTTP sends everything in plain text. Your password, your credit card number, your messages - all of it travels across the internet as readable text. Anyone sitting in the middle (the WiFi owner at that coffee shop, your ISP, an attacker on the network) can read every single thing you send and receive.
@@ -175,7 +266,30 @@
         </p>
 
         <p>
-          Encryption scrambles your data so interceptors see garbage. But encryption alone isn't enough. If you encrypt your credit card number and send it to a hacker who's pretending to be Amazon, encryption didn't save you. You encrypted it perfectly - and delivered it straight to the wrong person.
+          Encryption scrambles your data so interceptors see garbage. To see what I mean, imagine you're logging into a website. With HTTP, anyone on the network can see exactly what you're sending:
+        </p>
+
+        <pre><code class="language-plaintext">--- HTTP (plain text) ---
+POST /login HTTP/1.1
+Host: example.com
+
+username=manish&password=MySecretPass123</code></pre>
+
+        <p>
+          Your password. Right there. Readable by anyone. Your ISP, that person next to you at the coffee shop, anyone running a packet sniffer on the network.
+        </p>
+
+        <p>
+          With HTTPS, the same request looks like this to an interceptor:
+        </p>
+
+        <pre><code class="language-plaintext">--- HTTPS (encrypted) ---
+17 03 03 00 9A 2B 5E 8C F1 A3 7D 22 0E B8 4A 91
+C6 3F D7 18 55 6B A0 E4 9C 72 1D 83 F5 0A 6E B9
+3A 87 C1 4F D6 2E 59 7B A8 E0 1C 63 F4 0B 5D 92...</code></pre>
+
+        <p>
+          Complete gibberish. Even if someone intercepts every single packet, they can't read any of it.
         </p>
 
         <blockquote>
@@ -183,10 +297,10 @@
         </blockquote>
 
         <p>
-          This is where SSL/TLS certificates come in. They prove that the website you're talking to is actually who it claims to be.
+          But encryption alone isn't enough. If you encrypt your credit card number and send it to a hacker who's pretending to be Amazon, encryption didn't save you. You encrypted it perfectly - and delivered it straight to the wrong person. This is where SSL/TLS certificates come in. They prove that the website you're talking to is actually who it claims to be.
         </p>
 
-        <h2>What Is a Certificate Authority?</h2>
+        <h2 id="what-is-a-certificate-authority">What Is a Certificate Authority?</h2>
 
         <p>
           A Certificate Authority (CA) is a trusted organization that vouches for websites. Think of it like a notary public. When Spotify wants to prove it's really Spotify, it doesn't just say "trust me." It gets a certificate signed by a CA that your browser already trusts.
@@ -200,7 +314,7 @@
           Your browser ships with a pre-installed list of around 150 trusted root CAs. Chrome, Firefox, Safari - they all maintain their own lists. If a certificate is signed by a CA that's not on the list, your browser won't trust it. The browser makers essentially decide which CAs are trustworthy enough.
         </p>
 
-        <h2>How a Website Gets a Certificate</h2>
+        <h2 id="how-a-website-gets-a-certificate">How a Website Gets a Certificate</h2>
 
         <p>
           Let's say Spotify wants HTTPS. Here's what actually happens:
@@ -215,28 +329,52 @@
         </p>
 
         <p>
-          DigiCert needs to verify that whoever sent this request actually owns <code>spotify.com</code>. They do this by asking Spotify to add a specific TXT record to their DNS settings. Only the real domain owner can modify DNS records - if you've read my <a href="dns-explained.html">DNS post</a>, you know what TXT records are. Spotify adds the record, DigiCert checks it, ownership confirmed.
+          DigiCert needs to verify that whoever sent this request actually owns <code>spotify.com</code>. This is called Domain Control Validation (DCV), and CAs typically offer three ways to do it:
         </p>
+
+        <ul>
+          <li><strong>DNS method</strong> - Add a specific TXT record to your DNS settings. Only the real domain owner can modify DNS records - if you've read my <a href="dns-explained.html">DNS post</a>, you know what TXT records are. This is the most common method.</li>
+          <li><strong>Email method</strong> - Respond to a verification email sent to an address like <code>admin@spotify.com</code>. If you can receive email on the domain, you probably own it.</li>
+          <li><strong>HTTP method</strong> - Upload a specific file to a specific path on your web server (something like <code>spotify.com/.well-known/pki-validation/</code>). If you can put files on the server, you control the domain.</li>
+        </ul>
 
         <p>
-          DigiCert creates a certificate containing: the domain name, Spotify's public key, the issuer (DigiCert), and an expiry date. Then DigiCert signs this certificate with their own private key and sends it back. Spotify installs it on their server.
+          Spotify picks one, proves ownership, and DigiCert is satisfied. Now DigiCert creates a certificate containing: the domain name, Spotify's public key, the issuer (DigiCert), and an expiry date. Then DigiCert signs this certificate with their own private key - takes a hash of the certificate data and encrypts that hash with DigiCert's private key. That encrypted hash is the digital signature. DigiCert sends the signed certificate back, and Spotify installs it on their server.
         </p>
 
-        <pre><code class="language-plaintext">Spotify generates key pair (public + private)
-         ↓
-Spotify sends CSR to DigiCert (domain + public key)
-         ↓
-DigiCert verifies domain ownership (DNS TXT record)
-         ↓
-DigiCert creates and signs the certificate
-         ↓
-Spotify installs certificate on server</code></pre>
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/1-how-a-website-gets-traffic.png" alt="Flowchart showing how a website gets an SSL certificate: Spotify generates key pair, sends CSR to DigiCert, DigiCert verifies via DNS TXT, signs the certificate, and Spotify installs it on server" loading="lazy">
+          <figcaption>Fig 1: How a website gets an SSL certificate</figcaption>
+        </figure>
 
         <p>
           That's it. Spotify now has a signed certificate that any browser in the world can verify.
         </p>
 
-        <h2>How Signing Works</h2>
+        <h2 id="whats-inside-a-certificate">What's Actually Inside a Certificate</h2>
+
+        <p>
+          I kept saying "the certificate contains the domain name and public key" like that's all there is. It's not. A real certificate has a lot more information packed into it. I opened <code>open.spotify.com</code> in my browser, clicked the padlock icon, and looked at the actual certificate. This is what's inside:
+        </p>
+
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/spotify-https-certificate.png" alt="Chrome certificate viewer showing the SSL certificate for open.spotify.com, issued by Certainly Intermediate R1, with validity dates, public key, and SHA-256 fingerprints" loading="lazy">
+          <figcaption>Fig 5: The actual certificate for open.spotify.com viewed in Chrome</figcaption>
+        </figure>
+
+        <p>
+          A few things worth noting. The <strong>Issuer</strong> is "Certainly Intermediate R1" - that's the intermediate CA that signed this certificate (not a root CA directly, which ties into the chain of trust I'll explain later). The <strong>Validity</strong> shows this cert only lasts about 30 days - Spotify rotates certificates frequently.
+        </p>
+
+        <p>
+          The <strong>Subject Alternative Names (SANs)</strong> field lists every domain the certificate is valid for. That <code>*.spotify.com</code> is a wildcard, meaning the same certificate covers <code>open.spotify.com</code>, <code>api.spotify.com</code>, and any other subdomain. One certificate, multiple domains.
+        </p>
+
+        <p>
+          The <strong>Signature Algorithm</strong> tells you which hash function and encryption method were used to sign this certificate. <code>SHA256withRSA</code> means the content was hashed with SHA-256 and the hash was encrypted with RSA. You'll see why this matters in a second.
+        </p>
+
+        <h2 id="how-signing-works">How Signing Works</h2>
 
         <p>
           When I say DigiCert "signs" the certificate, here's what's actually happening under the hood:
@@ -264,7 +402,7 @@ signature = encrypt(hash_value, ca_private_key)  # → "x7#mK9$pL2"
 # Step 3: Attach signature to certificate
 certificate.signature = signature</code></pre>
 
-        <h2>How Your Browser Verifies</h2>
+        <h2 id="how-your-browser-verifies">How Your Browser Verifies</h2>
 
         <p>
           You type <code>spotify.com</code> in your browser. DNS resolves it to an IP. Your browser connects and the server sends back its certificate with the attached signature.
@@ -301,11 +439,49 @@ if original_hash == my_hash:
 else:
     print("WARNING: Certificate may be forged!")</code></pre>
 
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/2-How%20Signing%20%26%20Verification%20Works.png" alt="Diagram showing how signing and verification works: CA signs by hashing content and encrypting with private key, browser verifies by decrypting with public key and comparing hashes independently" loading="lazy">
+          <figcaption>Fig 2: How signing and verification works</figcaption>
+        </figure>
+
         <p>
           "Independently" is the key word here. The browser doesn't trust the hash that came with the certificate. It computes its own. That's what makes the whole thing work.
         </p>
 
-        <h2>Why Hackers Can't Fake Certificates</h2>
+        <h2 id="the-chain-of-trust">The Chain of Trust</h2>
+
+        <p>
+          I simplified something earlier. I said your browser checks the certificate against DigiCert's public key, which is pre-installed in the browser. That's the gist of it, but in practice there's a layer in between.
+        </p>
+
+        <p>
+          Root CAs don't directly sign website certificates. Their private keys are way too valuable - if a root key got compromised, every certificate it ever signed would be in question. So root CAs keep their private keys locked away in offline hardware security modules and almost never use them directly.
+        </p>
+
+        <p>
+          Instead, the chain works like this: the <strong>Root CA</strong> signs an <strong>Intermediate CA's</strong> certificate. The Intermediate CA then signs the actual website certificate. So when your browser receives Spotify's certificate, it actually gets a chain:
+        </p>
+
+        <ul>
+          <li><strong>Spotify's certificate</strong> - signed by DigiCert's Intermediate CA</li>
+          <li><strong>DigiCert Intermediate CA's certificate</strong> - signed by DigiCert's Root CA</li>
+          <li><strong>DigiCert Root CA's certificate</strong> - pre-installed in your browser's trust store</li>
+        </ul>
+
+        <p>
+          Your browser walks up the chain. Is Spotify's cert signed by the intermediate? Check. Is the intermediate signed by the root? Check. Is the root in the trust store? Check. All links verified.
+        </p>
+
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/chain-of-trust-flowchart.png" alt="Diagram showing the chain of trust: Root CA certificate (pre-installed in browser) signs the Intermediate CA certificate, which signs the website certificate for open.spotify.com, with browser verification checking each link" loading="lazy">
+          <figcaption>Fig 4: The chain of trust</figcaption>
+        </figure>
+
+        <p>
+          If you've ever set up SSL with Let's Encrypt, you've seen this in action. When Let's Encrypt gives you certificate files, one of them is called <code>fullchain.pem</code>. That file contains your website certificate AND the intermediate certificate bundled together. The server sends both to the browser so it can verify the entire chain. If you've followed my <a href="deploy-drf-production.html">Django deployment guide</a>, you already used this file in your Nginx config.
+        </p>
+
+        <h2 id="why-hackers-cant-fake-certificates">Why Hackers Can't Fake Certificates</h2>
 
         <p>
           This is the part that confused me the most. A hacker wants to pretend to be <code>spotify.com</code>. They create a fake certificate. Now they need to sign it so browsers accept it. What are their options?
@@ -343,7 +519,29 @@ else:
           The hacker is stuck. Every option is a dead end.
         </p>
 
-        <h2>The HTTPS Handshake</h2>
+        <h3>But What If the CA Itself Gets Hacked?</h3>
+
+        <p>
+          This actually happened. In 2011, a Dutch Certificate Authority called <a href="https://en.wikipedia.org/wiki/DigiNotar" target="_blank" rel="noopener">DigiNotar</a> got compromised. Attackers broke into their systems and issued over 500 fake certificates - including ones for <code>google.com</code>, <code>mozilla.org</code>, and intelligence agencies.
+        </p>
+
+        <p>
+          These fake certificates were used to intercept the HTTPS traffic of around 300,000 Iranian users. Real man-in-the-middle attacks, against real people, using certificates that browsers considered completely legitimate.
+        </p>
+
+        <p>
+          The response was swift. Every major browser revoked trust in DigiNotar entirely. Every single certificate they'd ever issued became untrusted overnight. DigiNotar went bankrupt within months.
+        </p>
+
+        <p>
+          This incident is why <strong>Certificate Transparency (CT)</strong> exists now. CT is a system of public, append-only logs where every certificate issued by any CA gets recorded. Anyone can search these logs. If a CA issues a suspicious certificate for your domain, monitoring services will catch it. Google Chrome actually requires all certificates to be logged in CT before it will trust them.
+        </p>
+
+        <p>
+          So yes - the system isn't perfect. CAs can be compromised. But the consequences are catastrophic for the CA, and the industry has added safeguards to make it much harder to pull off undetected.
+        </p>
+
+        <h2 id="the-https-handshake">The HTTPS Handshake</h2>
 
         <p>
           Once the certificate is verified, your browser and the server need to set up encryption. This happens through what's called the TLS handshake. It takes milliseconds, but a lot is happening:
@@ -369,36 +567,51 @@ else:
           <strong>Step 5 - Symmetric Encryption Begins:</strong> Both sides derive a session key from the shared secret. All further communication is encrypted with this key. Fast symmetric encryption from this point on.
         </p>
 
-        <pre><code class="language-plaintext">Browser → Server:  "Hello. I support TLS 1.3, TLS 1.2."
-Server → Browser:  "Let's use TLS 1.3. Here's my certificate."
-Browser:           Verifies certificate is genuine ✓
-Browser → Server:  Sends encrypted shared secret (using server's public key)
-Server:            Decrypts with private key. Both now share a secret.
-All data after:    Encrypted with fast symmetric key derived from secret</code></pre>
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/3-%20The%20HTTPS%20Handshake.png" alt="Flowchart showing the HTTPS handshake: Browser sends Client Hello, Server responds with Server Hello and certificate, Browser verifies cert, Key Exchange with encrypted shared secret, then Symmetric Encryption begins" loading="lazy">
+          <figcaption>Fig 3: The HTTPS handshake</figcaption>
+        </figure>
 
-        <h2>Why Two Types of Encryption?</h2>
+        <h2 id="why-two-types-of-encryption">Why Two Types of Encryption?</h2>
 
         <p>
-          I kept reading about "asymmetric" and "symmetric" encryption and it felt unnecessarily complicated. Why not just use one type?
+          I kept reading about "asymmetric" and "symmetric" encryption and it felt unnecessarily complicated. Why not just use one type? To understand why HTTPS uses both, you need to know what each one actually does.
         </p>
 
         <p>
-          <strong>Asymmetric encryption</strong> (public/private key pairs) is secure but slow. Really slow. You wouldn't want to encrypt every single packet of a Netflix stream with it. It's used only for the initial handshake - to safely exchange a secret between two parties who've never talked before.
+          <strong>Symmetric encryption</strong> uses one key. The same key encrypts and decrypts. Think of it like a padlock where both you and your friend have a copy of the same key. You lock the box, send it, they unlock it with their identical key. Simple and fast - like, really fast. AES-256 (the algorithm most HTTPS connections use) can encrypt gigabytes of data per second. Your Netflix stream, your Google searches, your bank transactions - all encrypted with symmetric encryption at full speed.
         </p>
 
         <p>
-          <strong>Symmetric encryption</strong> (one shared key on both sides) is fast. Like, orders of magnitude faster. But it has a chicken-and-egg problem: both sides need the same key, and how do you share a key safely over an insecure connection?
+          But there's a problem. How do you and your friend get the same key in the first place? You can't just send it over the internet - if anyone intercepts it, they have the key too. You'd need to meet in person and exchange keys, which obviously doesn't work when your browser needs to talk to a server on the other side of the planet.
         </p>
 
         <p>
-          You use asymmetric encryption to share the key. Then switch to symmetric for everything else.
+          <strong>Asymmetric encryption</strong> solves this. Instead of one shared key, you get a pair: a public key and a private key. They're mathematically linked. Anything encrypted with the public key can only be decrypted with the matching private key, and vice versa. The public key is... public. You can post it on a billboard. It doesn't matter. Without the private key, nobody can decrypt what was encrypted with the public key.
         </p>
+
+        <p>
+          This is how two strangers can communicate securely without ever meeting. The server publishes its public key (in the certificate). Your browser encrypts a secret using that public key and sends it over. Even if an attacker intercepts it, they can't decrypt it - only the server's private key can do that. Now both sides have the shared secret, and they never had to exchange it insecurely.
+        </p>
+
+        <p>
+          The downside? Asymmetric encryption is slow. Really slow. RSA operations can be hundreds of times slower than AES. You wouldn't want to encrypt every single packet of a Netflix stream with it.
+        </p>
+
+        <p>
+          So HTTPS uses both. Asymmetric encryption to safely exchange a shared secret between two parties who've never talked before. Then symmetric encryption (using that shared secret as the key) for all actual data from that point on. Fast, secure, and no chicken-and-egg problem.
+        </p>
+
+        <figure>
+          <img src="https://cdn.bhusalmanish.com.np/Article%20Images/HTTPS%20%26%20SSL%20Certificates/two-encryption-diagram.png" alt="Sequence diagram showing how HTTPS uses both encryption types: asymmetric encryption to exchange a shared secret, then symmetric encryption (AES-256) for all data transfer" loading="lazy">
+          <figcaption>Fig 6: How HTTPS uses asymmetric and symmetric encryption together</figcaption>
+        </figure>
 
         <blockquote>
           Use the slow secure method once to set up a shared secret. Then use the fast method for all actual data. That's the whole trick.
         </blockquote>
 
-        <h2>When Verification Fails</h2>
+        <h2 id="when-verification-fails">When Verification Fails</h2>
 
         <p>
           You've seen the "Your connection is not private" page in Chrome. Now you know what's actually going wrong behind the scenes. It's one of these:
@@ -416,7 +629,57 @@ All data after:    Encrypted with fast symmetric key derived from secret</code><
           Don't bypass these warnings unless you know exactly what you're doing. They exist because something in the trust chain broke.
         </p>
 
-        <h2>Some Questions I Had</h2>
+        <h2 id="hsts-and-mixed-content">HSTS and Mixed Content</h2>
+
+        <p>
+          Two more things that are directly related to HTTPS and worth knowing about.
+        </p>
+
+        <h3>HSTS (HTTP Strict Transport Security)</h3>
+
+        <p>
+          When you visit a site that uses HSTS, the server sends back a header like this:
+        </p>
+
+        <pre><code class="language-plaintext">Strict-Transport-Security: max-age=31536000; includeSubDomains</code></pre>
+
+        <p>
+          This tells your browser: "For the next year (31,536,000 seconds), always use HTTPS for this domain. Even if the user types <code>http://</code>, upgrade it to <code>https://</code> automatically before making the request."
+        </p>
+
+        <p>
+          Without HSTS, there's a window of vulnerability. The first time you visit a site by typing <code>http://example.com</code>, an attacker could intercept that initial HTTP request and redirect you to a fake site before the server gets a chance to redirect you to HTTPS. This is called an SSL stripping attack. HSTS closes that gap - after your first visit, your browser won't even try HTTP.
+        </p>
+
+        <p>
+          If you've read my <a href="deploy-drf-production.html">guide on deploying Django REST Framework</a>, you already saw this exact header in the Nginx configuration.
+        </p>
+
+        <h3>Mixed Content</h3>
+
+        <p>
+          You loaded a page over HTTPS. The page is secure. But the HTML includes a script tag loading from <code>http://cdn.example.com/script.js</code> - plain HTTP. That script isn't encrypted. An attacker could modify it in transit, injecting malicious code into your otherwise secure page.
+        </p>
+
+        <p>
+          Browsers handle this by blocking or warning about mixed content. If your HTTPS page tries to load images, scripts, or stylesheets over HTTP, the browser either blocks them entirely (for scripts and iframes) or shows a warning (for images). If you're a developer and your site has mixed content warnings, the fix is simple - make sure all your resource URLs use <code>https://</code>.
+        </p>
+
+        <h2 id="try-it-yourself">Try It Yourself</h2>
+
+        <p>
+          Everything I described above isn't theoretical. You can see it right now in your browser.
+        </p>
+
+        <p>
+          In Chrome, click the padlock icon (or the tune icon) next to the URL. Click "Connection is secure" then "Certificate is valid." You'll see the actual certificate - the issuer, validity dates, Subject Alternative Names, all of it. Try it on <code>google.com</code> and look at how many domains are listed in the SANs.
+        </p>
+
+        <p>
+          You'll see the actual issuer, validity dates, Subject Alternative Names - everything I described in this post. Try it on a few different sites and compare. Some certificates cover dozens of domains in their SANs. Some expire in 30 days, others last a year.
+        </p>
+
+        <h2 id="some-questions-i-had">Some Questions I Had</h2>
 
         <p>
           While learning all this, I kept running into the same few questions. If you're thinking the same things, here's what I figured out.
@@ -470,6 +733,40 @@ All data after:    Encrypted with fast symmetric key derived from secret</code><
 
         <p>
           The math only works one way: private key encrypts, public key decrypts. That's asymmetric cryptography. The public key being public isn't a vulnerability. It's the entire design.
+        </p>
+
+        <h3>What's the difference between DV, OV, and EV certificates?</h3>
+
+        <p>
+          Not all certificates are created equal. There are three levels of validation:
+        </p>
+
+        <ul>
+          <li><strong>DV (Domain Validation)</strong> - Only proves you own the domain. This is what Let's Encrypt gives you. The CA checks DNS records or sends an email to the domain owner. Takes seconds. Free or cheap. Sufficient for most websites.</li>
+          <li><strong>OV (Organization Validation)</strong> - Also verifies that your organization legally exists. The CA checks business registration documents. Takes a few days.</li>
+          <li><strong>EV (Extended Validation)</strong> - The most thorough. The CA does extensive verification of the business - legal existence, physical address, operational status. Used to show a green bar in browsers with the company name, but most browsers removed that visual distinction.</li>
+        </ul>
+
+        <p>
+          The encryption is identical for all three. A DV certificate encrypts your data just as well as an EV certificate. The difference is only in how much identity verification was done. For personal sites and most businesses, DV is more than enough.
+        </p>
+
+        <h3>Can my employer or school see my HTTPS traffic?</h3>
+
+        <p>
+          On your personal device and personal network - no. HTTPS encryption means nobody in the middle can read your data.
+        </p>
+
+        <p>
+          But on a company laptop or school computer - possibly yes. Organizations can install their own root CA certificate on devices they manage. Once their CA is in the trust store, they can issue certificates for any domain. Your laptop connects to <code>gmail.com</code>, but instead of getting Google's real certificate, it gets one signed by your company's CA. Your browser trusts it because the company's root CA is in the trust store.
+        </p>
+
+        <p>
+          This is called <strong>TLS interception</strong> (or MITM inspection). The company's proxy server decrypts your traffic, inspects it for security threats, and re-encrypts it before sending it on. It's legal on devices the organization owns. Most corporate security policies mention this, even if nobody reads them.
+        </p>
+
+        <p>
+          On your personal devices, nobody can do this unless they've physically installed a root CA on it. So no, your ISP can't read your HTTPS traffic. They can see which domains you're visiting (through DNS queries and the SNI field in TLS), but not the actual content.
         </p>
 
         <p>
