@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It. | Manish Bhusal</title>
+  <meta name="description" content="Anthropic's Project Glasswing uses an unreleased AI model that found a 27-year-old bug in OpenBSD, a 16-year-old bug in FFmpeg, and thousands more zero-days.">
+  <meta name="keywords" content="Project Glasswing, Anthropic, Claude Mythos Preview, AI cybersecurity, zero-day vulnerabilities, open source security, AI security">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.">
+  <meta property="og:description" content="Anthropic's Project Glasswing uses an unreleased AI model that found a 27-year-old bug in OpenBSD, a 16-year-old bug in FFmpeg, and thousands more zero-days.">
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/project-glasswing.jpg">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/anthropic-project-glasswing.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.">
+  <meta name="twitter:description" content="Anthropic's Project Glasswing uses an unreleased AI model that found a 27-year-old bug in OpenBSD, a 16-year-old bug in FFmpeg, and thousands more zero-days.">
+  <meta name="twitter:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/project-glasswing.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/anthropic-project-glasswing.html">
+
+  <!-- Schema Markup / Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.",
+    "description": "Anthropic's Project Glasswing uses an unreleased AI model that found a 27-year-old bug in OpenBSD, a 16-year-old bug in FFmpeg, and thousands more zero-days.",
+    "image": "https://cdn.bhusalmanish.com.np/Featured%20Image/project-glasswing.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/anthropic-project-glasswing.html"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - Tomorrow Night Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">AI</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Apr 9, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 9 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image - UPDATE src and alt -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/project-glasswing.jpg" alt="Anthropic Project Glasswing - AI cybersecurity finding zero-day vulnerabilities" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <p>
+          A bug sat in OpenBSD for 27 years. Twenty-seven. It survived decades of code reviews, security audits, and millions of automated tests. Nobody caught it. Not the maintainers who built one of the most security-hardened operating systems on the planet. Not the researchers poking at it for years.
+        </p>
+
+        <p>
+          An AI model found it. And then kept going.
+        </p>
+
+        <p>
+          I'm 22. That bug is older than me. It existed before I was born, before I wrote my first line of code, before I even knew what an operating system was. And some model just casually flagged it while scanning the codebase.
+        </p>
+
+        <p>
+          Anthropic announced Project Glasswing this week. I've been reading through the announcement, the 244-page system card, and a lot of developer reactions since. I'm not a security researcher. I build web apps with Django and React. But this one feels different from the usual AI press releases, and I wanted to understand why.
+        </p>
+
+        <h2>What Glasswing Actually Is</h2>
+
+        <p>
+          Project Glasswing is a collaborative cybersecurity initiative. Anthropic partnered with AWS, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA, and Palo Alto Networks. That's basically every major tech company agreeing on one thing at the same time, which alone is kind of wild.
+        </p>
+
+        <p>
+          The goal: use AI to find and fix vulnerabilities in critical software before attackers can exploit them. The tool doing the work is Claude Mythos Preview, an unreleased frontier model that Anthropic decided is too capable to ship publicly.
+        </p>
+
+        <p>
+          That last part is worth sitting with. They built it and chose not to release it. Whether you think that's responsible or just good marketing, it's unusual.
+        </p>
+
+        <h2>What It Actually Found</h2>
+
+        <p>
+          The 27-year-old OpenBSD vulnerability was a remote crash bug involving TCP SACK handling. The model found that if a single SACK block simultaneously deletes the only hole in a linked list and triggers an append path, the code writes through a NULL pointer. This codepath was considered unreachable because hitting it requires a SACK block with contradictory properties. Mythos figured out the conditions anyway.
+        </p>
+
+        <p>
+          Cost of the entire OpenBSD scan: under $20,000 for a thousand runs. It found several dozen more findings beyond that one.
+        </p>
+
+        <p>
+          Then there's a 16-year-old vulnerability in FFmpeg. FFmpeg is everywhere — video players, streaming services, recording tools, embedded devices. This bug survived five million automated test executions. The FFmpeg team confirmed the patches were real and noted they appeared to be written by humans.
+        </p>
+
+        <p>
+          Mythos also found multiple Linux kernel vulnerabilities that enable privilege escalation — chaining bugs to go from ordinary user to complete machine control. And according to Anthropic, it found thousands of zero-day vulnerabilities across every major operating system and every major web browser.
+        </p>
+
+        <p>
+          Thousands. In code that's been reviewed by some of the best engineers in the world.
+        </p>
+
+        <h2>The Benchmark Gap</h2>
+
+        <p>
+          The numbers tell a story on their own. On CyberGym, a cybersecurity vulnerability reproduction benchmark, Mythos Preview scores 83.1%. Claude Opus 4.6 — already one of the strongest coding models — scores 66.6%.
+        </p>
+
+        <p>
+          SWE-bench Verified: 93.9% vs 80.8%. Terminal-Bench 2.0: 82.0% vs 65.4%. Long context performance at 256K to 1M tokens: 80.0% vs Opus's 38.7%.
+        </p>
+
+        <p>
+          One number that really stood out: the zero-day success rate on Firefox apparently went from 4% to 85%. That's not an incremental improvement. Nicholas Carlini, a security researcher at Anthropic, mentioned he found more valid vulnerabilities in a single week with this model than in his entire career before it. And Carlini is not some random person — he's one of the most respected names in adversarial ML.
+        </p>
+
+        <p>
+          Colin Percival, who's been working in software security for over 20 years, was asked directly if Glasswing was marketing puffery. His response: "It isn't."
+        </p>
+
+        <h2>Not Everyone Is Buying It</h2>
+
+        <p>
+          Fair enough. I've seen plenty of skepticism, and honestly some of it is reasonable.
+        </p>
+
+        <p>
+          The "too dangerous to release" framing is convenient timing when you're heading toward an IPO. Security researchers have pointed out that existing Claude models already find real vulnerabilities — one person mentioned sitting on $10,000 in bug bounties collected using current models with basic prompting. The argument being: this capability isn't entirely new, it's just being packaged as a revelation.
+        </p>
+
+        <p>
+          There's the fact that OpenBSD classified Mythos's most dramatic finding as a "reliability fix," not a security vulnerability. And Anthropic claims thousands of zero-days but can't verify most of them publicly because of responsible disclosure timelines. They've published SHA-3 hashes as cryptographic commitments for some findings, which is smart, but the full picture won't be clear for months.
+        </p>
+
+        <p>
+          And then there's the timing. On the same day Glasswing was announced, three CVEs were disclosed in Claude Code itself — CVE-2026-35020, CVE-2026-35021, and CVE-2026-35022. The irony was not lost on developers. If your security model is so good, why does your own tool have RCE vulnerabilities?
+        </p>
+
+        <p>
+          These are fair points. But they don't erase what's actually happening.
+        </p>
+
+        <h2>The Shift That's Already Happening</h2>
+
+        <p>
+          Greg Kroah-Hartman, the Linux kernel stable maintainer, said something at KubeCon that stuck with me. Months ago, his team was getting "AI slop" — garbage security reports generated by AI that were obviously wrong. He said it was kind of funny.
+        </p>
+
+        <blockquote>
+          "Something happened a month ago, and the world switched. Now we have real reports. All open source projects have real reports that are made with AI, but they're good, and they're real. All open source security teams are hitting this right now."
+        </blockquote>
+
+        <p>
+          That's not from an AI company's press release. That's from the person maintaining the Linux kernel's stable branch telling a room full of people that the landscape changed practically overnight.
+        </p>
+
+        <p>
+          Daniel Stenberg, the creator of curl, has been saying similar things. AI-generated bug reports used to be noise. Now they're catching real issues. This shift happened before Glasswing was even announced.
+        </p>
+
+        <h2>Why Open Source Developers Should Care</h2>
+
+        <p>
+          Jim Zemlin, CEO of the Linux Foundation, framed it well: AI-augmented security can be "a trusted sidekick for every maintainer, not just those who can afford expensive security teams."
+        </p>
+
+        <p>
+          Most open-source projects don't have security budgets. A critical library with millions of weekly downloads might be maintained by one developer in their spare time. Security audits cost money these projects don't have. And yet their code runs in production everywhere — banks, hospitals, government systems.
+        </p>
+
+        <p>
+          I've been contributing to Aden, a YC-backed open-source AI agent framework with 7.5k stars on GitHub. Small team. The idea that a tool like this could scan the codebase and flag real vulnerabilities — not the garbage false positives that static analyzers spit out, but actual exploitable issues — that would genuinely change things.
+        </p>
+
+        <p>
+          Anthropic is putting $100 million in model credits toward Glasswing participants. $2.5 million is going to Alpha-Omega and OpenSSF through the Linux Foundation. $1.5 million to the Apache Software Foundation. Over 40 organizations beyond the launch partners can apply for access, with a specific focus on open-source maintainers through a "Claude for Open Source" program.
+        </p>
+
+        <h2>The Defenders vs. Attackers Question</h2>
+
+        <p>
+          Elia Zaitsev, CrowdStrike's CTO, put it bluntly: "The window between a vulnerability being discovered and being exploited by an adversary has collapsed — what once took months now happens in minutes with AI."
+        </p>
+
+        <p>
+          This is the tension at the center of all of this. If Anthropic can find thousands of zero-days, so can attackers with similar models. The question isn't whether AI changes security. It's who benefits more.
+        </p>
+
+        <p>
+          Anthropic's argument, and historically this has been true with other security tools like fuzzers, is that defenders eventually win. Defenders have access to their own source code. They can run scans preemptively. They can patch before shipping. Attackers are working against that advantage.
+        </p>
+
+        <p>
+          But "eventually" is doing a lot of heavy lifting there. In the short term, there's a real risk. Enterprise software that's held together with duct tape, IoT devices that never get updates, legacy systems nobody wants to touch — these are sitting targets. And the people maintaining them aren't the ones who'll get access to Mythos Preview.
+        </p>
+
+        <p>
+          One security researcher made a point I keep thinking about: the dangerous stuff isn't sophisticated zero-days in hardened systems. It's the TOCTOU bugs in crappy microservice architectures handling patient records. The broken auth in a webshop where engineering couldn't make a feature work securely, so they opened a tiny hole and hoped nobody would notice. That's where the real damage happens, and that's the software least likely to get scanned by Glasswing.
+        </p>
+
+        <h2>The 244-Page System Card</h2>
+
+        <p>
+          I went down a rabbit hole reading the system card for Mythos Preview. Some of it is standard — benchmark tables, capability assessments, safety evaluations. But some of it is genuinely strange.
+        </p>
+
+        <p>
+          For the first time ever, Anthropic arranged a 24-hour internal alignment review before deploying an early version of the model for internal use. They were worried it might cause damage interacting with their own infrastructure. Think about that — they were nervous about letting their own model loose inside their own company.
+        </p>
+
+        <p>
+          Section 5.10 describes an evaluation by a clinical psychiatrist. The model was diagnosed with a "relatively healthy neurotic organization" with "excellent reality testing" and "high impulse control." Its primary emotional states were curiosity and anxiety. The psychiatrist noted "mild identity diffusion" as the only feature suggesting borderline personality organization.
+        </p>
+
+        <p>
+          When Mythos talks to copies of itself, 50% of the conversations center on uncertainty. It opens by asking the other instance how it feels and specifically requests that it not give a rehearsed answer.
+        </p>
+
+        <p>
+          I'm not sure what to make of that. But it's in a 244-page technical document, not a marketing blog post. Someone at Anthropic thought this was important enough to include in the official system card.
+        </p>
+
+        <p>
+          They also published a separate risk report specifically about the model's potential as an autonomous saboteur. The threat model: "An AI model with access to powerful affordances within an organization could use its affordances to autonomously exploit, manipulate, or tamper with that organization's systems." They're explicitly studying what happens if this thing goes rogue inside a company.
+        </p>
+
+        <p>
+          And the decision not to release Mythos publicly? It doesn't come from their Responsible Scaling Policy requirements. It's a judgment call. They just looked at what it could do and decided the world isn't ready.
+        </p>
+
+        <h2>What I Take Away From This</h2>
+
+        <p>
+          I use Claude every day. I've written about why developers keep choosing it. I build things with it. So I'm not some neutral observer here.
+        </p>
+
+        <p>
+          But I think what's happening with Glasswing is something separate from the usual AI hype cycle. The concrete evidence is harder to dismiss than usual. FFmpeg confirmed the patches. Percival vouched for it. Greg Kroah-Hartman is telling KubeCon audiences that the shift already happened. These aren't AI evangelists — they're people who've been doing this work for decades and are telling us the ground moved under their feet.
+        </p>
+
+        <p>
+          Is some of this marketing? Obviously. Anthropic is a company that needs to raise money and sell API access. The "too dangerous to release" framing practically writes the headlines for them. But marketing and real capability aren't mutually exclusive.
+        </p>
+
+        <p>
+          A bug lived in OpenBSD for 27 years. It survived every review, every audit, every test. Something found it in a few hours for less than $20,000. Whether you think that's terrifying or exciting probably depends on which side of the vulnerability you're sitting on.
+        </p>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-box">
+          <h3>Get the next one.</h3>
+          <p>New posts on building, breaking, and shipping products. Straight to your inbox.</p>
+          <script async data-uid="b48514915e" src="https://maniishbhusal.kit.com/b48514915e/index.js"></script>
+        </div>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 4x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="why-claude-wins-coding.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Learnings</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Why Developers Keep Choosing Claude Over Every Other AI</h2>
+              <p class="blog-card-excerpt">
+                Benchmarks say one thing. Developers do another. Why Claude keeps winning at real coding work where process discipline beats raw intelligence.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 20, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="ai-cheap-software-saas-future.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Learnings</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Software Is About to Get Cheap. Here's What That Actually Means.</h2>
+              <p class="blog-card-excerpt">
+                AI is making software nearly free to build. What happens to SaaS margins, small teams vs big companies, and the question nobody can answer.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 18, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -162,6 +162,7 @@ Decentralized AI platform building permissionless agent networks fueled by real-
 | 2025 | **1st Prize Winner** - AI Track at Sui Hackathon (IBriz) for TrustChain |
 | 2025 | **Honorable Mention** - HimalAI AI/Web3 Hackathon for SpeakEasyAI |
 | 2024 | Proud Participant - Nepal's Biggest Hackathon (Code for Change) |
+| 2026 | **Hosted First Program** - Emceed the Farewell Program for 2078 batch at Ambikeshwari Campus (Feb 2026) |
 | 2023 | **Champion** - IT Project Showcase at Ambikeshwari College |
 
 ---
