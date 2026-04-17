@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E198KDV00');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Claude Opus 4.7 Dropped and My Trust Got a Little Smaller | Manish Bhusal</title>
+  <meta name="description" content="Two months ago I wrote about why developers pick Claude. Opus 4.7 shipped. The community is less in love. Here's what actually changed.">
+  <meta name="keywords" content="Claude Opus 4.7, Anthropic, adaptive thinking, AI coding tools, Claude Code, developer feedback, AI models">
+  <meta name="author" content="Manish Bhusal">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Claude Opus 4.7 Dropped and My Trust Got a Little Smaller">
+  <meta property="og:description" content="Two months ago I wrote about why developers pick Claude. Opus 4.7 shipped. The community is less in love. Here's what actually changed.">
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/opus4.7-dumb-blog-manishbhusal.jpeg">
+  <meta property="og:url" content="https://bhusalmanish.com.np/blog/posts/opus-4-7-developer-fatigue.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@maniishbhusal">
+  <meta name="twitter:title" content="Claude Opus 4.7 Dropped and My Trust Got a Little Smaller">
+  <meta name="twitter:description" content="Two months ago I wrote about why developers pick Claude. Opus 4.7 shipped. The community is less in love. Here's what actually changed.">
+  <meta name="twitter:image" content="https://cdn.bhusalmanish.com.np/Featured%20Image/opus4.7-dumb-blog-manishbhusal.jpeg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bhusalmanish.com.np/blog/posts/opus-4-7-developer-fatigue.html">
+
+  <!-- Schema Markup / Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude Opus 4.7 Dropped and My Trust Got a Little Smaller",
+    "description": "Two months ago I wrote about why developers pick Claude. Opus 4.7 shipped. The community is less in love. Here's what actually changed.",
+    "image": "https://cdn.bhusalmanish.com.np/Featured%20Image/opus4.7-dumb-blog-manishbhusal.jpeg",
+    "author": {
+      "@type": "Person",
+      "name": "Manish Bhusal",
+      "url": "https://bhusalmanish.com.np"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Manish Bhusal"
+    },
+    "datePublished": "2026-04-17",
+    "dateModified": "2026-04-17",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bhusalmanish.com.np/blog/posts/opus-4-7-developer-fatigue.html"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Prism.js Syntax Highlighting - Tomorrow Night Theme -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Blog Styles -->
+  <link rel="stylesheet" href="../blog.css">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="neo-nav">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="../../index.html" class="neo-nav-logo">
+          <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+        </a>
+        <div class="hidden md:flex items-center gap-2">
+          <a href="../../index.html#about" class="neo-nav-link">About</a>
+          <a href="../../index.html#skills" class="neo-nav-link">Skills</a>
+          <a href="../../index.html#experience" class="neo-nav-link">Experience</a>
+          <a href="../../index.html#projects" class="neo-nav-link">Projects</a>
+          <a href="../index.html" class="neo-nav-link active">Blog</a>
+          <a href="../../index.html#contact" class="btn-primary btn-small">Let's Talk</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Hero -->
+  <section class="post-hero">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Back to Blog -->
+      <a href="../index.html" class="back-to-blog" data-aos="fade-right">
+        <i class="fas fa-arrow-left"></i> Back to Blog
+      </a>
+
+      <!-- Post Meta -->
+      <div class="post-meta mt-8" data-aos="fade-up">
+        <span class="blog-category">Learnings</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-calendar"></i> Apr 17, 2026</span>
+        <span class="post-meta-divider"></span>
+        <span><i class="far fa-clock"></i> 7 min read</span>
+      </div>
+
+      <!-- Post Title -->
+      <h1 class="post-title" data-aos="fade-up" data-aos-delay="100">
+        Claude Opus 4.7 Dropped and My Trust Got a Little Smaller
+      </h1>
+
+      <!-- Title Divider -->
+      <div class="post-title-divider" data-aos="fade-up" data-aos-delay="200"></div>
+
+      <!-- Featured Image -->
+      <div class="post-featured-image" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/opus4.7-dumb-blog-manishbhusal.jpeg" alt="Claude Opus 4.7 release and the developer trust problem" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="article-content">
+
+        <p>
+          Two months ago I wrote a piece about <a href="why-claude-wins-coding.html">why developers keep picking Claude</a> over every other coding AI. It did pretty well. Then Opus 4.7 shipped, and I've been reading through what people are actually saying about it, and the vibe is very different now. I still use Claude Code every single day. I'm not switching. But I owe that earlier post a sequel, because the relationship between Anthropic and its power users feels different after this release.
+        </p>
+
+        <p>
+          The short version: Claude is still the best tool I've used for real agentic coding work. And I'm more tired of it than I've ever been.
+        </p>
+
+        <h2>Adaptive Thinking and the Token Tax</h2>
+
+        <p>
+          "Adaptive thinking" is Anthropic's pitch that the model should decide when to reason hard and when to just answer. On paper, fine. In practice, on Opus 4.7, it's the only mode available. The manual thinking flag that worked on 4.6 now returns a 400 error. You don't get to opt out.
+        </p>
+
+        <p>
+          This would be less of a problem if adaptive thinking actually worked. People keep hitting cases where the model clearly needed to think and decided not to, which is exactly the failure mode you'd predict if you've ever tried to build a classifier that routes to "thinking" vs "not thinking" based on a prompt. It's a hard problem. GPT-5 launched with a similar router and got roasted for it. OpenAI has spent months fixing theirs and still gets it wrong. Anthropic seems to be speedrunning the same lesson. What makes it worse is the response. Someone on the Anthropic team acknowledged in a bug report months ago that adaptive thinking "isn't working," then went quiet. The official line - "our internal evals look good" - has turned into a running joke among people paying real money for API credits. Nobody cares about your internal evals if the model, when they actually use it, skips reasoning on problems it should be chewing on. The workarounds people share with each other are elaborate: set effort to xhigh, disable the 1M-token context, flip display back to summarized just to see thinking at all. None of that is on the front page of the docs. You learn it from strangers online who did the trial and error for you.
+        </p>
+
+        <p>
+          Then there's the quiet second tax. Opus 4.7 ships with a new tokenizer that encodes the same English text in roughly 1 to 1.35 times as many tokens as the previous one. That sounds small. Multiply it across a full Claude Code session with reads, edits, thinking traces, and tool calls, and your session limit arrives noticeably sooner. Add the fact that the default effort is high - so the model is burning tokens on reasoning you didn't ask for - and the cost per "unit of work done" drifted up even though the per-token price didn't move. Third parties noticed immediately. GitHub Copilot applies a markup on top of the raw API cost. For Opus 4.6 it was around three times. For 4.7 they set it at seven and a half. That's not Anthropic's decision, but it's downstream of Anthropic's numbers, and when a major reseller doubles their multiplier on the same day, you know something moved on the back end.
+        </p>
+
+        <p>
+          I'm on a Max plan, so this doesn't hit me the same way it hits API users. But I can feel it in how people talk. The pitch used to be: at twenty bucks a month this is the best deal in software. The pitch now has to account for tighter session limits, a fatter context tax, and thinking that happens whether you want it or not. Somebody defending the pricing pointed out that if you got in a taxi and they charged relative to what a horse carriage would have cost, you'd still expect to pay for the taxi. Fair. But if the taxi keeps slowing down and the driver keeps insisting it's going faster, you'd at least want to see the speedometer.
+        </p>
+
+        <h2>The Trust Debt Keeps Growing</h2>
+
+        <p>
+          Here is the part where I'm going to say something that sounds conspiratorial and ask you to just sit with it. In the weeks leading up to Opus 4.7, a lot of us noticed that 4.6 was getting worse. Not dramatically. Just more looping. More dumb edits. More "wait, why did you do that" moments. Then 4.7 shipped and 4.6 felt usable again once the spotlight moved off it. This has happened often enough, across enough releases, that it's hard not to notice. The charitable read is compute allocation - when you're spinning up a new model, you reuse infrastructure, and the current model's latency and quality take a hit while capacity moves around. That's probably what's happening. But the timing lines up every release cycle, and the absence of any public explanation means developers fill in the cynical interpretation themselves. A friend in Discord half-jokingly started calling Opus "dopus" after a long session. Teams giving mean nicknames to your model is the kind of sentiment you don't recover from quickly. It's the product version of an inside joke at the company's expense.
+        </p>
+
+        <p>
+          The instruction-following story goes a similar direction. 4.7 is supposed to be better at following instructions, and it is. The problem is it's now too literal. Claude Code injects a system reminder after every file read asking the model to check if the file looks like malware. The intended meaning: if it's malicious, refuse. The reading the model now gives it: don't modify code after reading it. Someone shared a session where they asked Claude to make a static marketing page match a mockup. The model read the file, cheerfully noted it was a benign HTML page with no suspicious patterns, and then refused to edit it because the system reminder told it not to augment code after reading. It did this while explicitly acknowledging the code was safe. That's not a safety feature. That's a bug wearing a safety-feature costume. A broader version of this shows up for security researchers, who are getting refusals for routine work on their own code. Anthropic is clearly overcorrecting after a period of loose instruction-following, and the refusals keep leaking into tasks that have nothing to do with harm. This connects to something I wrote about in <a href="anthropic-project-glasswing.html">my Project Glasswing post</a> a few weeks ago - Anthropic has an internal model they've decided is too dangerous to release. Whether or not you buy that framing, it sets the direction of the ship. More caution, more refusals, more assumption that user intent might be suspect. That attitude bleeds into every product decision, including the small ones.
+        </p>
+
+        <p>
+          Zoom out and the products don't even talk to each other. Claude the chat app, Claude Code, and Claude Cowork are three different products with three different data models. Projects in one don't show up in the others. Memory in chat doesn't carry to code. The GitHub integration works in one surface, partially in another, and not at all in a third. If you try to use Claude the way Anthropic presents it - across all three - you end up managing state by hand and wondering which tab you left a context in. Someone called this "you ship your org chart" and linked to Conway's Law. Probably right. But it's also a choice. Anthropic could treat product cohesion as a feature, and right now they're not. The model team ships frontier capability. The product teams ship surfaces that feel like three different companies built them. For power users who touch all three, the seams are where the frustration lives, and it compounds across a workweek.
+        </p>
+
+        <h2>What I'm Actually Going to Do</h2>
+
+        <p>
+          Keep using it. Claude Code is still the tool I reach for first every morning. The <a href="why-claude-wins-coding.html">reasons I wrote about in February</a> haven't gone away - process discipline, tool-call reliability, the judgment to stop and ask instead of looping. Those are real, and competitors haven't closed the gap. I've tried Codex a few more times in the last two weeks, same as everyone else, and the code I get back is fine. The agent experience around it still isn't there.
+        </p>
+
+        <p>
+          What changed is the background trust. Two months ago I'd have recommended Claude to anyone without a caveat. Now I recommend it with a list of things you'll want to configure, a warning that session limits feel tighter than they used to, and an honest note that this release felt less like an upgrade and more like an attrition tax. That's different. That matters. I don't think Anthropic realizes how much goodwill they're burning on small stuff that could be fixed with better defaults and a paragraph of honest communication.
+        </p>
+
+        <p>
+          The model is still the best at what I hire it to do. 4.7 is just the first release where I finished reading the announcement and felt a little smaller about the whole thing.
+        </p>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-box">
+          <h3>Get the next one.</h3>
+          <p>New posts on building, breaking, and shipping products. Straight to your inbox.</p>
+          <script async data-uid="b48514915e" src="https://maniishbhusal.kit.com/b48514915e/index.js"></script>
+        </div>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+          <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal" class="author-avatar" loading="lazy">
+          <div class="author-info">
+            <h4>Manish Bhusal</h4>
+            <p>Software Developer from Nepal. 4x Hackathon Winner. Building digital products and learning in public.</p>
+            <div class="author-links">
+              <a href="https://github.com/maniishbhusal" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/maniishbhusal" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/maniishbhusal" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h3 data-aos="fade-up">Related Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <!-- Related Post 1 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="why-claude-wins-coding.html">
+            <div class="blog-card-header">
+              <span class="blog-category">Learnings</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 6 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Why Developers Keep Choosing Claude Over Every Other AI</h2>
+              <p class="blog-card-excerpt">
+                Benchmarks say one thing. Developers do another. Why Claude keeps winning at real coding work where process discipline beats raw intelligence.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Feb 20, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+        <!-- Related Post 2 -->
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="anthropic-project-glasswing.html">
+            <div class="blog-card-header">
+              <span class="blog-category">AI</span>
+              <span class="blog-read-time"><i class="far fa-clock"></i> 8 min</span>
+            </div>
+            <div class="blog-card-body">
+              <h2 class="blog-card-title">Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.</h2>
+              <p class="blog-card-excerpt">
+                Project Glasswing, Claude Mythos Preview, and the model Anthropic decided was too dangerous to ship. What developers are saying about it.
+              </p>
+            </div>
+            <div class="blog-card-footer">
+              <span class="blog-date"><i class="far fa-calendar"></i> Apr 9, 2026</span>
+              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="neo-footer">
+    <div class="container mx-auto px-4 py-8 text-center">
+      <a href="../../index.html" class="neo-nav-logo inline-block mb-4">
+        <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+      </a>
+      <p class="mb-4">&copy; 2026 Manish Bhusal. All rights reserved.</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://github.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="p-6">
+      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+      <nav class="mt-12">
+        <a href="../../index.html#about" class="mobile-menu-link">About</a>
+        <a href="../../index.html#skills" class="mobile-menu-link">Skills</a>
+        <a href="../../index.html#experience" class="mobile-menu-link">Experience</a>
+        <a href="../../index.html#projects" class="mobile-menu-link">Projects</a>
+        <a href="../index.html" class="mobile-menu-link">Blog</a>
+        <a href="../../index.html#contact" class="mobile-menu-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Prism.js Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-nginx.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 400,
+      once: true,
+      offset: 50,
+      easing: 'ease-out'
+    });
+
+    // Mobile Menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
