@@ -146,124 +146,71 @@
       <div class="article-content">
 
         <p>
-          I use AI coding tools every day. <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> for most of my actual work. I've tried the alternatives - Gemini, Codex, open-source models. I keep coming back. Not because of loyalty. Not because of marketing. Because the alternatives keep failing me in the same specific way.
+          I use AI coding tools every day. <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> does most of my actual work. I've spent real time with the alternatives - Gemini, Codex, a few open-source models - and I keep drifting back to Claude, not out of any particular loyalty but because the others keep failing me in the same specific way.
         </p>
 
         <p>
-          A new model drops. It tops the benchmarks. Developers try it. Developers complain. They go back to Claude. This has happened three or four times now, and the pattern is consistent enough that it deserves an explanation.
+          The loop goes like this: a new model drops, tops the benchmarks, developers try it for a few days, complain, and quietly go back to Claude. This has happened three or four times now. The pattern is consistent enough that it deserves a better explanation than "hype cycle."
         </p>
 
-        <h2>Benchmarks Are Not Lying. But They're Not Telling You What You Think.</h2>
+        <h2>What benchmarks actually measure</h2>
 
         <p>
-          When a new AI model tops the coding benchmarks, the benchmarks are usually accurate. The model genuinely produces better code on isolated problems. Higher accuracy on <a href="https://github.com/openai/human-eval" target="_blank" rel="noopener">HumanEval</a>. Cleaner solutions on LeetCode-style tasks. The numbers are real.
-        </p>
-
-        <p>
-          Older benchmarks like HumanEval work exactly like that - you get an isolated function to write, and you're graded on whether it passes unit tests. Newer benchmarks like <a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a> are more realistic. They give the model real GitHub issues from real repos and ask it to generate patches. That's closer to actual development.
+          When a new model tops the coding benchmarks, the benchmarks aren't lying. The model really does produce better code on isolated problems - higher accuracy on <a href="https://github.com/openai/human-eval" target="_blank" rel="noopener">HumanEval</a>, cleaner solutions on LeetCode-style tasks, all of it. HumanEval-era benchmarks give you a single function to write, graded on whether it passes unit tests. Newer ones like <a href="https://www.swebench.com/" target="_blank" rel="noopener">SWE-bench</a> move closer to real development - actual GitHub issues, actual repos, patches scored against real test suites.
         </p>
 
         <p>
-          But even SWE-bench is still a controlled environment. Real coding work has more going on. You're managing a conversation with the user. You're deciding which files to read and which to skip. You're making targeted edits without breaking surrounding code. You're hitting unexpected errors and deciding whether to ask for help or try a different approach. You're staying on task across 20+ steps without drifting. That kind of sustained, interactive workflow is hard to capture in any benchmark.
-        </p>
-
-        <h2>The Process vs. Raw Intelligence Gap</h2>
-
-        <p>
-          The most useful frame I've found for understanding this: <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a> appears to have trained Claude heavily on the <em>process</em> of coding, not just the output. The workflow. The sequence of decisions a competent developer actually makes when given a task in a real codebase.
+          Even SWE-bench is still a controlled run, though. Real coding work has a lot more going on at once: managing a conversation with the user, picking which files to read and which to skip, making targeted edits that don't break the surrounding code, hitting an unexpected error and deciding whether to ask for help or try something else, staying on task across twenty-plus steps without drifting into whatever looks shiny at step eleven. That kind of sustained, interactive workflow is very hard to capture in any single score.
         </p>
 
         <p>
-          To be clear - every major coding agent can read files, edit code, and run terminal commands. <a href="https://openai.com/codex/" target="_blank" rel="noopener">Codex</a>, <a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/" target="_blank" rel="noopener">Antigravity</a>, Gemini CLI - they all have these capabilities. The difference is in how consistently the model behind them executes the workflow. Reading the right files before making changes. Making targeted edits instead of rewriting entire files unnecessarily. Knowing when to act and when to stop and ask. Staying on the original task instead of getting distracted.
+          The frame that finally made this click for me: <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a> seems to have trained Claude heavily on the <em>process</em> of coding rather than just the output - the workflow itself, the sequence of small decisions a competent developer makes in a real codebase. Every major coding agent can read files, edit code, run terminal commands; <a href="https://openai.com/codex/" target="_blank" rel="noopener">Codex</a>, <a href="https://developers.googleblog.com/build-with-google-antigravity-our-new-agentic-development-platform/" target="_blank" rel="noopener">Antigravity</a>, Gemini CLI all ship these capabilities. The difference is how consistently the model behind them executes the workflow - reading the right files before changing anything, making targeted edits instead of blowing up the whole file, knowing when to act and when to stop and ask, staying on the original task instead of wandering into an unrequested refactor three files over.
         </p>
 
         <p>
-          All these tools can do it. Claude does it more reliably. Other models produce excellent code - sometimes arguably better than Claude's on a per-snippet basis. The gap isn't in any individual output. It's in the consistency across a full task. They loop more often. They lose track of what they were doing mid-sequence. They make edits that break surrounding context. They need more steering to stay on track. Not always - but often enough that it changes how much you can trust the tool to work unsupervised.
+          All these tools can do it. Claude does it more reliably. Other models produce excellent code - sometimes, on a per-snippet basis, arguably better than Claude's. The gap doesn't show up in any individual output; it shows up across a full task. The other models loop more often, lose track of what they were doing mid-sequence, make edits that silently break surrounding context, and need more steering to stay on track. Not always, but often enough to change how much you can trust the tool to run unsupervised.
         </p>
 
         <blockquote>
           The difference isn't raw intelligence. It's process discipline. And that's harder to train for than most people realize.
         </blockquote>
 
-        <h2>What "Good at Coding" Actually Requires</h2>
-
         <p>
-          Generating correct code is maybe 40% of what an AI coding assistant needs to do well. The other 60% is everything around the code:
-        </p>
-
-        <ul>
-          <li>Editing files without corrupting surrounding code</li>
-          <li>Reading the right files before making changes</li>
-          <li>Completing a multi-step task without losing the thread halfway through</li>
-          <li>Communicating clearly about what it's doing and what it found</li>
-          <li>Knowing when to ask instead of assuming</li>
-          <li>Staying on task instead of making unrequested changes to unrelated files</li>
-        </ul>
-
-        <p>
-          Every major coding agent attempts all of these. The question is how often they succeed at each one across a full task. In my experience using Claude Code daily - building API endpoints, debugging production issues, refactoring components - it hits these consistently. Not perfectly, but consistently enough that I don't feel like I need to watch every step.
+          Generating correct code is maybe forty percent of what an AI coding assistant needs to do well. The other sixty percent is everything around the code - editing files without corrupting what's next to them, reading the right files before making changes, completing a multi-step task without losing the thread, communicating clearly about what it did and what it found, knowing when to ask instead of assuming, and staying inside the actual scope instead of drifting into unrelated files. Every major coding agent attempts all of that. The question is how often they succeed at each one across a full task. In my daily work with Claude Code - building API endpoints, debugging production issues, refactoring components - it hits those consistently enough that I don't feel like I need to watch every step.
         </p>
 
         <p>
-          With other tools, I find myself intervening more. The code they generate is often just as good. But somewhere in the middle of a multi-file task, something slips - a file gets partially overwritten, or the model goes off and starts "improving" something I didn't ask about. That's the gap. It's not about capability. It's about how often the tool stays on track without you having to course-correct.
+          With other tools, I find myself intervening more. The code they generate is often just as good, but somewhere in the middle of a multi-file task something slips - a file gets partially overwritten, or the model wanders off and starts "improving" something I didn't ask about. That's the gap. It's less about raw capability and more about how often the tool stays on track without you having to course-correct.
         </p>
 
-        <h2>Why Google Has a Structural Problem Here</h2>
+        <h2>Where things actually stand</h2>
 
         <p>
-          I want to be fair. Gemini writes excellent code. The underlying model is clearly very capable. Give it a well-contained problem with a clear spec and it'll produce a good solution. Sometimes a great one.
-        </p>
-
-        <p>
-          The problem seems structural. Google is fundamentally a search and general-use company. Their models are optimized across a massive range of tasks - translation, summarization, multimodal understanding, general conversation. Agentic software development is a narrow, specific workflow that requires its own focused training.
+          To be fair to Google: Gemini writes excellent code. The underlying model is clearly very capable, and given a well-contained problem with a clear spec, it'll produce a good solution and sometimes a great one. The problem looks structural rather than intellectual. Google is at its core a search and general-use company, and their models are optimized across a massive surface of tasks - translation, summarization, multimodal understanding, general conversation. Agentic software development is a narrow, specific workflow that needs its own focused training: long sequences of tool calls, graceful recovery from errors mid-sequence, context held across many steps without drifting. That takes targeted <a href="https://en.wikipedia.org/wiki/Reinforcement_learning" target="_blank" rel="noopener">reinforcement learning</a> on exactly that scenario, not just scaling up the base model.
         </p>
 
         <p>
-          Training for agentic workflows means the model needs to complete long sequences of tool calls successfully. Recover gracefully from errors mid-sequence. Maintain context across many steps without drifting. This takes focused <a href="https://en.wikipedia.org/wiki/Reinforcement_learning" target="_blank" rel="noopener">reinforcement learning</a> on exactly that scenario, not just scaling up the base model.
+          Anthropic published <a href="https://www.anthropic.com/research/measuring-agent-autonomy" target="_blank" rel="noopener">research on agent autonomy</a> showing that software engineering accounts for nearly 50% of all agentic activity on their API. Half of their agentic usage is coding. When that's your reality, you train for it - you optimize the tool use, the file editing, the multi-step workflows - because that's what your paying users are actually doing all day. Google doesn't have that same pressure; their model serves search, translation, multimodal, general chat, and coding is one use case among dozens. Anthropic's model lives or dies by how well it codes.
         </p>
 
         <p>
-          Anthropic published <a href="https://www.anthropic.com/research/measuring-agent-autonomy" target="_blank" rel="noopener">research on agent autonomy</a> showing that software engineering accounts for nearly 50% of all agentic activity on their API. Half their agentic usage is coding. When that's your reality, you train for it. You optimize the tool use, the file editing, the multi-step workflows - because that's what your paying users are actually doing. Google doesn't have that same pressure. Their model serves search, translation, multimodal tasks, general chat. Coding is one use case among dozens. Anthropic's model lives or dies by how well it codes.
-        </p>
-
-        <h2>Where Things Actually Stand</h2>
-
-        <p>
-          My honest assessment, as someone who uses these tools for real work every day:
+          My honest assessment after using these tools for real work every day:
         </p>
 
         <p>
-          <strong>Claude</strong> is my primary tool. Claude Code handles everything from scaffolding new features to debugging tricky production issues. The workflow is reliable enough that I can trust it on tasks I don't want to babysit.
+          <strong>Claude</strong> is my primary tool. Claude Code handles everything from scaffolding new features to debugging tricky production issues, and the workflow is reliable enough that I can hand it tasks I don't want to babysit. <strong><a href="https://openai.com/index/introducing-codex/" target="_blank" rel="noopener">Codex</a></strong> has gotten a lot better at agentic work - the gap has closed more than I expected over the past few months, and while it's not as reliable as Claude yet, it's worth watching. <strong><a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a></strong> is capable on isolated tasks and I've had it produce genuinely impressive code for well-specified problems, but as an agentic system operating independently across multi-step tasks, it still struggles. The loops, the getting stuck, the needing constant redirection - those are real, consistent failure modes I hit regularly.
         </p>
 
         <p>
-          <strong><a href="https://openai.com/index/introducing-codex/" target="_blank" rel="noopener">Codex</a></strong> has gotten meaningfully better at agentic tasks. The gap has closed more than I expected over the past few months. It's not as reliable as Claude yet, but it's worth keeping an eye on.
+          I've seen people try the "plan in one model, execute in another" approach - use Gemini for architectural thinking, then switch to Claude for the actual work. In practice it adds friction without adding value. You might as well just stay in Claude for the whole thing.
         </p>
 
         <p>
-          <strong><a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a></strong> is capable on isolated tasks. I've had it produce genuinely impressive code for well-specified problems. As an agentic system that operates independently on multi-step tasks, it still struggles. The loops, the getting stuck, the needing constant redirection - those are real, consistent failure modes that I hit regularly.
+          None of this is permanent. The benchmark leaders will keep changing, a new model will top the leaderboard next month, some people will switch, most will drift back. Google has the resources to fix the process-discipline problem if they decide it's the priority, and OpenAI is already taking agentic workflows seriously with Codex. What Anthropic figured out - training for the workflow, not just the output - is a real insight, but it's not a secret, and other labs will have to explicitly replicate that focus to close the gap. Bigger models alone won't do it. You can have the smartest model in the world, and it won't matter if it can't edit a file without breaking the one next to it.
         </p>
 
         <p>
-          I've seen people try the "plan in one model, execute in another" approach. Use Gemini for architectural thinking, then switch to Claude for the actual work. In practice it adds friction without adding value. You might as well just stay in Claude for the whole thing.
-        </p>
-
-        <h2>What This Means for the Next Few Months</h2>
-
-        <p>
-          The benchmark leaders will keep changing. A new model will top the leaderboard. Developers will try it. Some will switch. Most will drift back.
-        </p>
-
-        <p>
-          The gap will narrow. Google has the resources to fix the process discipline problem if they decide it's the priority. OpenAI is clearly taking agentic workflows seriously with Codex. The advantage Claude has today isn't permanent.
-        </p>
-
-        <p>
-          But what Anthropic figured out - training for the workflow, not just the output - is a meaningful insight. Other labs will have to explicitly replicate that focus to close the gap. Bigger models alone won't do it. You can have the smartest model in the world, and it won't matter if it can't edit a file without breaking the one next to it.
-        </p>
-
-        <p>
-          The benchmarks will tell you one thing. The developers who use these tools every day will tell you another. Usually, you should listen to the developers.
+          The benchmarks will tell you one thing. The developers who use these tools every day will tell you another. Usually you should listen to the developers.
         </p>
 
         <!-- Newsletter Signup -->
