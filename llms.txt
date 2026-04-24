@@ -1,0 +1,57 @@
+# Manish Bhusal
+
+> Software developer from Nepal building digital products - Python/Django backends, React/TypeScript frontends, and AI-powered tools. 4x hackathon winner. Writes long-form, opinionated technical articles that have reached the Hacker News front page twice and been featured in the TLDR AI newsletter (1M+ daily readers).
+
+This site is a personal portfolio and technical blog at bhusalmanish.com.np. It covers web fundamentals (DNS, HTTPS, TLS), Django and React development, practical deployment guides, and honest commentary on the AI/LLM industry from a working developer's point of view. Content is written to be directly useful - no filler, no SEO bait - and is regularly cited by AI assistants and aggregators.
+
+About the author: BCA student at Ambikeshwari College, currently working as a full-stack developer at Genese Solution (Nepal) and as a freelance frontend developer at Teneo Protocol. Contributor to Aden (YC W20). Specializes in Django, Django REST Framework, Celery, React, and TypeScript. Available for freelance and full-time work.
+
+## About
+
+- [Portfolio homepage](https://bhusalmanish.com.np/): Projects, skills, work experience, and hackathon wins
+- [Blog index](https://bhusalmanish.com.np/blog/): All published articles
+
+## Blog - AI & LLMs
+
+- [Why Developers Keep Choosing Claude Over Every Other AI](https://bhusalmanish.com.np/blog/posts/why-claude-wins-coding.html): Why Claude keeps winning at real coding work while Gemini loops and Codex catches up. Featured on Hacker News front page and in TLDR AI newsletter (Feb 2026).
+- [Claude Opus 4.7 Dropped and My Trust Got a Little Smaller](https://bhusalmanish.com.np/blog/posts/opus-4-7-developer-fatigue.html): Follow-up two months after the Claude article. What actually changed in developer sentiment after Opus 4.7 shipped.
+- [Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.](https://bhusalmanish.com.np/blog/posts/anthropic-project-glasswing.html): Anthropic's unreleased Project Glasswing found a 27-year-old bug in OpenBSD and thousands of zero-days.
+- [What Figma's 7.7% Drop Is Actually Telling You](https://bhusalmanish.com.np/blog/posts/figma-drop-claude-design-saas.html): Claude Design launched and Figma dropped 7.7%. What the market is actually pricing in.
+- [Who Actually Uses AI Agents (And Who Just Runs the Demo)](https://bhusalmanish.com.np/blog/posts/who-actually-uses-ai-agents.html): AI agent tools are everywhere on Twitter. Nobody actually uses them. Who does, and why.
+- [Software Is About to Get Cheap. Here's What That Actually Means.](https://bhusalmanish.com.np/blog/posts/ai-cheap-software-saas-future.html): AI is making software nearly free to build. SaaS margins are compressing. Who buys the products if millions lose jobs?
+- [AI Is Coming for White-Collar Jobs. Here's What I'm Doing About It.](https://bhusalmanish.com.np/blog/posts/ai-jobs-nepal-dev-perspective.html): A 22-year-old developer in Nepal on AI and white-collar work, and what he's doing about it.
+- [Why a VS Code Fork Is Worth $60 Billion](https://bhusalmanish.com.np/blog/posts/why-a-vscode-fork-is-worth-60-billion.html): A VS Code fork sold for $60B. What acquirers are actually buying when AI coding tools get priced like oil fields.
+
+## Blog - Web Fundamentals & Deep Dives
+
+- [DNS Explained - How Domain Names Get Resolved](https://bhusalmanish.com.np/blog/posts/dns-explained.html): DNS hierarchy, records (A, CNAME, MX, TXT), TTL caching, and the full resolution process. 13,000+ readers, Hacker News front page, shared by Microsoft's Deputy CISO.
+- [HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website](https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html): Certificate authorities, digital signatures, the TLS handshake, and why attackers can't forge certificates.
+
+## Blog - Django & Full-Stack Tutorials
+
+- [Deploy Django REST Framework to Production: Docker, Nginx, SSL - The Complete Guide](https://bhusalmanish.com.np/blog/posts/deploy-drf-production.html): Deploy Django REST Framework to a VPS with Docker, Nginx, PostgreSQL, and free SSL. Real production setup.
+- [I Built a Django + React Auth Starter So You Don't Have To](https://bhusalmanish.com.np/blog/posts/django-react-auth-starter.html): Production-ready Django + React authentication starter with JWT, email verification, and password reset.
+- [France Is Building Its Own Google Workspace - With Django](https://bhusalmanish.com.np/blog/posts/france-django-lasuite.html): The French government is replacing Microsoft and Google with open-source Django apps (La Suite). 16k+ stars on GitHub.
+
+## Blog - Builder Commentary
+
+- [I Validated 4 SaaS Ideas in 2 Weeks. All Failed. Here's What I Learned](https://bhusalmanish.com.np/blog/posts/4-saas-ideas-failed.html): Two weeks of no-code SaaS validation. Zero traction, $25 spent. Honest retrospective on idea validation.
+- [Why Billion-Dollar Companies Ship Electron Apps (And Why Developers Hate It)](https://bhusalmanish.com.np/blog/posts/electron-vs-native-apps.html): OpenAI's Codex is Electron. Lessons from 500+ HN comments on the native vs Electron debate.
+- [Why the One-Person Billion-Dollar Company Keeps Not Happening](https://bhusalmanish.com.np/blog/posts/one-person-billion-dollar-company.html): Sam Altman's bet vs. what the founders actually trying it are reporting. The gap explained.
+- [Why The Best Builders Have The Emptiest LinkedIns](https://bhusalmanish.com.np/blog/posts/empty-linkedin-best-builders.html): Apple's next CEO has a nearly empty LinkedIn. What "normalize this" actually means for builders.
+
+## Projects
+
+- [AutiSahara / NeuroCare](https://bhusalmanish.com.np/#projects): Early autism screening platform. 2nd Runner Up - Code for Change 2025. 1st Runner Up - Innovation Business Idea Competition 2026.
+- [TrustChain](https://bhusalmanish.com.np/#projects): AI + blockchain skill verification. 1st Prize - Sui Hackathon 2025.
+- [Savvitic](https://bhusalmanish.com.np/#projects): Reddit saved-posts manager with full-text search.
+- [Pdflet](https://bhusalmanish.com.np/#projects): Developer-first HTML to PDF API (in development).
+- [SpeakEasyAI](https://bhusalmanish.com.np/#projects): AI emotional-intelligence dashboard. Honorable Mention - HimalAI.
+
+## Optional
+
+- [Privacy Policy](https://bhusalmanish.com.np/privacy-policy.html): Site privacy policy
+- [GitHub](https://github.com/maniishbhusal): Open-source projects and code
+- [LinkedIn](https://linkedin.com/in/maniishbhusal): Professional profile
+- [X / Twitter](https://x.com/maniishbhusal): Short-form technical commentary
+- [Contact](mailto:manishbhusal6@gmail.com): Email for freelance, full-time, or collaboration inquiries
