@@ -13,6 +13,7 @@ About the author: BCA student at Ambikeshwari College, currently working as a fu
 
 ## Blog - AI & LLMs
 
+- [Why Every New AI Model Feels Like the Last One](https://bhusalmanish.com.np/blog/posts/why-new-ai-models-feel-the-same.html): Why GPT-5.5, Opus 4.7, and every other point release feels like a rebrand. The foundation model usually hasn't changed — only the fine-tuning, scaffolding, and price tag have. What to actually watch for instead of version bumps.
 - [Why Developers Keep Choosing Claude Over Every Other AI](https://bhusalmanish.com.np/blog/posts/why-claude-wins-coding.html): Why Claude keeps winning at real coding work while Gemini loops and Codex catches up. Featured on Hacker News front page and in TLDR AI newsletter (Feb 2026).
 - [Claude Opus 4.7 Dropped and My Trust Got a Little Smaller](https://bhusalmanish.com.np/blog/posts/opus-4-7-developer-fatigue.html): Follow-up two months after the Claude article. What actually changed in developer sentiment after Opus 4.7 shipped.
 - [Anthropic Built an AI That Finds Bugs Older Than Me. They Won't Release It.](https://bhusalmanish.com.np/blog/posts/anthropic-project-glasswing.html): Anthropic's unreleased Project Glasswing found a 27-year-old bug in OpenBSD and thousands of zero-days.
@@ -26,6 +27,10 @@ About the author: BCA student at Ambikeshwari College, currently working as a fu
 
 - [DNS Explained - How Domain Names Get Resolved](https://bhusalmanish.com.np/blog/posts/dns-explained.html): DNS hierarchy, records (A, CNAME, MX, TXT), TTL caching, and the full resolution process. 13,000+ readers, Hacker News front page, shared by Microsoft's Deputy CISO.
 - [HTTPS & SSL Certificates Explained - What Actually Happens When You Visit a Website](https://bhusalmanish.com.np/blog/posts/https-ssl-certificates-explained.html): Certificate authorities, digital signatures, the TLS handshake, and why attackers can't forge certificates.
+
+## Blog - DevOps & Infrastructure
+
+- [Your App Doesn't Need Kubernetes. You're Running It Anyway.](https://bhusalmanish.com.np/blog/posts/app-doesnt-need-kubernetes.html): The math has always favored a single VM for most apps. The real reason teams still reach for Kubernetes isn't technical — it's about résumé incentives, vendor sales, and the conversations k8s forecloses.
 
 ## Blog - Django & Full-Stack Tutorials
 
