@@ -250,7 +250,7 @@ Ambikeshwari College
 
 ## Contact Me
 
-- **Email:** [manishbhusal6@gmail.com](mailto:manishbhusal6@gmail.com)
+- **Email:** [hello@bhusalmanish.com.np](mailto:hello@bhusalmanish.com.np)
 - **Website:** [bhusalmanish.com.np](https://www.bhusalmanish.com.np)
 - **LinkedIn:** [linkedin.com/in/maniishbhusal](https://www.linkedin.com/in/maniishbhusal/)
 - **GitHub:** [github.com/maniishbhusal](https://github.com/maniishbhusal/)
