@@ -1,10 +1,18 @@
 # Manish Bhusal - Software Developer
 
-![Profile](https://i.imgur.com/zHmYohp.jpeg)
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=MJ2hS6oYc-Q" title="Watch my introduction video">
+    <img src="https://img.youtube.com/vi/MJ2hS6oYc-Q/maxresdefault.jpg" alt="Watch Manish Bhusal's introduction video" width="820">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=MJ2hS6oYc-Q"><strong>Watch my 60-second introduction</strong></a>
+</p>
 
 **I Build Digital Products.**
 
-Software Developer from Nepal. I ship full-stack SaaS and AI integrations. Solo-built and deployed [PostDew](https://postdew.com) end-to-end in 10 days — billing, OAuth, AI generation, infra. Available for project work.
+Software Developer from Nepal. I ship full-stack SaaS and AI integrations. Solo-built and shipped [PostDew](https://postdew.com) from idea to production — billing, OAuth, AI generation, infra. Available for project work.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maniishbhusal/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maniishbhusal/)
@@ -15,7 +23,7 @@ Software Developer from Nepal. I ship full-stack SaaS and AI integrations. Solo-
 
 ## About Me
 
-I'm a **Software Developer** from Nepal. I build web apps, APIs, and AI-powered SaaS — most recently **[PostDew](https://postdew.com)**, which I shipped solo in 10 days. I specialize in **Python**, **Django**, **React**, **NestJS**, and integrating AI into real products.
+I'm a **Software Developer** from Nepal. I build web apps, APIs, and AI-powered SaaS — most recently **[PostDew](https://postdew.com)**, which I shipped from idea to production as a solo build. I specialize in **Python**, **Django**, **React**, **NestJS**, and integrating AI into real products.
 
 Currently shipping at **Genese Solution** full-time and **PostDew** on the side.
 
@@ -39,7 +47,7 @@ Pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari College.
 ### Solo Founder — PostDew
 **[postdew.com](https://postdew.com)** | Side project | 2026 - Present
 
-Built and shipped a LinkedIn content SaaS solo in 10 days. Designed, developed, and deployed end-to-end.
+Built and shipped a LinkedIn content SaaS solo from idea to production. Designed, developed, and deployed end-to-end.
 
 - AI generation pipeline with OpenAI (default) and Anthropic (fallback)
 - LinkedIn OAuth, direct publish, and post analytics
@@ -126,7 +134,7 @@ Decentralized AI platform building permissionless agent networks fueled by real-
 ### PostDew (Live · Solo SaaS)
 > LinkedIn AI tool that strips the AI rhythm from generated posts
 
-- Built solo in 10 days from idea to production
+- Built solo from idea to production
 - Django + DRF + Celery on Hetzner; React 19 + Tailwind v4 on Vercel
 - OpenAI gpt-4.1-mini default with Anthropic fallback
 - DodoPayments billing, LinkedIn OAuth + direct publish, PostHog analytics
