@@ -688,7 +688,7 @@ p {
 }
 
 .hero-title {
-  font-size: clamp(3.5rem, 9vw, 5.5rem);
+  font-size: clamp(3.25rem, 5.5vw, 4.6rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -713,12 +713,12 @@ p {
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.7;
   color: var(--color-text);
   margin-bottom: 2.5rem;
-  max-width: 480px;
+  max-width: 620px;
 }
 
 .hero-subtitle-link {
@@ -1672,7 +1672,26 @@ p {
 
 @media (max-width: 1024px) {
   .hero-grid {
-    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 20px;
+  }
+
+  .hero-title {
+    font-size: 3.25rem;
+  }
+
+  .hero-photo-wrapper {
+    padding: 20px 10px;
+  }
+
+  .hero-blob {
+    width: 320px;
+    height: 390px;
+  }
+
+  .hero-photo-container {
+    width: 280px;
+    height: 350px;
   }
 }
 
