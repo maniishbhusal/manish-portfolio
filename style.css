@@ -1896,6 +1896,15 @@ p {
   z-index: 1;
 }
 
+.wib-intro {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.65;
+  text-align: center;
+}
+
 .wib-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2010,6 +2019,7 @@ p {
 
 @media (max-width: 700px) {
   .wib-section { padding: 4rem 0; }
+  .wib-intro { font-size: 0.95rem; }
   .wib-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 420px; }
   .wib-card--rotate-left, .wib-card--rotate-right { transform: rotate(0); }
   .wib-number { font-size: 4rem; }
