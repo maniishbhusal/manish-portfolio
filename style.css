@@ -2136,6 +2136,185 @@ p {
   pointer-events: none;
 }
 
+.contact-heading {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-intro {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 1.75rem auto 2.75rem;
+  max-width: 680px;
+  text-align: center;
+}
+
+.contact-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  gap: 2.5rem;
+  padding: 2.5rem;
+  text-align: left;
+}
+
+.contact-brief,
+.contact-actions-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-kicker {
+  display: inline-block;
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-border);
+  box-shadow: 2px 2px 0 var(--color-shadow);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.contact-brief h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 1rem 0 1.35rem;
+}
+
+.contact-checklist {
+  display: grid;
+  gap: 0.7rem 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-checklist li {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.contact-checklist li::before {
+  color: var(--color-primary);
+  content: "✓";
+  font-weight: 900;
+  left: 0;
+  position: absolute;
+}
+
+.contact-actions-panel {
+  border-left: var(--border-thin);
+  display: flex;
+  flex-direction: column;
+  padding-left: 2.5rem;
+}
+
+.contact-email-block {
+  margin-bottom: 1.5rem;
+}
+
+.contact-email {
+  color: var(--color-text);
+  display: block;
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  font-weight: 800;
+  margin-top: 0.8rem;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.contact-email:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 3px;
+}
+
+.contact-email-button,
+.contact-linkedin-button {
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-linkedin-button {
+  gap: 0.75rem;
+}
+
+.contact-response {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0.85rem 0 1.25rem;
+  text-align: center;
+}
+
+.footer-location {
+  font-weight: 650;
+}
+
+.footer-copyright {
+  margin-top: 0.45rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.25rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.footer-links a {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links a:not(.footer-privacy-link) {
+  font-size: 1.1rem;
+  justify-content: center;
+  text-decoration: none;
+  width: 1.4rem;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 760px) {
+  .contact-card {
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .contact-actions-panel {
+    border-left: 0;
+    border-top: var(--border-thin);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .contact-checklist {
+    grid-template-columns: 1fr;
+  }
+}
+
 .social-link {
   width: 64px;
   height: 64px;
