@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostDew Case Study | Manish Bhusal</title>
+  <meta name="description" content="How Manish Bhusal independently built and shipped PostDew, a full-stack LinkedIn content SaaS with AI generation, authentication, billing, analytics, and production deployment." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.bhusalmanish.com.np/case-studies/postdew.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.bhusalmanish.com.np/case-studies/postdew.html" />
+  <meta property="og:title" content="PostDew Case Study | Built and Shipped by Manish Bhusal" />
+  <meta property="og:description" content="From product idea to live SaaS: the decisions, systems, and production work behind PostDew." />
+  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/PostDew/PostDew-OG.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://cdn.bhusalmanish.com.np/PostDew/PostDew-OG.png" />
+  <meta name="theme-color" content="#FFD700" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../style.css?v=20260718-postdew-case-study" />
+  <link rel="stylesheet" href="postdew.css?v=20260718" />
+</head>
+
+<body class="cs-page">
+  <nav class="cs-nav" aria-label="Case study navigation">
+    <div class="cs-container cs-nav-inner">
+      <a href="../index.html" class="cs-logo" aria-label="Back to Manish Bhusal home"><span>M</span><span>B</span></a>
+      <a href="../index.html#featured-case-study" class="cs-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to portfolio</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="cs-hero">
+      <div class="cs-hero-pattern" aria-hidden="true"></div>
+      <div class="cs-container">
+        <div class="cs-hero-meta">
+          <span>Featured Case Study</span>
+          <span class="cs-live"><span></span> Live Product</span>
+        </div>
+        <h1>Post<span>Dew</span></h1>
+        <p class="cs-hero-kicker">A LinkedIn content SaaS built and shipped independently.</p>
+        <p class="cs-hero-summary">I took PostDew from an initial product idea to a live full-stack SaaS application. I handled product decisions, frontend and backend development, AI integration, authentication, billing, analytics, and production deployment.</p>
+        <div class="cs-hero-actions">
+          <a href="https://postdew.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Visit Live Product <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="#breakdown" class="btn-secondary">See the Breakdown <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <section class="cs-product-preview" aria-label="PostDew product preview">
+      <div class="cs-container">
+        <div class="cs-browser-frame">
+          <div class="cs-browser-bar" aria-hidden="true">
+            <div><span></span><span></span><span></span></div>
+            <p>postdew.com</p>
+            <span class="cs-browser-live">LIVE</span>
+          </div>
+          <img src="https://cdn.bhusalmanish.com.np/PostDew/PostDew-OG.png" alt="PostDew product preview showing its LinkedIn writing proposition" />
+        </div>
+      </div>
+    </section>
+
+    <section id="breakdown" class="cs-breakdown">
+      <div class="cs-container cs-breakdown-grid">
+        <aside class="cs-section-index" aria-hidden="true">
+          <span>01</span>
+          <p>THE PRODUCT</p>
+        </aside>
+        <div class="cs-content-block">
+          <span class="cs-eyebrow">The problem</span>
+          <h2>AI-written posts were losing the human voice.</h2>
+          <p class="cs-lead">AI-assisted LinkedIn posts often sound repetitive, overly polished, and obviously machine-generated. PostDew was designed to help users turn rough thoughts into more natural posts while preserving their original meaning and voice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-built-section">
+      <div class="cs-container">
+        <div class="cs-section-heading">
+          <div>
+            <span class="cs-eyebrow">What I built</span>
+            <h2>One product. Every layer.</h2>
+          </div>
+          <p>Product thinking, application engineering, integrations, infrastructure, and launch&mdash;owned end to end.</p>
+        </div>
+
+        <div class="cs-system-grid">
+          <article class="cs-system-card cs-system-card--yellow"><span>01</span><h3>Application</h3><p>Django REST backend and React frontend.</p></article>
+          <article class="cs-system-card"><span>02</span><h3>AI Workflow</h3><p>OpenAI-powered generation designed around natural voice.</p></article>
+          <article class="cs-system-card"><span>03</span><h3>Background Work</h3><p>Celery and Redis for reliable asynchronous processing.</p></article>
+          <article class="cs-system-card"><span>04</span><h3>LinkedIn</h3><p>OAuth connection and direct publishing from the product.</p></article>
+          <article class="cs-system-card"><span>05</span><h3>Business Systems</h3><p>Subscription billing with DodoPayments and analytics with PostHog.</p></article>
+          <article class="cs-system-card cs-system-card--dark"><span>06</span><h3>Production</h3><p>Error monitoring and deployment across Hetzner and Vercel.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-outcome">
+      <div class="cs-container cs-outcome-inner">
+        <div>
+          <span class="cs-eyebrow">Why this project matters</span>
+          <h2>More than a coding sample.</h2>
+        </div>
+        <p>PostDew demonstrates that I can make product decisions, connect multiple systems, handle real production concerns, and ship an application from beginning to end.</p>
+      </div>
+    </section>
+
+    <section class="cs-final-cta">
+      <div class="cs-container cs-final-card">
+        <div>
+          <span class="cs-eyebrow">Have a product to ship?</span>
+          <h2>Let’s turn it into something people can use.</h2>
+        </div>
+        <a href="../index.html#contact" class="btn-primary">Discuss Your Product <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cs-footer">
+    <div class="cs-container"><p>&copy; 2026 Manish Bhusal</p><a href="../index.html">Back to portfolio &uarr;</a></div>
+  </footer>
+</body>
+
+</html>

@@ -48,6 +48,7 @@ About the author: BCA student at Ambikeshwari College and full-stack product eng
 
 ## Projects
 
+- [PostDew Case Study](https://bhusalmanish.com.np/case-studies/postdew.html): Independently built and shipped LinkedIn content SaaS covering product decisions, Django REST and React development, OpenAI generation, Celery and Redis jobs, LinkedIn OAuth, DodoPayments billing, PostHog analytics, and production deployment across Hetzner and Vercel.
 - [AutiSahara / NeuroCare](https://bhusalmanish.com.np/#projects): Early autism screening platform. 2nd Runner Up - Code for Change 2025. 1st Runner Up - Innovation Business Idea Competition 2026.
 - [TrustChain](https://bhusalmanish.com.np/#projects): AI + blockchain skill verification. 1st Prize - Sui Hackathon 2025.
 - [Savvitic](https://bhusalmanish.com.np/#projects): Reddit saved-posts manager with full-text search.
