@@ -286,6 +286,8 @@ p {
   border: var(--border-heavy);
   box-shadow: var(--shadow-xl);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -337,11 +339,49 @@ p {
 
 .project-card-body {
   padding: 1.75rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .project-card-body p {
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+.projects-intro {
+  max-width: 680px;
+  margin: -0.5rem auto 2.75rem;
+  color: #3f3f3f;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.project-summary {
+  margin-bottom: 1.1rem;
+}
+
+.project-contribution {
+  margin-bottom: 1.4rem;
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--color-primary);
+  color: #333;
+  font-weight: 600;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
 }
 
 .project-badge {
@@ -391,7 +431,7 @@ p {
 }
 
 .hidden-project.show {
-  display: block;
+  display: flex;
 }
 
 .hidden-milestone {

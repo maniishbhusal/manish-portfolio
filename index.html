@@ -936,173 +936,200 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-center mb-4" data-aos="fade-up">Featured Projects</h2>
+        <h2 class="text-center mb-4" data-aos="fade-up">Selected Projects</h2>
         <div class="section-divider" data-aos="fade-up"></div>
+        <p class="projects-intro" data-aos="fade-up">
+          A selection of products I’ve built independently and with teams—from
+          early concepts to working applications.
+        </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <!-- PostDew -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="50">
-            <div class="project-card-header">
-              <div class="flex justify-between items-center">
-                <h3>PostDew</h3>
-                <i class="fab fa-linkedin text-2xl"></i>
-              </div>
-              <span class="project-badge">Live &bull; Solo SaaS</span>
-            </div>
-            <div class="project-card-body">
-              <p class="mb-6">
-                LinkedIn AI tool that strips the AI rhythm from generated posts.
-                Built solo from idea to production: Django + DRF + Celery on
-                Hetzner, React 19 + Tailwind v4 on Vercel, OpenAI gpt-4.1-mini
-                default with Anthropic fallback, DodoPayments billing, LinkedIn
-                OAuth + direct publish.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="tech-tag">Django REST</span>
-                <span class="tech-tag">Celery</span>
-                <span class="tech-tag">OpenAI</span>
-                <span class="tech-tag">Anthropic</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">DodoPayments</span>
-                <span class="tech-tag">Upstash Redis</span>
-                <span class="tech-tag">PostHog</span>
-              </div>
-              <div class="flex gap-3">
-                <a
-                  href="https://postdew.com"
-                  target="_blank"
-                  class="btn-primary btn-small"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-
           <!-- AutiSahara -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <article class="project-card" data-aos="fade-up" data-aos-delay="50">
             <div class="project-card-header">
               <div class="flex justify-between items-center">
                 <h3>AutiSahara</h3>
                 <i class="fas fa-child text-2xl"></i>
               </div>
               <span class="project-badge"
-                >2nd Runner Up - Code For Change 2025</span
+                >Second Runner-Up &bull; Code for Change 2025</span
               >
             </div>
             <div class="project-card-body">
-              <p class="mb-6">
-                Early autism screening platform for children aged 16-30 months.
-                Built both web and mobile apps with M-CHAT-R/F questionnaire,
-                video upload for behavioral analysis, and a dedicated doctor
-                dashboard for professional assessment. Built at Nepal's biggest
-                hackathon.
+              <p class="project-summary">
+                An early autism-screening platform for children aged 16–30
+                months, combining a parent questionnaire, video-submission
+                workflow, and a professional assessment dashboard.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
+              <p class="project-contribution">
+                Built the full-stack web product and contributed to the mobile
+                application and assessment workflows.
+              </p>
+              <div class="project-tech-list">
                 <span class="tech-tag">Django REST</span>
                 <span class="tech-tag">React</span>
                 <span class="tech-tag">React Native</span>
                 <span class="tech-tag">PostgreSQL</span>
               </div>
-              <div class="flex gap-3">
-                <a
-                  href="https://github.com/maniishbhusal/CodeFest2025_Team_AMC_Galaxen"
-                  target="_blank"
-                  class="btn-secondary btn-small"
-                >
-                  <i class="fab fa-github"></i> Code
-                </a>
+              <div class="project-card-actions">
                 <a
                   href="https://www.youtube.com/watch?v=utJsF5T4nLA"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-primary btn-small"
                 >
-                  <i class="fas fa-play"></i> Demo
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/AutiSahara-Hackathon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- TrustChain -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <article class="project-card" data-aos="fade-up" data-aos-delay="100">
             <div class="project-card-header">
               <div class="flex justify-between items-center">
                 <h3>TrustChain</h3>
                 <i class="fas fa-shield-alt text-2xl"></i>
               </div>
-              <span class="project-badge">1st Prize - Sui Hackathon 2025</span>
+              <span class="project-badge"
+                >First Prize &bull; AI Track &bull; Sui Hackathon 2025</span
+              >
             </div>
             <div class="project-card-body">
-              <p class="mb-6">
-                Verify real-world skills using AI and blockchain. Analyzes
-                resumes and GitHub profiles to generate verifiable skill reports
-                stored on Walrus decentralized storage. Built with zkLogin for
-                seamless Web3 authentication.
+              <p class="project-summary">
+                An AI-powered platform that analyzes resumes and GitHub activity
+                to generate verifiable skill reports stored through
+                decentralized infrastructure.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
+              <p class="project-contribution">
+                Contributed across product development, AI integration,
+                frontend, backend, and blockchain workflows.
+              </p>
+              <div class="project-tech-list">
                 <span class="tech-tag">React</span>
                 <span class="tech-tag">Django</span>
                 <span class="tech-tag">OpenAI</span>
                 <span class="tech-tag">Sui</span>
                 <span class="tech-tag">Walrus</span>
               </div>
-              <div class="flex gap-3">
-                <a
-                  href="https://github.com/maniishbhusal/TrustChain?tab=readme-ov-file"
-                  target="_blank"
-                  class="btn-secondary btn-small"
-                >
-                  <i class="fab fa-github"></i> Code
-                </a>
+              <div class="project-card-actions">
                 <a
                   href="https://www.youtube.com/watch?v=vqRDQAUKhoQ"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-primary btn-small"
                 >
-                  <i class="fas fa-play"></i> Demo
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/TrustChain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- Savvitic -->
-          <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <article class="project-card" data-aos="fade-up" data-aos-delay="150">
             <div class="project-card-header">
               <div class="flex justify-between items-center">
                 <h3>Savvitic</h3>
                 <i class="fab fa-reddit text-2xl"></i>
               </div>
+              <span class="project-badge">Independent Product</span>
             </div>
             <div class="project-card-body">
-              <p class="mb-6">
-                Never lose a saved Reddit post again. Savvitic syncs your saved
-                posts, enables full-text search across all content, and lets you
-                organize with custom tags and reminders. Features Reddit OAuth
-                and powerful filtering.
+              <p class="project-summary">
+                A productivity application that synchronizes saved Reddit posts
+                and makes them searchable through full-text search, custom tags,
+                filters, and reminders.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
+              <p class="project-contribution">
+                Designed and built the product, Reddit OAuth flow, frontend,
+                backend, and data model.
+              </p>
+              <div class="project-tech-list">
                 <span class="tech-tag">Django REST</span>
                 <span class="tech-tag">React</span>
                 <span class="tech-tag">TypeScript</span>
                 <span class="tech-tag">PostgreSQL</span>
               </div>
-              <div class="flex gap-3">
+              <div class="project-card-actions">
                 <a
                   href="https://github.com/maniishbhusal/Savvitic"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-secondary btn-small"
                 >
-                  <i class="fab fa-github"></i> Code
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
-          </div>
+          </article>
+
+          <!-- SpeakEasyAI -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>SpeakEasyAI</h3>
+                <i class="fas fa-wave-square text-2xl"></i>
+              </div>
+              <span class="project-badge"
+                >Honorable Mention &bull; HimalAI Hackathon</span
+              >
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                An AI-powered communication platform that transcribes speech and
+                analyzes sentiment, tone, emotions, and speaking patterns.
+              </p>
+              <p class="project-contribution">
+                Contributed to the product concept, AI workflows, full-stack
+                implementation, and dashboard experience.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">OpenAI</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://www.youtube.com/watch?v=H0mo8SYn8ms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-small"
+                >
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/SpeakEasyAI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
 
           <!-- Pdflet -->
-          <div
+          <article
             class="project-card hidden-project"
             data-aos="fade-up"
-            data-aos-delay="400"
+            data-aos-delay="50"
           >
             <div class="project-card-header">
               <div class="flex justify-between items-center">
@@ -1114,80 +1141,92 @@
               >
             </div>
             <div class="project-card-body">
-              <p class="mb-6">
-                Developer-first HTML to PDF API. Convert any HTML/URL to
-                pixel-perfect PDFs with a simple REST API. Features customizable
-                headers, footers, and page settings. Integrated with
-                DodoPayments for seamless billing.
+              <p class="project-summary">
+                A developer-focused HTML-to-PDF API for converting webpages and
+                HTML templates into production-ready PDF documents.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
+              <p class="project-contribution">
+                Designed and built the product architecture, API, dashboard,
+                billing integration, and deployment workflow.
+              </p>
+              <div class="project-tech-list">
                 <span class="tech-tag">Django REST</span>
                 <span class="tech-tag">React</span>
                 <span class="tech-tag">DodoPayments</span>
               </div>
-              <div class="flex gap-3">
+              <div class="project-card-actions">
                 <a
                   href="https://github.com/maniishbhusal/Pdflet"
                   target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-secondary btn-small"
                 >
-                  <i class="fab fa-github"></i> Code
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- SpeakEasyAI (Hidden by default) -->
-          <div
+          <!-- Django + React Auth Starter -->
+          <article
             class="project-card hidden-project"
             data-aos="fade-up"
             data-aos-delay="100"
           >
             <div class="project-card-header">
               <div class="flex justify-between items-center">
-                <h3>SpeakEasyAI</h3>
-                <i class="fas fa-wave-square text-2xl"></i>
+                <h3>AuthKit</h3>
+                <i class="fas fa-user-lock text-2xl"></i>
               </div>
-              <span class="project-badge"
-                >Honorable Mention - HimalAI Hackathon</span
-              >
+              <span class="project-badge">Open-Source Starter</span>
             </div>
             <div class="project-card-body">
-              <p class="mb-6">
-                An AI-powered emotional intelligence dashboard that transcribes
-                speech and analyzes sentiment. Built with Next.js, Django, and
-                OpenAI. Helps teams understand tone, emotions, and speaker
-                feedback after meetings.
+              <p class="project-summary">
+                A production-ready authentication starter with email-based
+                accounts, verification, password reset, JWT rotation, and
+                protected frontend routes.
               </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">Django</span>
-                <span class="tech-tag">OpenAI</span>
+              <p class="project-contribution">
+                Designed and built the reusable backend, typed React client,
+                security defaults, and deployment-ready project structure.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">React 19</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">JWT</span>
               </div>
-              <div class="flex gap-3">
+              <div class="project-card-actions">
                 <a
-                  href="https://github.com/maniishbhusal/SpeakEasyAI"
+                  href="https://django-react-auth-starter.vercel.app/"
                   target="_blank"
-                  class="btn-secondary btn-small"
-                >
-                  <i class="fab fa-github"></i> Code
-                </a>
-                <a
-                  href="https://www.youtube.com/watch?v=H0mo8SYn8ms"
-                  target="_blank"
+                  rel="noopener noreferrer"
                   class="btn-primary btn-small"
                 >
-                  <i class="fas fa-play"></i> Demo
+                  <i class="fas fa-external-link-alt"></i> View Preview
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/django-react-auth-starter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
                 </a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
 
         <!-- View More Button -->
         <div class="text-center mt-8" data-aos="fade-up">
-          <button id="view-more-projects" class="btn-secondary">
-            <i class="fas fa-plus"></i> View More Projects
+          <button
+            id="view-more-projects"
+            class="btn-secondary"
+            type="button"
+            aria-expanded="false"
+          >
+            <i class="fas fa-arrow-down"></i> View More Projects
           </button>
         </div>
       </div>
@@ -1687,6 +1726,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260719-projects"></script>
   </body>
 </html>
