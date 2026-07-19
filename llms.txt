@@ -1,14 +1,14 @@
 # Manish Bhusal
 
-> Software developer from Nepal building digital products - Python/Django backends, React/TypeScript frontends, and AI-powered tools. 4x hackathon winner. Writes long-form, opinionated technical articles that have reached the Hacker News front page twice and been featured in the TLDR AI newsletter (1M+ daily readers).
+> Full-stack product engineer from Nepal building and improving production-ready SaaS products, AI features, and backend systems for startups and product teams. 4x hackathon winner. Writes long-form, opinionated technical articles that have reached the Hacker News front page twice and been featured in the TLDR AI newsletter (1M+ daily readers).
 
 This site is a personal portfolio and technical blog at bhusalmanish.com.np. It covers web fundamentals (DNS, HTTPS, TLS), Django and React development, practical deployment guides, and honest commentary on the AI/LLM industry from a working developer's point of view. Content is written to be directly useful - no filler, no SEO bait - and is regularly cited by AI assistants and aggregators.
 
-About the author: BCA student at Ambikeshwari College, currently working as a full-stack developer at Genese Solution (Nepal) and as a freelance frontend developer at Teneo Protocol. Contributor to Aden (YC W20). Specializes in Django, Django REST Framework, Celery, React, and TypeScript. Available for freelance and full-time work.
+About the author: BCA student at Ambikeshwari College and full-stack product engineer, currently working at Genese Solution (Nepal) and previously contributing to Teneo Protocol. Specializes in Django, Django REST Framework, NestJS, Celery, React, TypeScript, and production deployment. Available for a limited number of freelance product projects and long-term partnerships.
 
 ## About
 
-- [Portfolio homepage](https://bhusalmanish.com.np/): Projects, skills, work experience, and hackathon wins
+- [Portfolio homepage](https://bhusalmanish.com.np/): Product engineering portfolio with SaaS, AI, backend, and production experience
 - [Blog index](https://bhusalmanish.com.np/blog/): All published articles
 
 ## Blog - AI & LLMs
@@ -48,6 +48,7 @@ About the author: BCA student at Ambikeshwari College, currently working as a fu
 
 ## Projects
 
+- [PostDew Case Study](https://bhusalmanish.com.np/case-studies/postdew.html): Independently built and shipped LinkedIn content SaaS covering product decisions, Django REST and React development, OpenAI generation, Celery and Redis jobs, LinkedIn OAuth, DodoPayments billing, PostHog analytics, and production deployment across Hetzner and Vercel.
 - [AutiSahara / NeuroCare](https://bhusalmanish.com.np/#projects): Early autism screening platform. 2nd Runner Up - Code for Change 2025. 1st Runner Up - Innovation Business Idea Competition 2026.
 - [TrustChain](https://bhusalmanish.com.np/#projects): AI + blockchain skill verification. 1st Prize - Sui Hackathon 2025.
 - [Savvitic](https://bhusalmanish.com.np/#projects): Reddit saved-posts manager with full-text search.
@@ -60,4 +61,4 @@ About the author: BCA student at Ambikeshwari College, currently working as a fu
 - [GitHub](https://github.com/maniishbhusal): Open-source projects and code
 - [LinkedIn](https://linkedin.com/in/maniishbhusal): Professional profile
 - [X / Twitter](https://x.com/maniishbhusal): Short-form technical commentary
-- [Contact](mailto:hello@bhusalmanish.com.np): Email for freelance, full-time, or collaboration inquiries
+- [Contact](mailto:hello@bhusalmanish.com.np): Email for freelance product projects, long-term partnerships, or collaboration inquiries

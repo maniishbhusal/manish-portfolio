@@ -1,1048 +1,2068 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8E198KDV00");
+    </script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E198KDV00"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-8E198KDV00');
-  </script>
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1059338710816868"
-     crossorigin="anonymous"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>Manish Bhusal | Full-Stack Product Engineer for Product Teams</title>
+    <meta
+      name="title"
+      content="Manish Bhusal | Full-Stack Product Engineer for Product Teams"
+    />
+    <meta
+      name="description"
+      content="I build and improve production-ready SaaS products, AI features, and backend systems for startups and product teams."
+    />
+    <meta
+      name="keywords"
+      content="Manish Bhusal, Full-Stack Product Engineer, SaaS Product Engineer, SaaS Development, Product Engineering, AI Features, AI Integration, Backend Systems, Django, React, NestJS, PostgreSQL"
+    />
+    <meta name="author" content="Manish Bhusal" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bhusalmanish.com.np" />
 
-  <!-- Primary Meta Tags -->
-  <title>Manish Bhusal | Software Developer from Nepal - Python, Django, React</title>
-  <meta name="title" content="Manish Bhusal | Software Developer from Nepal - Python, Django, React" />
-  <meta name="description" content="Manish Bhusal is a Software Developer from Nepal specializing in Python, Django, React, and AI integration. Solo-shipped PostDew SaaS end-to-end. Available for project work." />
-  <meta name="keywords" content="Manish Bhusal, Software Developer, Python Developer, Django Developer, React Developer, Nepal Developer, Full Stack Developer, Web Developer, API Developer, Hackathon Winner" />
-  <meta name="author" content="Manish Bhusal" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.bhusalmanish.com.np" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.bhusalmanish.com.np" />
+    <meta
+      property="og:title"
+      content="Manish Bhusal | Full-Stack Product Engineer for Product Teams"
+    />
+    <meta
+      property="og:description"
+      content="I build and improve production-ready SaaS products, AI features, and backend systems for startups and product teams."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg"
+    />
+    <meta property="og:site_name" content="Manish Bhusal Portfolio" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.bhusalmanish.com.np" />
-  <meta property="og:title" content="Manish Bhusal | Software Developer from Nepal" />
-  <meta property="og:description" content="Software Developer specializing in Python, Django, React, and AI integration. Solo-shipped PostDew SaaS end-to-end." />
-  <meta property="og:image" content="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" />
-  <meta property="og:site_name" content="Manish Bhusal Portfolio" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.bhusalmanish.com.np" />
+    <meta
+      name="twitter:title"
+      content="Manish Bhusal | Full-Stack Product Engineer for Product Teams"
+    />
+    <meta
+      name="twitter:description"
+      content="I build and improve production-ready SaaS products, AI features, and backend systems for startups and product teams."
+    />
+    <meta
+      name="twitter:image"
+      content="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg"
+    />
+    <meta name="twitter:creator" content="@maniishbhusal" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://www.bhusalmanish.com.np" />
-  <meta name="twitter:title" content="Manish Bhusal | Software Developer from Nepal" />
-  <meta name="twitter:description" content="Software Developer specializing in Python, Django, React, and AI integration. Solo-shipped PostDew SaaS end-to-end." />
-  <meta name="twitter:image" content="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" />
-  <meta name="twitter:creator" content="@maniishbhusal" />
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#FFD700" />
+    <meta name="geo.region" content="NP" />
+    <meta name="geo.placename" content="Nepal" />
 
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#FFD700" />
-  <meta name="geo.region" content="NP" />
-  <meta name="geo.placename" content="Nepal" />
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://i.imgur.com" crossorigin />
+    <link rel="dns-prefetch" href="https://i.imgur.com" />
 
-  <!-- Preconnect to external domains for faster loading -->
-  <link rel="preconnect" href="https://i.imgur.com" crossorigin>
-  <link rel="dns-prefetch" href="https://i.imgur.com">
+    <!-- Google Fonts - Work Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts - Work Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
 
-  <!-- AOS Animation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Tailwind CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css?v=20260719-technical-capabilities" />
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css?v=20260626-video" />
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Manish Bhusal",
+        "url": "https://www.bhusalmanish.com.np",
+        "image": "https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg",
+        "jobTitle": "Full-Stack Product Engineer",
+        "description": "I build and improve production-ready SaaS products, AI features, and backend systems for startups and product teams.",
+        "email": "hello@bhusalmanish.com.np",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "Nepal"
+        },
+        "sameAs": [
+          "https://github.com/maniishbhusal",
+          "https://www.linkedin.com/in/maniishbhusal",
+          "https://x.com/maniishbhusal",
+          "https://www.facebook.com/maniishbhusal"
+        ],
+        "knowsAbout": [
+          "Python",
+          "Django",
+          "React",
+          "NestJS",
+          "TypeScript",
+          "PostgreSQL",
+          "AWS",
+          "OpenAI",
+          "Anthropic Claude",
+          "RAG",
+          "REST APIs",
+          "Web Development"
+        ],
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Ambikeshwari College"
+        }
+      }
+    </script>
+  </head>
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Manish Bhusal",
-    "url": "https://www.bhusalmanish.com.np",
-    "image": "https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg",
-    "jobTitle": "Software Developer",
-    "description": "Software Developer from Nepal specializing in Python, Django, React, and AI integration. Solo-shipped PostDew SaaS end-to-end.",
-    "email": "hello@bhusalmanish.com.np",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Nepal"
-    },
-    "sameAs": [
-      "https://github.com/maniishbhusal",
-      "https://www.linkedin.com/in/maniishbhusal",
-      "https://x.com/maniishbhusal",
-      "https://www.facebook.com/maniishbhusal"
-    ],
-    "knowsAbout": ["Python", "Django", "React", "NestJS", "TypeScript", "PostgreSQL", "AWS", "OpenAI", "Anthropic Claude", "RAG", "REST APIs", "Web Development"],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Ambikeshwari College"
-    }
-  }
-  </script>
-</head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="neo-nav" style="top: 0;">
-    <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center">
-        <a href="#" class="neo-nav-logo">
-            <span class="logo-letter logo-m">M</span><span class="logo-letter logo-b">B</span>
+  <body>
+    <!-- Navigation -->
+    <nav class="neo-nav">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <a href="#home" class="neo-nav-logo" aria-label="Back to home">
+            <span class="logo-letter logo-m">M</span
+            ><span class="logo-letter logo-b">B</span>
           </a>
-        <div class="hidden md:flex items-center gap-2">
-          <a href="#about" class="neo-nav-link">About</a>
-          <a href="#skills" class="neo-nav-link">Skills</a>
-          <a href="#experience" class="neo-nav-link">Work</a>
-          <a href="#projects" class="neo-nav-link">Projects</a>
-          <a href="blog/index.html" class="neo-nav-link">Blog</a>
-          <a href="#contact" class="btn-primary btn-small">Let's Talk</a>
+          <div class="hidden md:flex items-center gap-2">
+            <a href="#experience" class="neo-nav-link">Work</a>
+            <a href="#projects" class="neo-nav-link">Projects</a>
+            <a href="#testimonials" class="neo-nav-link">Testimonials</a>
+            <a href="#process" class="neo-nav-link">Process</a>
+            <a href="#blog" class="neo-nav-link">Writing</a>
+            <a href="#contact" class="btn-primary btn-small">Start a Project</a>
+          </div>
+          <button id="mobile-menu-button" class="md:hidden neo-nav-link">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
-        <button id="mobile-menu-button" class="md:hidden neo-nav-link">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container mx-auto px-4">
-      <div class="hero-grid">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container mx-auto px-4">
+        <div class="hero-grid">
+          <!-- Text Content (Left Side) -->
+          <div class="hero-text" data-aos="fade-right">
+            <p class="hero-intro">Full-Stack Product Engineer</p>
+            <h1 class="hero-title">
+              I Help Founders<br />
+              <span class="hero-title-highlight">Ship</span> SaaS Products.
+            </h1>
+            <p class="hero-subtitle">
+              I build and improve production-ready SaaS products, AI features,
+              and backend systems for startups and product teams.
+            </p>
+            <div class="hero-cta">
+              <a href="#contact" class="btn-primary">
+                <i class="fas fa-rocket" aria-hidden="true"></i>
+                Let's Build Your Product
+              </a>
+            </div>
+          </div>
 
-        <!-- Text Content (Left Side) -->
-        <div class="hero-text" data-aos="fade-right">
-          <p class="hero-intro">Software Developer</p>
-          <h1 class="hero-title">
-            I Build <span class="hero-title-highlight">Digital</span><br>
-            Products.
-          </h1>
-          <p class="hero-subtitle">
-            I ship full-stack SaaS and AI integrations. Solo-built and shipped <a href="https://postdew.com" target="_blank" rel="noopener noreferrer" class="hero-subtitle-link">PostDew</a> from idea to production &mdash; billing, OAuth, AI generation, infra. Available for project work.
+          <!-- Photo Side with Blob (Right Side) -->
+          <div class="hero-photo-wrapper" data-aos="fade-left">
+            <!-- Animated Blob -->
+            <div class="hero-blob"></div>
+
+            <!-- Profile Photo -->
+            <div class="hero-photo-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg"
+                alt="Manish Bhusal, full-stack product engineer"
+                class="hero-photo"
+              />
+            </div>
+
+            <!-- Floating Badge - Name (Top Right) -->
+            <div class="floating-badge floating-badge-name">Manish</div>
+
+            <!-- Floating Badge - Code Icon (Top Left) -->
+            <div class="floating-badge floating-badge-code">
+              <i class="fas fa-code"></i>
+            </div>
+
+            <!-- Floating Badge - Trophy Icon (Right Side) -->
+            <div class="floating-badge floating-badge-target">
+              <i class="fas fa-trophy"></i>
+            </div>
+
+            <!-- Floating Badge - Available (Bottom Right) -->
+            <div class="floating-badge floating-badge-available">
+              <span class="pulse-dot"></span>
+              Available for Select Projects
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction Video Section -->
+    <section id="intro-video" class="intro-video-section">
+      <div class="intro-video-pattern"></div>
+      <div class="container mx-auto px-4">
+        <div class="intro-video-shell" data-aos="fade-up">
+          <div class="intro-video-copy">
+            <span class="intro-video-kicker">
+              <i class="fas fa-play"></i>
+              Meet Manish
+            </span>
+            <h2>A quick introduction</h2>
+            <p>Get to know me in under a minute.</p>
+          </div>
+
+          <div
+            class="intro-video-frame"
+            aria-label="Manish Bhusal introduction video"
+          >
+            <iframe
+              src="https://www.youtube.com/embed/lVcJG2Do_Qg?si=tuG351oJjB4tBi4r"
+              title="Manish Bhusal introduction video"
+              loading="lazy"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof of Work Strip -->
+    <section class="press-section">
+      <div class="container mx-auto px-4">
+        <p class="press-label" data-aos="fade-up">
+          BUILT. SHIPPED. RECOGNIZED.
+        </p>
+        <div class="press-grid" data-aos="fade-up">
+          <a
+            href="https://postdew.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="press-item"
+          >
+            <i class="fas fa-rocket press-icon" aria-hidden="true"></i>
+            <span class="press-name">PostDew</span>
+            <span class="press-detail">Solo-built AI SaaS</span>
+          </a>
+
+          <article class="press-item">
+            <i class="fas fa-briefcase press-icon" aria-hidden="true"></i>
+            <span class="press-name">Enterprise Fintech</span>
+            <span class="press-detail">Production Engineering</span>
+          </article>
+
+          <article class="press-item">
+            <i class="fas fa-globe press-icon" aria-hidden="true"></i>
+            <span class="press-name">International</span>
+            <span class="press-detail">Remote Startup Teams</span>
+          </article>
+
+          <a
+            href="https://news.ycombinator.com/item?id=46868803"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="press-item"
+          >
+            <i class="fab fa-hacker-news press-icon" aria-hidden="true"></i>
+            <span class="press-name">Hacker News</span>
+            <span class="press-detail">Front Page &times;2</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Build Section -->
+    <section id="what-i-build" class="wib-section">
+      <div class="wib-bg-pattern"></div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">
+          What I Can Help You Ship
+        </h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+        <p class="wib-intro" data-aos="fade-up">
+          Product-minded engineering to build, improve, and ship reliable
+          software.
+        </p>
+
+        <div class="wib-grid" data-aos="fade-up">
+          <!-- 01 -->
+          <div class="wib-card wib-card--rotate-left">
+            <span class="wib-number">01</span>
+            <span class="wib-tag">AI</span>
+            <h3 class="wib-title">AI Features</h3>
+            <p class="wib-desc">
+              Add practical AI capabilities&mdash;generation, workflows,
+              assistants, and RAG.
+            </p>
+          </div>
+
+          <!-- 02 (featured) -->
+          <div class="wib-card wib-card--featured wib-card--rotate-right">
+            <span class="wib-number">02</span>
+            <span class="wib-tag wib-tag--dark">SAAS</span>
+            <h3 class="wib-title">SaaS Products</h3>
+            <p class="wib-desc">
+              Build new products and major features&mdash;from authentication
+              and dashboards to billing and launch.
+            </p>
+          </div>
+
+          <!-- 03 -->
+          <div class="wib-card wib-card--rotate-right">
+            <span class="wib-number">03</span>
+            <span class="wib-tag">DEPLOY</span>
+            <h3 class="wib-title">Product Rescue</h3>
+            <p class="wib-desc">
+              Stabilize unfinished products and get them ready for real users.
+            </p>
+          </div>
+
+          <!-- 04 -->
+          <div class="wib-card wib-card--rotate-left">
+            <span class="wib-number">04</span>
+            <span class="wib-tag">BACKEND</span>
+            <h3 class="wib-title">Backend Systems</h3>
+            <p class="wib-desc">
+              Build reliable APIs, background jobs, integrations, and
+              subscription systems.
+            </p>
+          </div>
+        </div>
+
+        <div class="wib-cta" data-aos="fade-up">
+          <p>
+            Have a product, feature, or unfinished prototype?
+            <a href="#contact" class="wib-cta-link">Let’s discuss it &rarr;</a>
           </p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn-primary">
-              <i class="fas fa-rocket"></i> Let's Build Together
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section id="featured-case-study" class="fcs-section">
+      <div class="fcs-grid-pattern" aria-hidden="true"></div>
+      <div class="container mx-auto px-4">
+        <div class="fcs-heading" data-aos="fade-up">
+          <span class="fcs-eyebrow">Featured Case Study</span>
+          <h2>Proof, not promises.</h2>
+          <p>One product. Owned from the first decision to production.</p>
+        </div>
+
+        <article class="fcs-card" data-aos="fade-up">
+          <div class="fcs-visual-column">
+            <a
+              class="fcs-product-window"
+              href="https://postdew.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit the live PostDew product"
+            >
+              <div class="fcs-window-bar" aria-hidden="true">
+                <span class="fcs-window-dot fcs-window-dot--red"></span>
+                <span class="fcs-window-dot fcs-window-dot--yellow"></span>
+                <span class="fcs-window-dot fcs-window-dot--green"></span>
+                <span class="fcs-window-url">postdew.com</span>
+              </div>
+              <img
+                src="https://cdn.bhusalmanish.com.np/PostDew/PostDew-OG.png"
+                alt="PostDew LinkedIn content SaaS product preview"
+                loading="lazy"
+              />
+              <span class="fcs-live-sticker"
+                ><span class="fcs-live-dot"></span> Live Product</span
+              >
             </a>
-          </div>
-        </div>
 
-        <!-- Photo Side with Blob (Right Side) -->
-        <div class="hero-photo-wrapper" data-aos="fade-left">
-          <!-- Animated Blob -->
-          <div class="hero-blob"></div>
-
-          <!-- Profile Photo -->
-          <div class="hero-photo-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-image.jpeg" alt="Manish Bhusal - Software Developer" class="hero-photo" />
+            <div class="fcs-problem">
+              <span class="fcs-detail-label">The problem</span>
+              <p>
+                AI-generated LinkedIn posts often feel repetitive and overly
+                polished. PostDew turns rough thoughts into natural posts while
+                preserving the user’s meaning and voice.
+              </p>
+            </div>
           </div>
 
-          <!-- Floating Badge - Name (Top Right) -->
-          <div class="floating-badge floating-badge-name">
-            Manish
+          <div class="fcs-story-column">
+            <div class="fcs-title-row">
+              <div>
+                <span class="fcs-index">01 / SOLO-BUILT SAAS</span>
+                <h3>PostDew</h3>
+              </div>
+              <span class="fcs-status"
+                ><span class="fcs-live-dot"></span> Shipped</span
+              >
+            </div>
+
+            <p class="fcs-tagline">
+              A LinkedIn content SaaS built and shipped independently.
+            </p>
+            <p class="fcs-summary">
+              I took PostDew from an initial idea to a live full-stack
+              product&mdash;handling product decisions, frontend and backend
+              development, AI generation, authentication, billing, analytics,
+              and deployment.
+            </p>
+
+            <div class="fcs-build-block">
+              <span class="fcs-detail-label">What I built</span>
+              <ul class="fcs-build-list">
+                <li>Django REST + React</li>
+                <li>OpenAI workflow</li>
+                <li>Celery + Redis</li>
+                <li>LinkedIn OAuth</li>
+                <li>Billing + analytics</li>
+                <li>Deployment + monitoring</li>
+              </ul>
+            </div>
+
+            <div class="fcs-actions">
+              <a
+                href="https://postdew.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+              >
+                Visit Live Product
+                <i
+                  class="fas fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </a>
+              <a href="case-studies/postdew.html" class="btn-secondary">
+                Read Full Case Study
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
 
-          <!-- Floating Badge - Code Icon (Top Left) -->
-          <div class="floating-badge floating-badge-code">
-            <i class="fas fa-code"></i>
+          <div class="fcs-impact">
+            <span class="fcs-impact-mark" aria-hidden="true">&ldquo;</span>
+            <div>
+              <span class="fcs-detail-label">Why it matters</span>
+              <p>
+                PostDew shows that I can own an entire product, connect multiple
+                systems, and move software from idea to production.
+              </p>
+            </div>
+            <span class="fcs-impact-arrow" aria-hidden="true"
+              >IDEA &rarr; PRODUCT</span
+            >
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">About Me</h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+
+        <div class="about-grid-container max-w-5xl mx-auto" data-aos="fade-up">
+          <!-- Left: Profile Passport Card (ID Card Style) -->
+          <div class="about-passport-card">
+            <div class="passport-header">
+              <span class="passport-title">DEVELOPER PASSPORT</span>
+              <span class="passport-badge">ACTIVE</span>
+            </div>
+            <div class="passport-body">
+              <div class="passport-photo-frame">
+                <img
+                  src="https://cdn.bhusalmanish.com.np/Landing%20Page/manish-bhusal-casual.png"
+                  alt="Manish Bhusal Portrait"
+                  class="passport-photo"
+                />
+              </div>
+              <div class="passport-details">
+                <div class="passport-row">
+                  <span class="passport-label">NAME:</span>
+                  <span class="passport-val">Manish Bhusal</span>
+                </div>
+                <div class="passport-row">
+                  <span class="passport-label">ROLE:</span>
+                  <span class="passport-val">Product Engineer</span>
+                </div>
+                <div class="passport-row">
+                  <span class="passport-label">ORIGIN:</span>
+                  <span class="passport-val">Nepal 🇳🇵</span>
+                </div>
+                <div class="passport-row">
+                  <span class="passport-label">STATUS:</span>
+                  <span class="passport-val status-val">
+                    <span class="pulse-dot"></span> Available for selected
+                    projects
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="passport-footer">
+              <div class="passport-tag-list">
+                <span class="passport-tag">#SAAS</span>
+                <span class="passport-tag">#AI_AGENT</span>
+                <span class="passport-tag">#FULLSTACK</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Floating Badge - Trophy Icon (Right Side) -->
-          <div class="floating-badge floating-badge-target">
-            <i class="fas fa-trophy"></i>
-          </div>
+          <!-- Right: Bio Terminal Card -->
+          <div class="about-terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-tabs">
+                <div class="terminal-tab active">
+                  <i class="fas fa-file-alt text-xs mr-1"></i>profile.md
+                </div>
+              </div>
+            </div>
+            <div class="terminal-body">
+              <p class="about-text">
+                I’m a
+                <span class="highlight">full-stack product engineer</span> from
+                Nepal, focused on turning ideas and unfinished products into
+                reliable software people can actually use.
+              </p>
+              <p class="about-text">
+                I’ve worked with international startups, contributed to
+                enterprise fintech systems, and independently built
+                <span class="highlight">PostDew from idea to production</span>.
+              </p>
+              <p class="about-text">
+                I work across frontend, backend, AI integrations, and
+                deployment&mdash;with a strong focus on
+                clear communication and <span class="highlight">product ownership</span>.
+              </p>
 
-          <!-- Floating Badge - Available (Bottom Right) -->
-          <div class="floating-badge floating-badge-available">
-            <span class="pulse-dot"></span>
-            Available for Work
+              <div class="about-stats-panel">
+                <div class="stat-box">
+                  <span class="stat-num">01</span>
+                  <span class="stat-lbl">Solo SaaS Built</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-num">3+</span>
+                  <span class="stat-lbl">Hackathon Wins</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-num">End-to-End</span>
+                  <span class="stat-lbl">Product Delivery</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Introduction Video Section -->
-  <section id="intro-video" class="intro-video-section">
-    <div class="intro-video-pattern"></div>
-    <div class="container mx-auto px-4">
-      <div class="intro-video-shell" data-aos="fade-up">
-        <div class="intro-video-copy">
-          <span class="intro-video-kicker">
-            <i class="fas fa-play"></i>
-            Meet Manish
-          </span>
-          <h2>A quick introduction</h2>
-          <p>Get to know me in under a minute.</p>
-        </div>
+    <!-- Professional Experience Section -->
+    <section id="experience" class="rw-section">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">
+          Professional Experience
+        </h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+        <p class="rw-intro" data-aos="fade-up">
+          Experience across SaaS products, AI workflows, and enterprise systems.
+        </p>
 
-        <div class="intro-video-frame" aria-label="Manish Bhusal introduction video">
-          <iframe
-            src="https://www.youtube.com/embed/lVcJG2Do_Qg?si=tuG351oJjB4tBi4r"
-            title="Manish Bhusal introduction video"
-            loading="lazy"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
+        <div class="rw-stack">
+          <!-- Genese -->
+          <article class="rw-item" data-aos="fade-up" data-aos-delay="50">
+            <span class="rw-year" aria-hidden="true">2026</span>
+            <div class="rw-card">
+              <header class="rw-card-head">
+                <div>
+                  <span class="rw-role-tag">FULL-TIME</span>
+                  <h3 class="rw-title">Software Developer</h3>
+                  <p class="rw-company">Genese Solution &middot; Remote</p>
+                </div>
+                <span class="rw-date-pill rw-date-pill--current"
+                  >Feb 2026 &rarr; Present</span
+                >
+              </header>
+              <p class="rw-desc">
+                Contributing to a production onboarding platform for an
+                enterprise client in financial compliance, working across
+                backend systems, cloud infrastructure, and document-processing
+                workflows.
+              </p>
+              <ul class="rw-bullets">
+                <li>
+                  Built backend services with <strong>NestJS</strong> supporting
+                  a React application
+                </li>
+                <li>
+                  Integrated
+                  <strong>AWS S3, Lambda, and CloudWatch</strong> into
+                  production workflows
+                </li>
+                <li>
+                  Worked with <strong>PostgreSQL</strong> and
+                  document-processing services in an enterprise engineering team
+                </li>
+              </ul>
+              <p class="rw-confidential">
+                Selected details are omitted due to client confidentiality.
+              </p>
+              <span class="rw-tech-label">Tech Stack</span>
+              <div class="rw-tags">
+                <span class="tech-tag">NestJS</span
+                ><span class="tech-tag">React</span
+                ><span class="tech-tag">PostgreSQL</span
+                ><span class="tech-tag">AWS</span
+                ><span class="tech-tag">TypeScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Teneo -->
+          <article
+            class="rw-item rw-item--past"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <span class="rw-year" aria-hidden="true">2025</span>
+            <div class="rw-card rw-card--past">
+              <header class="rw-card-head">
+                <div>
+                  <span class="rw-role-tag">FREELANCE</span>
+                  <h3 class="rw-title">Frontend Developer</h3>
+                  <p class="rw-company">
+                    <a
+                      href="https://teneo.pro/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Teneo Protocol</a
+                    >
+                    &middot; Remote
+                  </p>
+                </div>
+                <span class="rw-date-pill">Nov 2025 &rarr; Feb 2026</span>
+              </header>
+              <p class="rw-desc">
+                Worked remotely with an international startup building a
+                decentralized AI platform, turning product designs into
+                responsive, production-ready interfaces.
+              </p>
+              <ul class="rw-bullets">
+                <li>
+                  Built React interfaces from <strong>Figma</strong> designs
+                </li>
+                <li>
+                  Developed reusable UI components and interactive chat
+                  experiences
+                </li>
+                <li>
+                  Collaborated asynchronously with an international product team
+                </li>
+              </ul>
+              <span class="rw-tech-label">Tech Stack</span>
+              <div class="rw-tags">
+                <span class="tech-tag">React</span
+                ><span class="tech-tag">TypeScript</span
+                ><span class="tech-tag">Tailwind CSS</span
+                ><span class="tech-tag">Figma</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Independent Product Development -->
+          <article class="rw-item" data-aos="fade-up" data-aos-delay="150">
+            <span class="rw-year" aria-hidden="true">2024</span>
+            <div class="rw-card rw-card--builder">
+              <header class="rw-card-head">
+                <div>
+                  <span class="rw-role-tag">PRODUCT BUILDER</span>
+                  <h3 class="rw-title">Independent Product Development</h3>
+                  <p class="rw-company">Personal Products &amp; Experiments</p>
+                </div>
+                <span class="rw-date-pill">2024 &rarr; Present</span>
+              </header>
+              <p class="rw-desc">
+                Designed and shipped SaaS products, AI applications, and
+                developer tools from initial idea through production deployment.
+              </p>
+              <ul class="rw-bullets">
+                <li>
+                  Built full-stack products with authentication, billing,
+                  analytics, and deployment
+                </li>
+                <li>
+                  Designed AI-powered workflows and third-party integrations
+                </li>
+                <li>
+                  Shipped products including <strong>PostDew</strong>,
+                  <strong>Savvitic</strong>, and hackathon-winning applications
+                </li>
+              </ul>
+              <span class="rw-tech-label">Tech Stack</span>
+              <div class="rw-tags">
+                <span class="tech-tag">Django</span
+                ><span class="tech-tag">React</span
+                ><span class="tech-tag">OpenAI</span
+                ><span class="tech-tag">PostgreSQL</span
+                ><span class="tech-tag">Docker</span
+                ><span class="tech-tag">Vercel</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Firfirey -->
+          <article
+            class="rw-item rw-item--compact"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <span class="rw-year" aria-hidden="true">2024</span>
+            <div class="rw-card rw-card--past rw-card--compact">
+              <header class="rw-card-head">
+                <div>
+                  <span class="rw-role-tag">INTERN</span>
+                  <h3 class="rw-title">Software Development Intern</h3>
+                  <p class="rw-company">Firfirey</p>
+                </div>
+                <span class="rw-date-pill">Jul 2024 &rarr; Sep 2024</span>
+              </header>
+              <p class="rw-desc">
+                Contributed to full-stack development through REST APIs, React
+                features, debugging, and collaborative code reviews.
+              </p>
+              <div class="rw-tags">
+                <span class="tech-tag">.NET Core</span
+                ><span class="tech-tag">React</span
+                ><span class="tech-tag">SQL Server</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Featured In Press Strip -->
-  <section class="press-section">
-    <div class="container mx-auto px-4">
-      <p class="press-label" data-aos="fade-up">FEATURED IN</p>
-      <div class="press-grid" data-aos="fade-up">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">Selected Projects</h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+        <p class="projects-intro" data-aos="fade-up">
+          A selection of products I’ve built independently and with teams—from
+          early concepts to working applications.
+        </p>
 
-        <a href="https://news.ycombinator.com/item?id=46868803" target="_blank" rel="noopener noreferrer" class="press-item">
-          <i class="fab fa-hacker-news press-icon"></i>
-          <span class="press-name">Hacker News</span>
-          <span class="press-detail">Front page &middot; &times;2</span>
-        </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- AutiSahara -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>AutiSahara</h3>
+                <i class="fas fa-child text-2xl"></i>
+              </div>
+              <span class="project-badge"
+                >Second Runner-Up &bull; Code for Change 2025</span
+              >
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                An early autism-screening platform for children aged 16–30
+                months, combining a parent questionnaire, video-submission
+                workflow, and a professional assessment dashboard.
+              </p>
+              <p class="project-contribution">
+                Built the full-stack web product and contributed to the mobile
+                application and assessment workflows.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">React Native</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://www.youtube.com/watch?v=utJsF5T4nLA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-small"
+                >
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/AutiSahara-Hackathon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
 
-        <a href="https://tldr.tech/ai/2026-02-23#:~:text=Why%20Developers%20Keep%20Choosing%20Claude" target="_blank" rel="noopener noreferrer" class="press-item">
-          <i class="fas fa-bolt press-icon"></i>
-          <span class="press-name">TLDR AI</span>
-          <span class="press-detail">Featured &middot; 1M+ readers</span>
-        </a>
+          <!-- TrustChain -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>TrustChain</h3>
+                <i class="fas fa-shield-alt text-2xl"></i>
+              </div>
+              <span class="project-badge"
+                >First Prize &bull; AI Track &bull; Sui Hackathon 2025</span
+              >
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                An AI-powered platform that analyzes resumes and GitHub activity
+                to generate verifiable skill reports stored through
+                decentralized infrastructure.
+              </p>
+              <p class="project-contribution">
+                Contributed across product development, AI integration,
+                frontend, backend, and blockchain workflows.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">OpenAI</span>
+                <span class="tech-tag">Sui</span>
+                <span class="tech-tag">Walrus</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://www.youtube.com/watch?v=vqRDQAUKhoQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-small"
+                >
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/TrustChain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
 
-        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7425560476585144320/" target="_blank" rel="noopener noreferrer" class="press-item">
-          <i class="fab fa-microsoft press-icon"></i>
-          <span class="press-name">Microsoft</span>
-          <span class="press-detail">Shared by Deputy CISO</span>
-        </a>
+          <!-- Savvitic -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>Savvitic</h3>
+                <i class="fab fa-reddit text-2xl"></i>
+              </div>
+              <span class="project-badge">Independent Product</span>
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                A productivity application that synchronizes saved Reddit posts
+                and makes them searchable through full-text search, custom tags,
+                filters, and reminders.
+              </p>
+              <p class="project-contribution">
+                Designed and built the product, Reddit OAuth flow, frontend,
+                backend, and data model.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://github.com/maniishbhusal/Savvitic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
 
-        <a href="https://kathmandupost.com/money/2026/01/20/us-embassy-nepal-aadyanta-advisory-roll-out-nationwide-code-for-impact-tech-hackathon" target="_blank" rel="noopener noreferrer" class="press-item">
-          <i class="fas fa-newspaper press-icon"></i>
-          <span class="press-name">The Kathmandu Post</span>
-          <span class="press-detail">Hackathon coverage</span>
-        </a>
+          <!-- SpeakEasyAI -->
+          <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>SpeakEasyAI</h3>
+                <i class="fas fa-wave-square text-2xl"></i>
+              </div>
+              <span class="project-badge"
+                >Honorable Mention &bull; HimalAI Hackathon</span
+              >
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                An AI-powered communication platform that transcribes speech and
+                analyzes sentiment, tone, emotions, and speaking patterns.
+              </p>
+              <p class="project-contribution">
+                Contributed to the product concept, AI workflows, full-stack
+                implementation, and dashboard experience.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">OpenAI</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://www.youtube.com/watch?v=H0mo8SYn8ms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-small"
+                >
+                  <i class="fas fa-play"></i> View Demo
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/SpeakEasyAI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
 
+          <!-- Pdflet -->
+          <article
+            class="project-card hidden-project"
+            data-aos="fade-up"
+            data-aos-delay="50"
+          >
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>Pdflet</h3>
+                <i class="fas fa-file-pdf text-2xl"></i>
+              </div>
+              <span class="project-badge project-badge-wip"
+                >In Development</span
+              >
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                A developer-focused HTML-to-PDF API for converting webpages and
+                HTML templates into production-ready PDF documents.
+              </p>
+              <p class="project-contribution">
+                Designed and built the product architecture, API, dashboard,
+                billing integration, and deployment workflow.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">DodoPayments</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://github.com/maniishbhusal/Pdflet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Django + React Auth Starter -->
+          <article
+            class="project-card hidden-project"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="project-card-header">
+              <div class="flex justify-between items-center">
+                <h3>AuthKit</h3>
+                <i class="fas fa-user-lock text-2xl"></i>
+              </div>
+              <span class="project-badge">Open-Source Starter</span>
+            </div>
+            <div class="project-card-body">
+              <p class="project-summary">
+                A production-ready authentication starter with email-based
+                accounts, verification, password reset, JWT rotation, and
+                protected frontend routes.
+              </p>
+              <p class="project-contribution">
+                Designed and built the reusable backend, typed React client,
+                security defaults, and deployment-ready project structure.
+              </p>
+              <div class="project-tech-list">
+                <span class="tech-tag">Django REST</span>
+                <span class="tech-tag">React 19</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">JWT</span>
+              </div>
+              <div class="project-card-actions">
+                <a
+                  href="https://django-react-auth-starter.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary btn-small"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Preview
+                </a>
+                <a
+                  href="https://github.com/maniishbhusal/django-react-auth-starter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-secondary btn-small"
+                >
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- View More Button -->
+        <div class="text-center mt-8" data-aos="fade-up">
+          <button
+            id="view-more-projects"
+            class="btn-secondary"
+            type="button"
+            aria-expanded="false"
+          >
+            <i class="fas fa-arrow-down"></i> View More Projects
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- What I Build Section -->
-  <section id="what-i-build" class="wib-section">
-    <div class="wib-bg-pattern"></div>
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">What I Build</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="ts-section py-20">
+      <div class="container mx-auto px-4">
+        <header class="ts-heading" data-aos="fade-up">
+          <span class="ts-eyebrow">Professional feedback</span>
+          <h2>What Clients Say</h2>
+          <div class="section-divider"></div>
+          <p>Reliable, fast, and easy to work with.</p>
+        </header>
 
-      <div class="wib-grid" data-aos="fade-up">
-        <!-- 01 -->
-        <div class="wib-card wib-card--rotate-left">
-          <span class="wib-number">01</span>
-          <span class="wib-tag">AI</span>
-          <h3 class="wib-title">AI Integrations</h3>
-          <p class="wib-desc">Drop AI into existing products &mdash; chatbots, agents, content generation, RAG pipelines.</p>
-        </div>
+        <div class="ts-grid">
+          <article class="ts-card ts-card--upwork" data-aos="fade-up">
+            <header class="ts-card-top">
+              <span class="ts-quote-icon" aria-hidden="true">
+                <i class="fas fa-quote-left"></i>
+              </span>
+              <span class="ts-source">
+                <i class="fas fa-circle-check" aria-hidden="true"></i>
+                Verified Upwork Review
+              </span>
+            </header>
 
-        <!-- 02 (featured) -->
-        <div class="wib-card wib-card--featured wib-card--rotate-right">
-          <span class="wib-number">02</span>
-          <span class="wib-tag wib-tag--dark">SAAS</span>
-          <h3 class="wib-title">Full-Stack SaaS MVPs</h3>
-          <p class="wib-desc">Django/NestJS backend + React frontend + Stripe/Dodo billing. Sharp MVPs built to reach users fast.</p>
-        </div>
+            <blockquote>
+              “Very responsive and needed very little information to get
+              started. Committed to quality, solution-oriented, and a clear
+              communicator.”
+            </blockquote>
 
-        <!-- 03 -->
-        <div class="wib-card wib-card--rotate-right">
-          <span class="wib-number">03</span>
-          <span class="wib-tag">DEPLOY</span>
-          <h3 class="wib-title">Production Deploy</h3>
-          <p class="wib-desc">For founders who built it but can't ship it. Docker, Nginx, AWS, monitoring &mdash; the lot.</p>
-        </div>
+            <div class="ts-traits" aria-label="Client endorsements">
+              <span>Committed to Quality</span>
+              <span>Solution-Oriented</span>
+              <span>Clear Communicator</span>
+            </div>
 
-        <!-- 04 -->
-        <div class="wib-card wib-card--rotate-left">
-          <span class="wib-number">04</span>
-          <span class="wib-tag">BACKEND</span>
-          <h3 class="wib-title">Backend Systems</h3>
-          <p class="wib-desc">Real users, queues, jobs. Celery, Redis, Postgres, AWS &mdash; the boring stuff that has to work.</p>
+            <footer class="ts-card-footer">
+              <div>
+                <h3>Frederic</h3>
+                <p>CTO, Teneo Protocol</p>
+              </div>
+              <div class="ts-rating" aria-label="5 out of 5 stars">
+                <span aria-hidden="true">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <strong>5.0</strong>
+              </div>
+            </footer>
+
+          </article>
+
+          <article
+            class="ts-card ts-card--personal"
+            data-aos="fade-up"
+            data-aos-delay="80"
+          >
+            <header class="ts-card-top">
+              <span class="ts-quote-icon" aria-hidden="true">
+                <i class="fas fa-quote-left"></i>
+              </span>
+              <span class="ts-source ts-source--personal">
+                <i class="fas fa-user-check" aria-hidden="true"></i>
+                Professional Feedback
+              </span>
+            </header>
+
+            <blockquote>
+              “I really enjoyed working with Manish, especially on the Agent
+              Console and Chat Room frontend and UI/UX work. He executed very
+              quickly, handled feedback rounds cleanly, and followed the design
+              direction precisely. I’d absolutely work with him again for
+              similar frontend and UI work.”
+            </blockquote>
+
+            <div class="ts-traits" aria-label="Feedback highlights">
+              <span>Fast Execution</span>
+              <span>Clean Feedback Rounds</span>
+              <span>Design Accuracy</span>
+            </div>
+
+            <footer class="ts-card-footer">
+              <div>
+                <h3>Florian Wagner</h3>
+                <p>Product Owner, Teneo Protocol</p>
+              </div>
+            </footer>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="wib-cta" data-aos="fade-up">
-        <p>Past projects move from idea to production fast. <a href="#contact" class="wib-cta-link">Reach out below &rarr;</a></p>
+    <!-- How I Work Section -->
+    <section id="process" class="hiw-section py-20">
+      <div class="container mx-auto px-4">
+        <header class="hiw-heading" data-aos="fade-up">
+          <span class="hiw-eyebrow">From brief to launch</span>
+          <h2 class="hiw-title">How I Work</h2>
+          <div class="section-divider hiw-divider"></div>
+          <p class="hiw-subtitle">
+            Clear communication. Practical decisions. End-to-end ownership.
+          </p>
+        </header>
+
+        <div class="hiw-process-grid">
+          <article class="hiw-step" data-aos="fade-up" data-aos-delay="40">
+            <div class="hiw-step-top">
+              <span class="hiw-step-number">01</span>
+              <span class="hiw-step-icon" aria-hidden="true">
+                <i class="fas fa-magnifying-glass"></i>
+              </span>
+            </div>
+            <h3>Understand the product</h3>
+            <p>
+              Before writing code, I understand the users, business goal,
+              current product, and smallest valuable outcome.
+            </p>
+          </article>
+
+          <article class="hiw-step" data-aos="fade-up" data-aos-delay="80">
+            <div class="hiw-step-top">
+              <span class="hiw-step-number">02</span>
+              <span class="hiw-step-icon" aria-hidden="true">
+                <i class="fas fa-list-check"></i>
+              </span>
+            </div>
+            <h3>Define the scope</h3>
+            <p>
+              We turn the requirement into clear deliverables, priorities,
+              technical decisions, and milestones.
+            </p>
+          </article>
+
+          <article class="hiw-step" data-aos="fade-up" data-aos-delay="120">
+            <div class="hiw-step-top">
+              <span class="hiw-step-number">03</span>
+              <span class="hiw-step-icon" aria-hidden="true">
+                <i class="fas fa-eye"></i>
+              </span>
+            </div>
+            <h3>Build visibly</h3>
+            <p>
+              I share progress regularly, raise blockers early, and keep
+              implementation decisions clear.
+            </p>
+          </article>
+
+          <article class="hiw-step" data-aos="fade-up" data-aos-delay="160">
+            <div class="hiw-step-top">
+              <span class="hiw-step-number">04</span>
+              <span class="hiw-step-icon" aria-hidden="true">
+                <i class="fas fa-rocket"></i>
+              </span>
+            </div>
+            <h3>Test and ship</h3>
+            <p>
+              I review the complete user flow, deploy properly, and document the
+              work for future development.
+            </p>
+          </article>
+
+          <article class="hiw-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="hiw-step-top">
+              <span class="hiw-step-number">05</span>
+              <span class="hiw-step-icon" aria-hidden="true">
+                <i class="fas fa-chart-line"></i>
+              </span>
+            </div>
+            <h3>Improve after launch</h3>
+            <p>
+              For longer engagements, I continue improving features, fixing
+              issues, and supporting the product as users begin using it.
+            </p>
+          </article>
+        </div>
+
+        <div class="fit-heading" data-aos="fade-up">
+          <span>Fit check</span>
+          <h3>Good work starts with the right partnership.</h3>
+        </div>
+
+        <div class="fit-grid">
+          <article class="fit-panel fit-panel--good" data-aos="fade-up">
+            <header class="fit-panel-head">
+              <span class="fit-panel-icon" aria-hidden="true">
+                <i class="fas fa-check"></i>
+              </span>
+              <div>
+                <span class="fit-panel-label">Good fit</span>
+                <h3>We may be a good fit when:</h3>
+              </div>
+            </header>
+            <ul class="fit-list fit-list--good">
+              <li>
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>You are building or improving a SaaS product.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>Your existing product needs an important feature.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>Your prototype works but is not production-ready.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>You need support across frontend, backend, or AI.</span>
+              </li>
+              <li>
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>You value clear communication and ownership.</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="fit-panel fit-panel--not" data-aos="fade-up" data-aos-delay="80">
+            <header class="fit-panel-head">
+              <span class="fit-panel-icon" aria-hidden="true">
+                <i class="fas fa-xmark"></i>
+              </span>
+              <div>
+                <span class="fit-panel-label">Probably not</span>
+                <h3>Not the right fit when:</h3>
+              </div>
+            </header>
+            <ul class="fit-list">
+              <li>
+                <i class="fas fa-minus" aria-hidden="true"></i>
+                <span>The work is only a very small coding task.</span>
+              </li>
+              <li>
+                <i class="fas fa-minus" aria-hidden="true"></i>
+                <span>Price is the only decision factor.</span>
+              </li>
+              <li>
+                <i class="fas fa-minus" aria-hidden="true"></i>
+                <span>The product requires immediate 24/7 availability.</span>
+              </li>
+              <li>
+                <i class="fas fa-minus" aria-hidden="true"></i>
+                <span>There is no willingness to define the scope.</span>
+              </li>
+              <li>
+                <i class="fas fa-minus" aria-hidden="true"></i>
+                <span>A large production platform is expected in a few days.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="hiw-cta" data-aos="fade-up">
+          <div>
+            <span class="hiw-cta-label">Start a conversation</span>
+            <h3>Think we might be a good fit?</h3>
+            <p>
+              Tell me what you’re building, where the project currently stands,
+              and what you need help shipping.
+            </p>
+          </div>
+          <a href="#contact" class="btn-secondary hiw-cta-button">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Discuss Your Project
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">About Me</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">
+          Technical Capabilities
+        </h2>
+        <div class="section-divider" data-aos="fade-up"></div>
 
-      <div class="max-w-3xl mx-auto">
-        <div class="about-single-card" data-aos="fade-up">
-          <p class="about-text">
-            I'm a <span class="highlight">Software Developer</span> from Nepal. I build web apps, APIs, and AI-powered SaaS &mdash; most recently <span class="highlight">PostDew</span>, which I shipped <span class="highlight">from idea to production</span> as a solo build.
-            I specialize in <span class="highlight">Python</span>, <span class="highlight">Django</span>, <span class="highlight">React</span>, <span class="highlight">NestJS</span>, and integrating AI into real products.
-            Currently shipping at <span class="highlight">Genese</span> full-time and <span class="highlight">PostDew</span> on the side.
+        <div class="skills-intro" data-aos="fade-up">
+          <p class="skills-intro-lead">
+            Technologies and systems I use to build, improve, and ship
+            production-ready products.
+          </p>
+          <p class="skills-intro-note">
+            I choose the stack based on the product, existing architecture, and
+            business needs.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">Skills</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
-
-      <div class="sk-wrap" data-aos="fade-up">
-
-        <!-- FEATURED: AI / LLM -->
-        <div class="sk-feat">
-          <span class="sk-feat-tag">EDGE</span>
-          <h3 class="sk-feat-title">AI / LLM</h3>
-          <p class="sk-feat-sub">Where I add the most value to a product.</p>
-          <div class="sk-feat-chips">
-            <div class="sk-feat-chip"><i class="fas fa-robot"></i><span>OpenAI (GPT)</span></div>
-            <div class="sk-feat-chip"><i class="fas fa-brain"></i><span>Anthropic (Claude)</span></div>
-            <div class="sk-feat-chip"><i class="fas fa-magic"></i><span>Prompt Engineering</span></div>
-            <div class="sk-feat-chip"><i class="fas fa-stream"></i><span>RAG Pipelines</span></div>
-          </div>
-        </div>
-
-      <div class="skills-grid sk-grid-2x2">
-        <!-- Backend -->
-        <div class="skill-category">
-          <h3 class="skill-category-title">Backend</h3>
-          <div class="skill-list">
-            <div class="skill-item">
-              <i class="fab fa-python"></i>
-              <span>Python</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
-              <span>Django</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://www.django-rest-framework.org/img/logo.png" alt="DRF">
-              <span>Django REST Framework</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://docs.celeryq.dev/en/stable/_static/celery_512.png" alt="Celery">
-              <span>Celery</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Frontend -->
-        <div class="skill-category">
-          <h3 class="skill-category-title">Frontend</h3>
-          <div class="skill-list">
-            <div class="skill-item">
-              <i class="fab fa-js"></i>
-              <span>JavaScript</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
-              <span>TypeScript</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-react"></i>
-              <span>React</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS">
-              <span>Tailwind CSS</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Database -->
-        <div class="skill-category">
-          <h3 class="skill-category-title">Database</h3>
-          <div class="skill-list">
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-              <span>PostgreSQL</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
-              <span>Redis</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- DevOps -->
-        <div class="skill-category">
-          <h3 class="skill-category-title">DevOps</h3>
-          <div class="skill-list">
-            <div class="skill-item">
-              <i class="fab fa-docker"></i>
-              <span>Docker</span>
-            </div>
-            <div class="skill-item">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx">
-              <span>Nginx</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-aws"></i>
-              <span>AWS (EC2, S3, Lambda)</span>
-            </div>
-            <div class="skill-item">
-              <i class="fas fa-server"></i>
-              <span>Hetzner / Vercel</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-digital-ocean"></i>
-              <span>DigitalOcean</span>
-            </div>
-            <div class="skill-item">
-              <i class="fab fa-git-alt"></i>
-              <span>Git</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Recent Work Section -->
-  <section id="experience" class="rw-section">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">Recent Work</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
-
-      <div class="rw-stack">
-
-        <!-- PostDew - HERO -->
-        <article class="rw-item rw-item--hero" data-aos="fade-up" data-aos-delay="50">
-          <span class="rw-year" aria-hidden="true">2026</span>
-          <div class="rw-card rw-card--hero">
-            <span class="rw-sticker">FEATURED</span>
-            <header class="rw-card-head">
-              <div>
-                <span class="rw-role-tag">SOLO FOUNDER</span>
-                <h3 class="rw-title rw-title--hero">PostDew</h3>
-                <p class="rw-company"><a href="https://postdew.com" target="_blank" rel="noopener noreferrer">postdew.com</a> &middot; Side project</p>
+        <div class="sk-wrap" data-aos="fade-up">
+          <!-- FEATURED: Full-Stack Product Development -->
+          <div class="sk-feat">
+            <span class="sk-feat-tag">CORE CAPABILITY</span>
+            <h3 class="sk-feat-title">Full-Stack Product Development</h3>
+            <p class="sk-feat-sub">
+              End-to-end product development across frontend, backend, data,
+              integrations, and deployment.
+            </p>
+            <div class="sk-feat-chips">
+              <div class="sk-feat-chip">
+                <i class="fab fa-react" aria-hidden="true"></i><span>React + TypeScript</span>
               </div>
-              <div class="rw-status">
-                <span class="rw-pulse"></span> LIVE
+              <div class="sk-feat-chip">
+                <i class="fas fa-layer-group" aria-hidden="true"></i><span>Django REST</span>
               </div>
-            </header>
-            <p class="rw-desc">
-              Built and shipped a LinkedIn content SaaS solo from idea to production. Designed, developed, and deployed end-to-end.
-            </p>
-            <ul class="rw-bullets">
-              <li>AI generation pipeline with OpenAI (default) and Anthropic (fallback)</li>
-              <li>LinkedIn OAuth, direct publish, and post analytics</li>
-              <li>DodoPayments billing, production deploy on Hetzner + Vercel</li>
-            </ul>
-            <div class="rw-tags">
-              <span class="tech-tag">Django REST</span>
-              <span class="tech-tag">Celery</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">Anthropic</span>
-              <span class="tech-tag">React 19</span>
-              <span class="tech-tag">Tailwind v4</span>
-              <span class="tech-tag">DodoPayments</span>
-              <span class="tech-tag">Upstash Redis</span>
-              <span class="tech-tag">PostHog</span>
+              <div class="sk-feat-chip">
+                <i class="fas fa-cubes" aria-hidden="true"></i><span>NestJS</span>
+              </div>
+              <div class="sk-feat-chip">
+                <i class="fas fa-database" aria-hidden="true"></i><span>PostgreSQL</span>
+              </div>
+              <div class="sk-feat-chip">
+                <i class="fas fa-user-shield" aria-hidden="true"></i><span>Authentication</span>
+              </div>
+              <div class="sk-feat-chip">
+                <i class="fas fa-sitemap" aria-hidden="true"></i><span>Product Architecture</span>
+              </div>
             </div>
           </div>
-        </article>
 
-        <!-- Genese - CURRENT -->
-        <article class="rw-item" data-aos="fade-up" data-aos-delay="100">
-          <span class="rw-year" aria-hidden="true">2026</span>
-          <div class="rw-card">
-            <header class="rw-card-head">
-              <div>
-                <span class="rw-role-tag">FULL-TIME</span>
-                <h3 class="rw-title">Software Developer</h3>
-                <p class="rw-company">Genese Solution &middot; Remote</p>
+          <div class="skills-grid sk-grid-2x2">
+            <!-- Backend Systems -->
+            <div class="skill-category">
+              <h3 class="skill-category-title">Backend Systems</h3>
+              <p class="skill-category-description">
+                APIs, authentication, background processing, and services for
+                real product workflows.
+              </p>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <i class="fab fa-python"></i><span>Python</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-server" aria-hidden="true"></i><span>Django</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-cubes" aria-hidden="true"></i><span>NestJS</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-plug" aria-hidden="true"></i><span>REST APIs</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-clock" aria-hidden="true"></i><span>Celery + Background Jobs</span>
+                </div>
               </div>
-              <span class="rw-date-pill rw-date-pill--current">Feb 2026 &rarr; Present</span>
-            </header>
-            <p class="rw-desc">
-              Building a full-stack agentic onboarding platform for an enterprise client in the financial compliance space.
-            </p>
-            <ul class="rw-bullets">
-              <li>Building full-stack features end-to-end in NestJS and React</li>
-              <li>Integrating AWS services (S3, Lambda, CloudWatch) for production infrastructure</li>
-              <li>Implementing RAG pipelines for automated document analysis</li>
-            </ul>
-            <div class="rw-tags">
-              <span class="tech-tag">NestJS</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">RAG</span>
-              <span class="tech-tag">PostgreSQL</span>
+            </div>
+
+            <!-- AI & Automation -->
+            <div class="skill-category">
+              <h3 class="skill-category-title">AI &amp; Automation</h3>
+              <p class="skill-category-description">
+                Useful AI capabilities integrated into product workflows—not
+                standalone demos.
+              </p>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <i class="fas fa-robot" aria-hidden="true"></i><span>OpenAI</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-brain" aria-hidden="true"></i><span>Anthropic</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-stream" aria-hidden="true"></i><span>RAG Pipelines</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-list-check" aria-hidden="true"></i><span>Structured Outputs</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-file-lines" aria-hidden="true"></i><span>Document Processing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Data & Integrations -->
+            <div class="skill-category">
+              <h3 class="skill-category-title">Product Data &amp; Integrations</h3>
+              <p class="skill-category-description">
+                The systems that connect users, data, payments, and product
+                operations.
+              </p>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <i class="fas fa-database" aria-hidden="true"></i><span>PostgreSQL</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-bolt" aria-hidden="true"></i><span>Redis</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-key" aria-hidden="true"></i><span>OAuth</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-credit-card" aria-hidden="true"></i><span>Subscription Billing</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-chart-line" aria-hidden="true"></i><span>Product Analytics</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Infrastructure -->
+            <div class="skill-category">
+              <h3 class="skill-category-title">Infrastructure</h3>
+              <p class="skill-category-description">
+                Production deployment, cloud services, monitoring, and server
+                configuration.
+              </p>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <i class="fas fa-server" aria-hidden="true"></i><span>VPS Deployment</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-docker" aria-hidden="true"></i><span>Docker</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-server" aria-hidden="true"></i><span>Nginx</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-cloud" aria-hidden="true"></i><span>Managed Platforms</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-database" aria-hidden="true"></i><span>Supabase</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-git-alt"></i><span>Git</span>
+                </div>
+              </div>
             </div>
           </div>
-        </article>
-
-        <!-- Teneo - PAST -->
-        <article class="rw-item rw-item--past" data-aos="fade-up" data-aos-delay="150">
-          <span class="rw-year" aria-hidden="true">2025</span>
-          <div class="rw-card rw-card--past">
-            <header class="rw-card-head">
-              <div>
-                <span class="rw-role-tag">FREELANCE</span>
-                <h3 class="rw-title">Frontend Developer</h3>
-                <p class="rw-company"><a href="https://teneo.pro/" target="_blank" rel="noopener noreferrer">Teneo Protocol</a> &middot; Remote</p>
-              </div>
-              <span class="rw-date-pill">Nov 2025 &rarr; Feb 2026</span>
-            </header>
-            <p class="rw-desc">
-              Decentralized AI platform building permissionless agent networks fueled by real-time data.
-            </p>
-            <ul class="rw-bullets">
-              <li>Built chat interface and UI components from Figma in React</li>
-              <li>Implemented responsive, pixel-perfect frontend for the AI platform</li>
-            </ul>
-            <div class="rw-tags">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Figma</span>
-              <span class="tech-tag">Tailwind CSS</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Firfirey - FOOTNOTE -->
-        <article class="rw-item rw-item--footnote" data-aos="fade-up" data-aos-delay="200">
-          <span class="rw-year" aria-hidden="true">2024</span>
-          <div class="rw-card rw-card--footnote">
-            <span class="rw-role-tag rw-role-tag--small">INTERN</span>
-            <h3 class="rw-title rw-title--small">Software Development Intern <span class="rw-company-inline">&middot; Firfirey</span></h3>
-            <span class="rw-date-pill rw-date-pill--small">Jul 2024 &rarr; Sep 2024</span>
-            <p class="rw-desc rw-desc--small">.NET Core backend + React frontend. API endpoints, code reviews, debugging.</p>
-          </div>
-        </article>
-
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">Featured Projects</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
+    <!-- Milestones Section -->
+    <section class="milestones-section py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4 text-white" data-aos="fade-up">
+          Selected Milestones
+        </h2>
+        <div
+          class="section-divider"
+          style="background-color: #ffd700"
+          data-aos="fade-up"
+        ></div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- PostDew -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="50">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>PostDew</h3>
-              <i class="fab fa-linkedin text-2xl"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Milestone 1 -->
+          <div
+            class="milestone-card milestone-card--showcase hidden-milestone"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/1.%20it-project-showcase.png"
+                alt="IT Project Showcase Champion"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Built a winning project at the IT Project Showcase.
+                </p>
+              </div>
+              <div class="milestone-badge">Winner — IT Project Showcase</div>
             </div>
-            <span class="project-badge">Live &bull; Solo SaaS</span>
+            <div class="milestone-year">2023</div>
           </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              LinkedIn AI tool that strips the AI rhythm from generated posts. Built solo
-              from idea to production: Django + DRF + Celery on Hetzner,
-              React 19 + Tailwind v4 on Vercel, OpenAI gpt-4.1-mini default with Anthropic
-              fallback, DodoPayments billing, LinkedIn OAuth + direct publish.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">Django REST</span>
-              <span class="tech-tag">Celery</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">Anthropic</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">DodoPayments</span>
-              <span class="tech-tag">Upstash Redis</span>
-              <span class="tech-tag">PostHog</span>
+
+          <!-- Milestone 2 -->
+          <div
+            class="milestone-card milestone-card--participation hidden-milestone"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/2.%20cfc-hackathon-2024.png"
+                alt="Code for Change Hackathon"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Proud participant of Nepal's Biggest Hackathon 2024 by Code
+                  for Change.
+                </p>
+              </div>
+              <div class="milestone-badge">
+                Participated in Nepal's Biggest Hackathon
+              </div>
             </div>
-            <div class="flex gap-3">
-              <a href="https://postdew.com" target="_blank" class="btn-primary btn-small">
-                <i class="fas fa-external-link-alt"></i> Live Demo
+            <div class="milestone-year">2024</div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div
+            class="milestone-card milestone-card--honorable hidden-milestone"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/3.%20himalai-hackathon.jpeg"
+                alt="HimalAI Hackathon"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Proud participant of AI / Web3 Hackathon organized by HimalAI
+                </p>
+              </div>
+              <div class="milestone-badge">
+                Honorable Mention at HimalAI Hackathon
+              </div>
+            </div>
+            <div class="milestone-year">2025</div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div
+            class="milestone-card milestone-card--sui"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/4.%20sui-hackathon.jpeg"
+                alt="Sui Hackathon Winner"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Built TrustChain with an AI and blockchain team.
+                </p>
+              </div>
+              <div class="milestone-badge">
+                First Prize — AI Track
+              </div>
+            </div>
+            <div class="milestone-year">2025</div>
+          </div>
+
+          <!-- Milestone 5 - Solana Cypherpunk Hackathon -->
+          <div
+            class="milestone-card milestone-card--solana"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/8.%20solana-cypherpunk-hackathon-top-13.png"
+                alt="Solana Cypherpunk Hackathon Top 13"
+                class="milestone-image"
+                loading="lazy"
+                style="object-position: top"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Top 13 at the Cypherpunk edition of Solana's global hackathon,
+                  run by Superteam Nepal at the national level!
+                </p>
+              </div>
+              <div class="milestone-badge">
+                Top 13 — Solana Cypherpunk Hackathon
+              </div>
+            </div>
+            <div class="milestone-year">2025</div>
+          </div>
+
+          <!-- Milestone 6 -->
+          <div
+            class="milestone-card milestone-card--cfc"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/5.%20cfc-hackathon-2025.jpeg"
+                alt="Code for Change 2025"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Built AutiSahara, an early autism-screening platform.
+                </p>
+              </div>
+              <div class="milestone-badge">
+                Second Runner-Up — Code for Change
+              </div>
+            </div>
+            <div class="milestone-year">2025</div>
+          </div>
+
+          <!-- Milestone 7 (Hidden) -->
+          <div
+            class="milestone-card milestone-card--innovation hidden-milestone"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/6.%20innovation-award-winning.jpeg"
+                alt="Innovation Business Idea Competition"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  First Runner-Up at the Innovation Business Idea Competition
+                  organized by Cottage and Small Industries Office, Tulsipur and
+                  Green Foundation Nepal. Team GALAXEN won Rs. 30,000 with
+                  AutiSahara project!
+                </p>
+              </div>
+              <div class="milestone-badge">
+                First Runner-Up — Innovation Business Idea Competition
+              </div>
+            </div>
+            <div class="milestone-year">2026</div>
+          </div>
+
+          <!-- Milestone 8 -->
+          <div
+            class="milestone-card milestone-card--impact"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="milestone-image-container">
+              <img
+                src="https://cdn.bhusalmanish.com.np/Landing%20Page/7.%20adhyanta-advisary-hackathon-butwal.jpeg"
+                alt="Code for Impact Provincial Winner"
+                class="milestone-image"
+                loading="lazy"
+              />
+              <div class="milestone-overlay">
+                <p>
+                  Provincial Winner at Code for Impact: U.S.-Nepal Tech
+                  Innovation Hackathon. Team Galaxen selected for a 6-month
+                  nationwide innovation journey. Featured in The Kathmandu Post!
+                </p>
+              </div>
+              <div class="milestone-badge">
+                Provincial Winner — Code for Impact
+              </div>
+              <a
+                href="https://kathmandupost.com/money/2026/01/20/us-embassy-nepal-aadyanta-advisory-roll-out-nationwide-code-for-impact-tech-hackathon"
+                target="_blank"
+                class="milestone-news-link milestone-recognition-badge"
+              >
+                <i class="fas fa-newspaper"></i> Featured in The Kathmandu Post
               </a>
             </div>
+            <div class="milestone-year">2026</div>
           </div>
         </div>
 
-        <!-- AutiSahara -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>AutiSahara</h3>
-              <i class="fas fa-child text-2xl"></i>
-            </div>
-            <span class="project-badge">2nd Runner Up - Code For Change 2025</span>
-          </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              Early autism screening platform for children aged 16-30 months. Built both web and mobile apps
-              with M-CHAT-R/F questionnaire, video upload for behavioral analysis, and a dedicated doctor
-              dashboard for professional assessment. Built at Nepal's biggest hackathon.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">Django REST</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">PostgreSQL</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/maniishbhusal/CodeFest2025_Team_AMC_Galaxen" target="_blank" class="btn-secondary btn-small">
-                <i class="fab fa-github"></i> Code
-              </a>
-              <a href="https://www.youtube.com/watch?v=utJsF5T4nLA" target="_blank" class="btn-primary btn-small">
-                <i class="fas fa-play"></i> Demo
-              </a>
-            </div>
-          </div>
+        <!-- View More Milestones Button -->
+        <div class="text-center mt-12" data-aos="fade-up">
+          <button id="view-more-milestones" class="btn-secondary">
+            <i class="fas fa-plus"></i> View More Milestones
+          </button>
         </div>
-
-        <!-- TrustChain -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>TrustChain</h3>
-              <i class="fas fa-shield-alt text-2xl"></i>
-            </div>
-            <span class="project-badge">1st Prize - Sui Hackathon 2025</span>
-          </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              Verify real-world skills using AI and blockchain. Analyzes resumes and GitHub
-              profiles to generate verifiable skill reports stored on Walrus decentralized
-              storage. Built with zkLogin for seamless Web3 authentication.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">Sui</span>
-              <span class="tech-tag">Walrus</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/maniishbhusal/TrustChain?tab=readme-ov-file" target="_blank" class="btn-secondary btn-small">
-                <i class="fab fa-github"></i> Code
-              </a>
-              <a href="https://www.youtube.com/watch?v=vqRDQAUKhoQ" target="_blank" class="btn-primary btn-small">
-                <i class="fas fa-play"></i> Demo
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Savvitic -->
-        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>Savvitic</h3>
-              <i class="fab fa-reddit text-2xl"></i>
-            </div>
-          </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              Never lose a saved Reddit post again. Savvitic syncs your saved posts, enables
-              full-text search across all content, and lets you organize with custom tags and
-              reminders. Features Reddit OAuth and powerful filtering.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">Django REST</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">PostgreSQL</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/maniishbhusal/Savvitic" target="_blank" class="btn-secondary btn-small">
-                <i class="fab fa-github"></i> Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pdflet -->
-        <div class="project-card hidden-project" data-aos="fade-up" data-aos-delay="400">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>Pdflet</h3>
-              <i class="fas fa-file-pdf text-2xl"></i>
-            </div>
-            <span class="project-badge project-badge-wip">In Development</span>
-          </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              Developer-first HTML to PDF API. Convert any HTML/URL to pixel-perfect PDFs with
-              a simple REST API. Features customizable headers, footers, and page settings.
-              Integrated with DodoPayments for seamless billing.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">Django REST</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">DodoPayments</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/maniishbhusal/Pdflet" target="_blank" class="btn-secondary btn-small">
-                <i class="fab fa-github"></i> Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- SpeakEasyAI (Hidden by default) -->
-        <div class="project-card hidden-project" data-aos="fade-up" data-aos-delay="100">
-          <div class="project-card-header">
-            <div class="flex justify-between items-center">
-              <h3>SpeakEasyAI</h3>
-              <i class="fas fa-wave-square text-2xl"></i>
-            </div>
-            <span class="project-badge">Honorable Mention - HimalAI Hackathon</span>
-          </div>
-          <div class="project-card-body">
-            <p class="mb-6">
-              An AI-powered emotional intelligence dashboard that transcribes speech and analyzes
-              sentiment. Built with Next.js, Django, and OpenAI. Helps teams understand tone,
-              emotions, and speaker feedback after meetings.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">OpenAI</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/maniishbhusal/SpeakEasyAI" target="_blank" class="btn-secondary btn-small">
-                <i class="fab fa-github"></i> Code
-              </a>
-              <a href="https://www.youtube.com/watch?v=H0mo8SYn8ms" target="_blank" class="btn-primary btn-small">
-                <i class="fas fa-play"></i> Demo
-              </a>
-            </div>
-          </div>
-        </div>
-
       </div>
+    </section>
 
-      <!-- View More Button -->
-      <div class="text-center mt-8" data-aos="fade-up">
-        <button id="view-more-projects" class="btn-secondary">
-          <i class="fas fa-plus"></i> View More Projects
+    <!-- Blog Section -->
+    <section id="blog" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center mb-4" data-aos="fade-up">
+          Writing &amp; Public Proof
+        </h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+
+        <div class="blog-section-intro" data-aos="fade-up">
+          <p class="blog-section-lead">
+            I share practical engineering lessons from the products I build.
+          </p>
+          <p class="blog-section-note">
+            Featured by TLDR AI &middot; Hacker News front page &times;2
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Blog 1: Deploy DRF Production -->
+          <article
+            class="blog-card has-image"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <a href="blog/posts/deploy-drf-production.html">
+              <div class="blog-card-image">
+                <img
+                  src="https://cdn.bhusalmanish.com.np/Featured%20Image/blog3-django.png"
+                  alt="Deploy Django REST Framework to Production"
+                  loading="lazy"
+                />
+              </div>
+              <div class="blog-card-header">
+                <span class="blog-category">DevOps</span>
+                <span class="blog-read-time"
+                  ><i class="far fa-clock"></i> 14 min read</span
+                >
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-card-title">
+                  Deploy Django REST Framework to Production: Docker, Nginx, SSL
+                </h3>
+                <p class="blog-card-excerpt">
+                  A practical guide to deploying Django REST Framework with
+                  Docker, PostgreSQL, Nginx, SSL, and a production VPS.
+                </p>
+              </div>
+              <div class="blog-card-footer">
+                <span class="blog-date"
+                  ><i class="far fa-calendar"></i> Feb 1, 2026</span
+                >
+                <span class="blog-read-more"
+                  >Read <i class="fas fa-arrow-right"></i
+                ></span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Blog 2: Django + React Auth Starter -->
+          <article
+            class="blog-card has-image"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <a href="blog/posts/django-react-auth-starter.html">
+              <div class="blog-card-image">
+                <img
+                  src="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-django-react-auth-starter.jpg"
+                  alt="Django + React Auth Starter"
+                  loading="lazy"
+                />
+              </div>
+              <div class="blog-card-header">
+                <span class="blog-category">Web Dev</span>
+                <span class="blog-read-time"
+                  ><i class="far fa-clock"></i> 15 min read</span
+                >
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-card-title">
+                  I Built a Django + React Auth Starter So You Don't Have To
+                </h3>
+                <p class="blog-card-excerpt">
+                  A production-ready authentication starter with JWT, email
+                  verification, password reset, and a React frontend.
+                </p>
+              </div>
+              <div class="blog-card-footer">
+                <span class="blog-date"
+                  ><i class="far fa-calendar"></i> Feb 6, 2026</span
+                >
+                <span class="blog-read-more"
+                  >Read <i class="fas fa-arrow-right"></i
+                ></span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Blog 3: DNS Explained (recognized) -->
+          <article
+            class="blog-card has-image"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <a href="blog/posts/dns-explained.html">
+              <div class="blog-card-image">
+                <img
+                  src="https://cdn.bhusalmanish.com.np/Featured%20Image/blog4-dns-explained.png"
+                  alt="DNS Explained"
+                  loading="lazy"
+                />
+              </div>
+              <span class="blog-traction"
+                >13k+ readers &middot; HN front page</span
+              >
+              <div class="blog-card-header">
+                <span class="blog-category">Web Dev</span>
+                <span class="blog-read-time"
+                  ><i class="far fa-clock"></i> 11 min read</span
+                >
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-card-title">
+                  DNS Explained - How Domain Names Get Resolved
+                </h3>
+                <p class="blog-card-excerpt">
+                  A visual explanation of DNS hierarchy, records, caching,
+                  resolution, and practical debugging.
+                </p>
+              </div>
+              <div class="blog-card-footer">
+                <span class="blog-date"
+                  ><i class="far fa-calendar"></i> Feb 2, 2026</span
+                >
+                <span class="blog-read-more"
+                  >Read <i class="fas fa-arrow-right"></i
+                ></span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Blog 4: Why Developers Keep Choosing Claude (recognized) -->
+          <article
+            class="blog-card has-image"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <a href="blog/posts/why-claude-wins-coding.html">
+              <div class="blog-card-image">
+                <img
+                  src="https://cdn.bhusalmanish.com.np/Featured%20Image/Why%20Claude%20Wins.jpg"
+                  alt="Why Developers Keep Choosing Claude Over Every Other AI"
+                  loading="lazy"
+                />
+              </div>
+              <span class="blog-traction"
+                >Featured in TLDR AI &middot; HN front page</span
+              >
+              <div class="blog-card-header">
+                <span class="blog-category">AI</span>
+                <span class="blog-read-time"
+                  ><i class="far fa-clock"></i> 9 min read</span
+                >
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-card-title">
+                  Why Developers Keep Choosing Claude Over Every Other AI
+                </h3>
+                <p class="blog-card-excerpt">
+                  An analysis of why developers continue choosing Claude for
+                  coding, even when competing models perform strongly on
+                  benchmarks.
+                </p>
+              </div>
+              <div class="blog-card-footer">
+                <span class="blog-date"
+                  ><i class="far fa-calendar"></i> Feb 20, 2026</span
+                >
+                <span class="blog-read-more"
+                  >Read <i class="fas fa-arrow-right"></i
+                ></span>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <p class="blog-section-closing" data-aos="fade-up">
+          Writing helps me understand systems deeply, communicate decisions
+          clearly, and leave useful documentation behind.
+        </p>
+
+        <!-- View All Writing Button -->
+        <div class="text-center mt-12" data-aos="fade-up">
+          <a href="blog/index.html" class="btn-secondary">
+            <i class="fas fa-arrow-right"></i> View All Writing
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="contact-heading text-center mb-4" data-aos="fade-up">
+          Have a Product or Feature to Ship?
+        </h2>
+        <div class="section-divider" data-aos="fade-up"></div>
+        <p class="contact-intro" data-aos="fade-up">
+          Tell me what you’re building, where the project currently stands, and
+          what you need help completing.
+        </p>
+
+        <div class="contact-shell" data-aos="fade-up">
+          <div class="neo-card contact-card">
+            <div class="contact-brief">
+              <span class="contact-kicker">Project Brief</span>
+              <h3>A useful first message includes:</h3>
+              <ul class="contact-checklist">
+                <li>A short description of the product</li>
+                <li>The feature or problem you need help with</li>
+                <li>Your preferred timeline</li>
+                <li>Relevant designs, documentation, or existing code</li>
+              </ul>
+            </div>
+
+            <div class="contact-actions-panel">
+              <div class="contact-email-block">
+                <span class="contact-kicker">Email</span>
+                <a href="mailto:hello@bhusalmanish.com.np" class="contact-email">
+                  hello@bhusalmanish.com.np
+                </a>
+              </div>
+
+              <a href="mailto:hello@bhusalmanish.com.np" class="btn-primary contact-email-button">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                Email Manish
+              </a>
+              <p class="contact-response">
+                I usually respond to serious project inquiries within one
+                business day.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/maniishbhusal/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary contact-linkedin-button"
+              >
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                Message Me on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="neo-footer">
+      <div class="container mx-auto px-4 text-center">
+        <p class="footer-location">
+          Based in Nepal. Working remotely with teams worldwide.
+        </p>
+        <p class="footer-copyright">&copy; 2026 Manish Bhusal</p>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="https://github.com/maniishbhusal/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://x.com/maniishbhusal" target="_blank" rel="noopener noreferrer" aria-label="X" title="X">
+            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/maniishbhusal/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/maniishbhusal/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="privacy-policy.html" class="footer-privacy-link">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="p-6">
+        <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
+          <i class="fas fa-times text-xl"></i>
         </button>
+        <nav class="mt-12">
+          <a href="#experience" class="mobile-menu-link">Work</a>
+          <a href="#projects" class="mobile-menu-link">Projects</a>
+          <a href="#testimonials" class="mobile-menu-link">Testimonials</a>
+          <a href="#process" class="mobile-menu-link">Process</a>
+          <a href="#blog" class="mobile-menu-link">Writing</a>
+          <a href="#contact" class="mobile-menu-link">Start a Project</a>
+        </nav>
       </div>
     </div>
-  </section>
 
-  <!-- Milestones Section -->
-  <section class="milestones-section py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4 text-white" data-aos="fade-up">Milestones</h2>
-      <div class="section-divider" style="background-color: #FFD700;" data-aos="fade-up"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Milestone 1 -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/1.%20it-project-showcase.png" alt="IT Project Showcase Champion" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>Champion of the IT Project Showcase 2023 at Ambikeshwari College.</p>
-            </div>
-            <div class="milestone-badge">Winner at IT Project Showcase</div>
-          </div>
-          <div class="milestone-year">2023</div>
-        </div>
-
-        <!-- Milestone 2 -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/2.%20cfc-hackathon-2024.png" alt="Code for Change Hackathon" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>Proud participant of Nepal's Biggest Hackathon 2024 by Code for Change.</p>
-            </div>
-            <div class="milestone-badge">Participated in Nepal's Biggest Hackathon</div>
-          </div>
-          <div class="milestone-year">2024</div>
-        </div>
-
-        <!-- Milestone 3 -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/3.%20himalai-hackathon.jpeg" alt="HimalAI Hackathon" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>Proud participant of AI / Web3 Hackathon organized by HimalAI</p>
-            </div>
-            <div class="milestone-badge">Honorable Mention at HimalAI Hackathon</div>
-          </div>
-          <div class="milestone-year">2025</div>
-        </div>
-
-        <!-- Milestone 4 -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/4.%20sui-hackathon.jpeg" alt="Sui Hackathon Winner" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>We won First Prize in the AI Track at the Sui Hackathon organized by Ibriz!</p>
-            </div>
-            <div class="milestone-badge">Winner of AI Track at Sui Hackathon</div>
-          </div>
-          <div class="milestone-year">2025</div>
-        </div>
-
-        <!-- Milestone 5 - Solana Cypherpunk Hackathon -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="500">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/8.%20solana-cypherpunk-hackathon-top-13.png"
-                 alt="Solana Cypherpunk Hackathon Top 13" class="milestone-image" loading="lazy" style="object-position: top;">
-            <div class="milestone-overlay">
-              <p>Top 13 at the Cypherpunk edition of Solana's global hackathon, run by Superteam Nepal at the national level!</p>
-            </div>
-            <div class="milestone-badge">Top 13 at Solana Nepal Hackathon</div>
-          </div>
-          <div class="milestone-year">2025</div>
-        </div>
-
-        <!-- Milestone 6 -->
-        <div class="milestone-card" data-aos="fade-up" data-aos-delay="600">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/5.%20cfc-hackathon-2025.jpeg" alt="Code for Change 2025" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>2nd Runner Up at Code for Change 2025. Built AutiSahara at Nepal's biggest hackathon!</p>
-            </div>
-            <div class="milestone-badge">2nd Runner Up at Code for Change 2025</div>
-          </div>
-          <div class="milestone-year">2025</div>
-        </div>
-
-        <!-- Milestone 7 (Hidden) -->
-        <div class="milestone-card hidden-milestone" data-aos="fade-up" data-aos-delay="700">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/6.%20innovation-award-winning.jpeg" alt="Innovation Business Idea Competition" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>1st Runner Up at Innovation Business Idea Competition organized by Cottage and Small Industries Office, Tulsipur and Green Foundation Nepal. Team GALAXEN won Rs. 30,000 with AutiSahara project!</p>
-            </div>
-            <div class="milestone-badge">1st Runner Up at Innovation Business Idea Competition</div>
-          </div>
-          <div class="milestone-year">2026</div>
-        </div>
-
-        <!-- Milestone 8 (Hidden too) -->
-        <div class="milestone-card hidden-milestone" data-aos="fade-up" data-aos-delay="800">
-          <div class="milestone-image-container">
-            <img src="https://cdn.bhusalmanish.com.np/Landing%20Page/7.%20adhyanta-advisary-hackathon-butwal.jpeg" alt="Code for Impact Provincial Winner" class="milestone-image" loading="lazy">
-            <div class="milestone-overlay">
-              <p>Provincial Winner at Code for Impact: U.S.-Nepal Tech Innovation Hackathon. Team Galaxen selected for a 6-month nationwide innovation journey. Featured in The Kathmandu Post!</p>
-            </div>
-            <div class="milestone-badge">Provincial Winner at Code for Impact</div>
-            <a href="https://kathmandupost.com/money/2026/01/20/us-embassy-nepal-aadyanta-advisory-roll-out-nationwide-code-for-impact-tech-hackathon" target="_blank" class="milestone-news-link">
-              <i class="fas fa-newspaper"></i> Featured in The Kathmandu Post
-            </a>
-          </div>
-          <div class="milestone-year">2026</div>
-        </div>
-      </div>
-
-      <!-- View More Milestones Button -->
-      <div class="text-center mt-12" data-aos="fade-up">
-        <button id="view-more-milestones" class="btn-secondary">
-          <i class="fas fa-plus"></i> View More Milestones
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">From the Blog</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-        <!-- Blog 1: Why Developers Keep Choosing Claude (viral / featured) -->
-        <article class="blog-card has-image" data-aos="fade-up" data-aos-delay="100">
-          <a href="blog/posts/why-claude-wins-coding.html">
-            <div class="blog-card-image">
-              <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/Why%20Claude%20Wins.jpg" alt="Why Developers Keep Choosing Claude Over Every Other AI" loading="lazy">
-            </div>
-            <span class="blog-traction">Featured in TLDR AI &middot; HN front page</span>
-            <div class="blog-card-header">
-              <span class="blog-category">AI</span>
-              <span class="blog-read-time"><i class="far fa-clock"></i> 9 min read</span>
-            </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Why Developers Keep Choosing Claude Over Every Other AI</h3>
-              <p class="blog-card-excerpt">Reached 1M+ readers via TLDR AI. Why Claude keeps winning the coding race even when other models post bigger benchmark numbers.</p>
-            </div>
-            <div class="blog-card-footer">
-              <span class="blog-date"><i class="far fa-calendar"></i> Feb 20, 2026</span>
-              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </article>
-
-        <!-- Blog 2: DNS Explained (viral) -->
-        <article class="blog-card has-image" data-aos="fade-up" data-aos-delay="200">
-          <a href="blog/posts/dns-explained.html">
-            <div class="blog-card-image">
-              <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/blog4-dns-explained.png" alt="DNS Explained" loading="lazy">
-            </div>
-            <span class="blog-traction">13k+ readers &middot; HN front page</span>
-            <div class="blog-card-header">
-              <span class="blog-category">Web Dev</span>
-              <span class="blog-read-time"><i class="far fa-clock"></i> 11 min read</span>
-            </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">DNS Explained - How Domain Names Get Resolved</h3>
-              <p class="blog-card-excerpt">How DNS actually works: hierarchy, records, TTL caching, the full resolution process, and debug commands.</p>
-            </div>
-            <div class="blog-card-footer">
-              <span class="blog-date"><i class="far fa-calendar"></i> Feb 2, 2026</span>
-              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </article>
-
-        <!-- Blog 3: Deploy DRF Production -->
-        <article class="blog-card has-image" data-aos="fade-up" data-aos-delay="300">
-          <a href="blog/posts/deploy-drf-production.html">
-            <div class="blog-card-image">
-              <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/blog3-django.png" alt="Deploy Django REST Framework to Production" loading="lazy">
-            </div>
-            <div class="blog-card-header">
-              <span class="blog-category">DevOps</span>
-              <span class="blog-read-time"><i class="far fa-clock"></i> 14 min read</span>
-            </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">Deploy Django REST Framework to Production: Docker, Nginx, SSL</h3>
-              <p class="blog-card-excerpt">The complete guide to deploying DRF on a VPS with Docker, PostgreSQL, Nginx, and free SSL.</p>
-            </div>
-            <div class="blog-card-footer">
-              <span class="blog-date"><i class="far fa-calendar"></i> Feb 1, 2026</span>
-              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </article>
-
-        <!-- Blog 4: Django + React Auth Starter -->
-        <article class="blog-card has-image" data-aos="fade-up" data-aos-delay="400">
-          <a href="blog/posts/django-react-auth-starter.html">
-            <div class="blog-card-image">
-              <img src="https://cdn.bhusalmanish.com.np/Featured%20Image/og-image-django-react-auth-starter.jpg" alt="Django + React Auth Starter" loading="lazy">
-            </div>
-            <div class="blog-card-header">
-              <span class="blog-category">Web Dev</span>
-              <span class="blog-read-time"><i class="far fa-clock"></i> 15 min read</span>
-            </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">I Built a Django + React Auth Starter So You Don't Have To</h3>
-              <p class="blog-card-excerpt">A production-ready Django + React authentication starter with JWT, email verification, and password reset.</p>
-            </div>
-            <div class="blog-card-footer">
-              <span class="blog-date"><i class="far fa-calendar"></i> Feb 6, 2026</span>
-              <span class="blog-read-more">Read <i class="fas fa-arrow-right"></i></span>
-            </div>
-          </a>
-        </article>
-
-      </div>
-
-      <!-- View All Posts Button -->
-      <div class="text-center mt-12" data-aos="fade-up">
-        <a href="blog/index.html" class="btn-secondary">
-          <i class="fas fa-arrow-right"></i> View All Posts
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-center mb-4" data-aos="fade-up">Let's Connect</h2>
-      <div class="section-divider" data-aos="fade-up"></div>
-      <p class="text-center max-w-xl mx-auto mb-12" data-aos="fade-up">
-        I'm always open to discussing new projects, creative ideas,
-        or opportunities to be part of your visions.
-      </p>
-
-      <div class="max-w-xl mx-auto" data-aos="fade-up">
-        <div class="neo-card text-center">
-          <!-- Email -->
-          <a href="mailto:hello@bhusalmanish.com.np" class="inline-flex items-center gap-4 mb-8 group hover:opacity-80 transition-opacity">
-            <div class="about-icon-box" style="width: 60px; height: 60px;">
-              <i class="fas fa-envelope text-2xl"></i>
-            </div>
-            <div class="text-left">
-              <div class="font-bold text-lg">Email</div>
-              <div>hello@bhusalmanish.com.np</div>
-            </div>
-          </a>
-
-          <div class="w-full h-1 bg-black mb-8"></div>
-
-          <!-- Social Links -->
-          <div class="flex justify-center gap-4">
-            <a href="https://www.linkedin.com/in/maniishbhusal/" target="_blank" class="social-link">
-              <i class="fab fa-linkedin-in text-2xl"></i>
-            </a>
-            <a href="https://github.com/maniishbhusal/" target="_blank" class="social-link">
-              <i class="fab fa-github text-2xl"></i>
-            </a>
-            <a href="https://www.facebook.com/maniishbhusal/" target="_blank" class="social-link">
-              <i class="fab fa-facebook text-2xl"></i>
-            </a>
-            <a href="https://x.com/maniishbhusal" target="_blank" class="social-link">
-              <i class="fab fa-x-twitter text-2xl"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="neo-footer">
-    <div class="container mx-auto px-4 text-center">
-      <p class="font-semibold">&copy; 2026 Manish Bhusal. All rights reserved.</p>
-      <p class="mt-2"><a href="privacy-policy.html" class="underline hover:text-yellow-400">Privacy Policy</a></p>
-    </div>
-  </footer>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu">
-    <div class="p-6">
-      <button id="close-menu" class="absolute top-4 right-4 neo-nav-link">
-        <i class="fas fa-times text-xl"></i>
-      </button>
-      <nav class="mt-12">
-        <a href="#about" class="mobile-menu-link">About</a>
-        <a href="#skills" class="mobile-menu-link">Skills</a>
-        <a href="#experience" class="mobile-menu-link">Work</a>
-        <a href="#projects" class="mobile-menu-link">Projects</a>
-        <a href="blog/index.html" class="mobile-menu-link">Blog</a>
-        <a href="#contact" class="mobile-menu-link">Contact</a>
-      </nav>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js?v=20260719-projects"></script>
+  </body>
 </html>

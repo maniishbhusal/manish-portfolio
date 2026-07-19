@@ -63,11 +63,20 @@ function initializeViewMoreProjects() {
 
   if (viewMoreBtn && hiddenProjects.length > 0) {
     viewMoreBtn.addEventListener("click", () => {
+      const isExpanded = viewMoreBtn.getAttribute("aria-expanded") === "true";
+
       hiddenProjects.forEach((project) => {
-        project.classList.add("show");
-        AOS.refresh();
+        project.classList.toggle("show", !isExpanded);
       });
-      viewMoreBtn.style.display = "none";
+
+      viewMoreBtn.setAttribute("aria-expanded", String(!isExpanded));
+      viewMoreBtn.innerHTML = !isExpanded
+        ? '<i class="fas fa-arrow-up"></i> Show Fewer Projects'
+        : '<i class="fas fa-arrow-down"></i> View More Projects';
+
+      if (typeof AOS !== "undefined") {
+        AOS.refresh();
+      }
     });
   }
 }
