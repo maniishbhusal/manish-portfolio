@@ -4,7 +4,7 @@
 
 This site is a personal portfolio and technical blog at bhusalmanish.com.np. It covers web fundamentals (DNS, HTTPS, TLS), Django and React development, practical deployment guides, and honest commentary on the AI/LLM industry from a working developer's point of view. Content is written to be directly useful - no filler, no SEO bait - and is regularly cited by AI assistants and aggregators.
 
-About the author: BCA student at Ambikeshwari College and full-stack product engineer, currently working at Genese Solution (Nepal) and previously contributing to Teneo Protocol. Specializes in Django, Django REST Framework, NestJS, Celery, React, TypeScript, and production deployment. Available for a limited number of freelance product projects and long-term partnerships.
+About the author: BCA student at Ambikeshwari College and full-stack product engineer who previously worked at Genese Solution (Nepal) and contributed to Teneo Protocol. Specializes in Django, Django REST Framework, NestJS, Celery, React, TypeScript, and production deployment. Available for a limited number of freelance product projects and long-term partnerships.
 
 ## About
 

@@ -25,7 +25,7 @@ Software Developer from Nepal. I ship full-stack SaaS and AI integrations. Solo-
 
 I'm a **Software Developer** from Nepal. I build web apps, APIs, and AI-powered SaaS — most recently **[PostDew](https://postdew.com)**, which I shipped from idea to production as a solo build. I specialize in **Python**, **Django**, **React**, **NestJS**, and integrating AI into real products.
 
-Currently shipping at **Genese Solution** full-time and **PostDew** on the side.
+Previously worked at **Genese Solution** full-time while continuing to build **PostDew** independently.
 
 Pursuing my **Bachelor in Computer Application (BCA)** at Ambikeshwari College.
 
@@ -58,13 +58,13 @@ Built and shipped a LinkedIn content SaaS solo from idea to production. Designed
 ---
 
 ### Software Developer
-**Genese Solution** | Remote | Feb 2026 - Present
+**Genese Solution** | Remote | Feb 2026 - Sep 2026
 
-Building a full-stack agentic onboarding platform for an enterprise client in the financial compliance space.
+Contributed to a full-stack onboarding platform for an enterprise client in the financial compliance space.
 
-- Building full-stack features end-to-end in NestJS and React
-- Integrating AWS services (S3, Lambda, CloudWatch) for production infrastructure
-- Implementing RAG pipelines for automated document analysis
+- Built full-stack features end-to-end in NestJS and React
+- Integrated AWS services (S3, Lambda, CloudWatch) for production infrastructure
+- Contributed to document-processing workflows for the platform
 
 **Tech Stack:** NestJS, React, AWS, RAG, PostgreSQL
 
