@@ -150,11 +150,7 @@
       <div class="article-content">
 
         <p>
-          Some of the most encouraging early reactions to Gemini 4 Argon have been about how it explains things. People describe answers that are easier to follow, better organized, and less buried in jargon. Alongside the usual coding demos, there are reports of useful research explanations and small interactive simulations that help people explore an idea.
-        </p>
-
-        <p>
-          That sounds like a small improvement until you think about how much work happens around an answer. You still have to read it, understand the assumptions, check the result, and decide what to do next. A model that makes that easier is improving a real part of the job.
+          Some of the most encouraging early reactions to Gemini 4 Argon have been about how it explains things. People describe answers that are easier to follow, better organized, and less buried in jargon. Alongside the usual coding demos, there are reports of useful research explanations and small interactive simulations that help people explore an idea. That sounds like a small improvement until you think about how much work happens around an answer. You still have to read it, understand the assumptions, check the result, and decide what to do next. A model that makes that easier is improving a real part of the job.
         </p>
 
         <p>
@@ -164,19 +160,15 @@
         <h2>Clearer answers are a real improvement</h2>
 
         <p>
-          A few people have taken questions they previously asked other models and tried them with Argon. The praise is often specific: it gets to the point, explains the steps in a sensible order, and gives them something they can understand without repeatedly asking for a simpler version. Some also describe it building little simulations so they can change an assumption and see what happens.
+          A few people have taken questions they previously asked other models and tried them with Argon. The praise is often specific: it gets to the point, explains the steps in a sensible order, and gives them something they can understand without repeatedly asking for a simpler version. Some also describe it building little simulations so they can change an assumption and see what happens. That kind of output is harder to show off than a polished website generated from one prompt. But if you're trying to understand an unfamiliar system or work through a technical decision, it can be more useful. A good explanation lets you inspect the reasoning instead of accepting a conclusion because it sounds confident.
         </p>
 
         <p>
-          That kind of output is harder to show off than a polished website generated from one prompt. But if you're trying to understand an unfamiliar system or work through a technical decision, it can be more useful. A good explanation lets you inspect the reasoning instead of accepting a conclusion because it sounds confident.
+          The distinction matters for coding too. An agent can leave behind working code and a vague description of what changed. You then have to reconstruct the decisions before you can review it. Clear communication reduces that extra work, especially when a change touches several parts of a project. Readability still doesn't tell you whether the answer is correct.
         </p>
 
         <p>
-          The distinction matters for coding too. An agent can leave behind working code and a vague description of what changed. You then have to reconstruct the decisions before you can review it. Clear communication reduces that extra work, especially when a change touches several parts of a project.
-        </p>
-
-        <p>
-          Readability still doesn't tell you whether the answer is correct. One early user report described convincing suggestions for optimizing a chess engine that turned out to contain wrong or unusable ideas. Other reports were much more positive. That's a reason to look at the actual outputs, rather than turning a preference for Argon's writing into a claim that it reasons better on every task.
+          One early user report described convincing suggestions for optimizing a chess engine that turned out to contain wrong or unusable ideas. Other reports were much more positive. That's a reason to look at the actual outputs, rather than turning a preference for Argon's writing into a claim that it reasons better on every task.
         </p>
 
         <h2>A good explanation isn't a finished task</h2>
@@ -186,11 +178,7 @@
         </p>
 
         <p>
-          One early comparison used a real feature specification from a Python backend. The developer asked Argon and Claude Opus 5.5 for implementation plans, then used another model to judge them. Opus received the higher score. The author also said more testing was needed, which is a qualification worth keeping.
-        </p>
-
-        <p>
-          That comparison can help identify things to inspect in a plan. It doesn't show which model would finish the feature correctly. A generated score depends on the judge's criteria, and a plausible plan can still fall apart during implementation. I'd want to see what changed in the repository, whether the behavior matched the specification, and how much correction was needed along the way.
+          One early comparison used a real feature specification from a Python backend. The developer asked Argon and Claude Opus 5.5 for implementation plans, then used another model to judge them. Opus received the higher score. The author also said more testing was needed, which is a qualification worth keeping. That comparison can help identify things to inspect in a plan. It doesn't show which model would finish the feature correctly. A generated score depends on the judge's criteria, and a plausible plan can still fall apart during implementation. I'd want to see what changed in the repository, whether the behavior matched the specification, and how much correction was needed along the way.
         </p>
 
         <p>
@@ -198,11 +186,7 @@
         </p>
 
         <p>
-          This is the same practical question I wrote about in <a href="why-claude-wins-coding.html">Why Developers Keep Choosing Claude Over Every Other AI</a>. An agent needs to read the right files, make a focused change, run meaningful checks, and recover when something fails. The model and the software around it both affect how that goes.
-        </p>
-
-        <p>
-          Imagine asking an agent to add a feature to an existing backend. It produces a sensible design, then misses the permission check or never connects the new code to the endpoint. The explanation might be excellent, but the feature still isn't ready. This is a hypothetical example, and it's the kind of gap a small demo can easily leave hidden.
+          This is the same practical question I wrote about in <a href="why-claude-wins-coding.html">Why Developers Keep Choosing Claude Over Every Other AI</a>. An agent needs to read the right files, make a focused change, run meaningful checks, and recover when something fails. The model and the software around it both affect how that goes. Imagine asking an agent to add a feature to an existing backend. It produces a sensible design, then misses the permission check or never connects the new code to the endpoint. The explanation might be excellent, but the feature still isn't ready. This is a hypothetical example, and it's the kind of gap a small demo can easily leave hidden.
         </p>
 
         <p>
@@ -212,11 +196,7 @@
         <h2>Access and limits decide whether it fits</h2>
 
         <p>
-          A lot of the access arguments come from people talking about different Google products. Someone can correctly say they have Argon on Pro in the Gemini app, while another person correctly says their Pro plan doesn't give them Argon in Antigravity. Without naming the product, those statements sound contradictory.
-        </p>
-
-        <p>
-          As of October 14, 2026, Google's <a href="https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/" target="_blank" rel="noopener noreferrer">launch announcement</a> lists Pro and Ultra access in the Gemini app and AI Mode in Search. Its <a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/" target="_blank" rel="noopener noreferrer">developer announcement</a> lists the paid Gemini API, plus Ultra subscriber access in AI Studio and Antigravity. Pro access in chat doesn't carry the same entitlement into those developer tools.
+          A lot of the access arguments come from people talking about different Google products. Someone can correctly say they have Argon on Pro in the Gemini app, while another person correctly says their Pro plan doesn't give them Argon in Antigravity. Without naming the product, those statements sound contradictory. As of October 14, 2026, Google's <a href="https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/" target="_blank" rel="noopener noreferrer">launch announcement</a> lists Pro and Ultra access in the Gemini app and AI Mode in Search. Its <a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/" target="_blank" rel="noopener noreferrer">developer announcement</a> lists the paid Gemini API, plus Ultra subscriber access in AI Studio and Antigravity. Pro access in chat doesn't carry the same entitlement into those developer tools.
         </p>
 
         <p>
@@ -228,19 +208,11 @@
         </p>
 
         <p>
-          The API pricing has a clearer published boundary. Google's <a href="https://ai.google.dev/gemini-api/docs/latest-model?hl=en" target="_blank" rel="noopener noreferrer">developer guide</a> lists introductory prices of $2 per million input tokens and $10 per million output tokens through November 30, 2026. From December 1, those prices become $4 and $20. Thinking tokens count toward output billing, so the length of the model's reasoning affects the bill too.
+          The API pricing has a clearer published boundary. Google's <a href="https://ai.google.dev/gemini-api/docs/latest-model?hl=en" target="_blank" rel="noopener noreferrer">developer guide</a> lists introductory prices of $2 per million input tokens and $10 per million output tokens through November 30, 2026. From December 1, those prices become $4 and $20. Thinking tokens count toward output billing, so the length of the model's reasoning affects the bill too. The useful comparison is what a completed task costs. A lower token price can still produce a higher bill if the model reasons for longer, retries several times, or needs more follow-up prompts. On a subscription, the same behavior can consume the allowance you needed for the next task. That's the concern behind my earlier post on <a href="opus-4-7-developer-fatigue.html">Opus 4.7 and developer fatigue</a>: capability gains need to survive the limits and defaults around them.
         </p>
 
         <p>
-          The useful comparison is what a completed task costs. A lower token price can still produce a higher bill if the model reasons for longer, retries several times, or needs more follow-up prompts. On a subscription, the same behavior can consume the allowance you needed for the next task. That's the concern behind my earlier post on <a href="opus-4-7-developer-fatigue.html">Opus 4.7 and developer fatigue</a>: capability gains need to survive the limits and defaults around them.
-        </p>
-
-        <p>
-          Argon deserves a serious look. Clearer explanations, useful research outputs, and promising coding results are enough to justify testing it on work that matters. They aren't enough to tell every developer to move their projects over.
-        </p>
-
-        <p>
-          The report I'd find most useful next would follow a real feature from specification to a reviewed change, including the mistakes, corrections, time, and cost. That would tell me much more about switching than another screenshot of a good first answer.
+          Argon deserves a serious look. Clearer explanations, useful research outputs, and promising coding results are enough to justify testing it on work that matters. They aren't enough to tell every developer to move their projects over. The report I'd find most useful next would follow a real feature from specification to a reviewed change, including the mistakes, corrections, time, and cost. That would tell me much more about switching than another screenshot of a good first answer.
         </p>
 
         <!-- Newsletter Signup -->
