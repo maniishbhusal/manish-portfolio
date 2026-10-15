@@ -268,6 +268,14 @@ Ambikeshwari College
 
 ## Portfolio Tech Stack
 
+### Sitemap
+
+`sitemap.xml` lists the public pages and published posts using their preferred `www` URLs. `robots.txt` points search engines to it.
+
+When publishing or removing a page, update its entry in `sitemap.xml`. Leave out the post template, pages marked `noindex`, and duplicate URL versions. Modification dates are omitted rather than guessed.
+
+After deployment, open `https://www.bhusalmanish.com.np/sitemap.xml` to check that it loads, then submit that full URL in Google Search Console → Sitemaps. Keep the same sitemap address for future updates.
+
 This portfolio website is built with a **neobrutalism design style**:
 
 - HTML5, CSS3, JavaScript
